@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stuck Test - What's Blocking You?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f9f7f4;
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 80px; /* Space for fixed progress bar */
+            line-height: 1.6;
+        }
+        
+        /* Fixed Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9em;
+            color: #5a5a5a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .progress-bar-bg {
+            background: #e8dfd2;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #d4a574 0%, #b8956a 100%);
+            height: 100%;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8a8078 0%, #6a5d52 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #e8dfd2;
+        }
+        
+        .intro p {
+            color: #5a5a5a;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .question {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f9f7f4;
+            border-radius: 12px;
+            border: 2px solid #e8dfd2;
+            transition: border-color 0.3s ease;
+        }
+        
+        .question.incomplete {
+            border-color: #d4a574;
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .question-text {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: start;
+        }
+        
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #8a8078;
+            color: white;
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 0.85em;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: start;
+            padding: 15px 18px;
+            background: white;
+            border: 2px solid #e8dfd2;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            border-color: #d4a574;
+            transform: translateX(3px);
+        }
+        
+        .option input[type="radio"] {
+            margin: 3px 12px 0 0;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            color: #4a4a4a;
+            font-size: 0.98em;
+            line-height: 1.5;
+        }
+        
+        .option input[type="radio"]:checked ~ label {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #8a8078;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+        
+        .submit-btn:hover {
+            background: #6a5d52;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 128, 120, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            background: #fff9f0;
+            border-left: 4px solid #d4a574;
+            color: #5a5a5a;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+        
+        /* Results Styles */
+        #results {
+            display: none;
+        }
+        
+        .result-header {
+            background: #fff9f0;
+            border: 3px solid #d4a574;
+            color: #2d2d2d;
+            padding: 40px 30px;
+            text-align: center;
+            margin: -40px -30px 40px -30px;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .result-type {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .result-subtitle {
+            font-size: 1.3em;
+            color: #4a4a4a;
+            font-weight: 600;
+        }
+        
+        .result-section {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e8dfd2;
+        }
+        
+        .result-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .result-section h3 {
+            font-size: 1.5em;
+            color: #2d2d2d;
+            margin-bottom: 15px;
+        }
+        
+        .result-section p {
+            color: #4a4a4a;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .result-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .result-section li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        .result-section li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .protocol-box {
+            background: #fff9f0;
+            border-left: 4px solid #d4a574;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 10px;
+        }
+        
+        .protocol-box h4 {
+            font-size: 1.3em;
+            color: #2d2d2d;
+            margin-bottom: 15px;
+        }
+        
+        .protocol-box p {
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        
+        .cta-box {
+            background: white;
+            border: 3px solid #d4a574;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #2d2d2d;
+        }
+        
+        .cta-box p {
+            color: #4a4a4a;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: #8a8078;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+        
+        .cta-btn:hover {
+            background: #6a5d52;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 128, 120, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .question {
+                padding: 20px;
+            }
+            
+            .result-header {
+                margin: -30px -20px 30px -20px;
+                padding: 35px 20px;
+            }
+            
+            .result-type {
+                font-size: 2em;
+            }
+            
+            .result-subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Progress Bar -->
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-text" id="progressText">Question 0 of 6</div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>The Stuck Test</h1>
+            <p>6 questions to discover what's actually keeping you frozen</p>
+        </div>
+        
+        <div class="content">
+            <div id="quiz">
+                <div class="intro">
+                    <p style="font-size: 1.2em; font-weight: 600; color: #2d2d2d; margin-bottom: 20px;">6 questions. 2 minutes. One answer that changes everything.</p>
+                    <p style="margin-bottom: 15px;">Most people think they're stuck because they lack discipline, motivation, or willpower.</p>
+                    <p style="margin-bottom: 15px;">They're wrong.</p>
+                    <p style="font-weight: 600;">You're stuck because one of four systems is broken—and you can't fix what you can't see.</p>
+                    <p style="margin-top: 25px; padding: 20px; background: #fff9f0; border-left: 4px solid #d4a574; border-radius: 8px;">
+                        <strong>At the end, you'll get:</strong><br>
+                        → Your exact stuck pattern (and why it keeps repeating)<br>
+                        → What it's actually costing you (time, opportunities, peace)<br>
+                        → One protocol you can use today to break free<br>
+                        → The real reason emergency tools aren't enough
+                    </p>
+                    <p style="margin-top: 20px; text-align: center; font-style: italic; color: #5a5a5a;">Answer honestly. No one sees this but you.</p>
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    ⚠️ Please answer all questions before seeing your results
+                </div>
+                
+                <form id="quizForm">
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">1</span>
+                            <span>When you have an important decision to make, what usually happens?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q1" value="A" id="q1a">
+                                <label for="q1a">I research endlessly, make pros/cons lists, and still can't decide—even when the deadline passes</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="C" id="q1b">
+                                <label for="q1b">My chest tightens, I spiral into worst-case scenarios, and anxiety makes the decision for me (usually: avoid)</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="B" id="q1c">
+                                <label for="q1c">I know what to do but keep putting it off—finding other tasks, distractions, anything to delay</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="D" id="q1d">
+                                <label for="q1d">I'm too drained to think clearly—decisions feel overwhelming when I'm this exhausted</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">2</span>
+                            <span>There's something important you need to do. What stops you from starting?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q2" value="B" id="q2a">
+                                <label for="q2a">Nothing, really—I just... don't. I procrastinate, find busywork, scroll. Days pass. It doesn't get done.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="A" id="q2b">
+                                <label for="q2b">I need to plan it perfectly first—research the best approach, optimal time, right conditions. I'm still planning.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="C" id="q2c">
+                                <label for="q2c">Fear. What if I fail? What if I'm not ready? The anxiety is so strong I freeze completely.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="D" id="q2d">
+                                <label for="q2d">I don't have the energy. Between work, people, obligations—I'm too depleted to start anything else.</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">3</span>
+                            <span>How often do you experience anxiety spirals or racing thoughts?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q3" value="C" id="q3a">
+                                <label for="q3a">Daily or multiple times per week—my mind races through worst-case scenarios constantly</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="A" id="q3b">
+                                <label for="q3b">When I have to make decisions—then I spiral into analysis paralysis</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="D" id="q3c">
+                                <label for="q3c">When I'm around certain people or situations that drain me</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="B" id="q3d">
+                                <label for="q3d">Rarely—anxiety isn't my main issue. I just can't get myself to take action.</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">4</span>
+                            <span>Look at your last week. Where did most of your time actually go?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q4" value="B" id="q4a">
+                                <label for="q4a">Procrastinating—scrolling, busywork, distractions. I know I wasted 15-20+ hours.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="A" id="q4b">
+                                <label for="q4b">Researching, planning, thinking—but not actually executing. Analysis without action.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="D" id="q4c">
+                                <label for="q4c">Dealing with other people's needs, wrong environments, energy drains—barely any time for what I actually want.</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="C" id="q4d">
+                                <label for="q4d">Managing anxiety, trying to calm down, recovering from spirals. Anxiety steals hours daily.</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 5 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">5</span>
+                            <span>Which statement hits hardest?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q5" value="A" id="q5a">
+                                <label for="q5a">"I understand exactly what's wrong and what I should do—but I can't seem to make a move."</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="B" id="q5b">
+                                <label for="q5b">"I keep promising myself 'I'll start tomorrow'—but tomorrow never comes."</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="C" id="q5c">
+                                <label for="q5c">"Fear makes every decision for me. I stay frozen because moving feels dangerous."</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="D" id="q5d">
+                                <label for="q5d">"I have the ability—I just don't have the energy. Everything drains me."</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 6 -->
+                    <div class="question">
+                        <div class="question-text">
+                            <span class="question-number">6</span>
+                            <span>If you could fix ONE thing right now, what would change your life most?</span>
+                        </div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q6" value="C" id="q6a">
+                                <label for="q6a">Stop the constant anxiety and "what if" spirals that paralyze me</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="B" id="q6b">
+                                <label for="q6b">Actually START the things I know I need to do instead of endlessly avoiding them</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="A" id="q6c">
+                                <label for="q6c">Make decisions faster without overthinking every detail to death</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="D" id="q6d">
+                                <label for="q6d">Have actual energy again—stop being drained by wrong people and environments</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="submit-btn" onclick="calculateResults()">SEE YOUR RESULTS</button>
+                </form>
+            </div>
+            
+            <div id="results"></div>
+        </div>
+    </div>
+    
+    <script>
+        function updateProgress() {
+            let answered = 0;
+            for(let i = 1; i <= 6; i++) {
+                if(document.querySelector(`input[name="q${i}"]:checked`)) {
+                    answered++;
+                }
+            }
+            
+            const percentage = (answered / 6) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `Question ${answered} of 6`;
+        }
+        
+        function calculateResults() {
+            // Check if all questions answered
+            let allAnswered = true;
+            let firstUnanswered = null;
+            
+            for(let i = 1; i <= 6; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                const questionDiv = document.querySelector(`input[name="q${i}"]`).closest('.question');
+                
+                if(!answer) {
+                    allAnswered = false;
+                    questionDiv.classList.add('incomplete');
+                    if(!firstUnanswered) {
+                        firstUnanswered = questionDiv;
+                    }
+                    
+                    setTimeout(() => {
+                        questionDiv.classList.remove('incomplete');
+                    }, 1000);
+                } else {
+                    questionDiv.classList.remove('incomplete');
+                }
+            }
+            
+            if(!allAnswered) {
+                const errorMsg = document.getElementById('errorMessage');
+                errorMsg.classList.add('show');
+                
+                if(firstUnanswered) {
+                    firstUnanswered.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                
+                setTimeout(() => {
+                    errorMsg.classList.remove('show');
+                }, 3000);
+                
+                return;
+            }
+            
+            // Calculate scores
+            const scores = { A: 0, B: 0, C: 0, D: 0 };
+            
+            for(let i = 1; i <= 6; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if(answer) {
+                    scores[answer.value]++;
+                }
+            }
+            
+            // Find dominant type
+            let maxScore = 0;
+            let dominantType = '';
+            
+            for(let type in scores) {
+                if(scores[type] > maxScore) {
+                    maxScore = scores[type];
+                    dominantType = type;
+                }
+            }
+            
+            showResults(dominantType);
+        }
+        
+        function showResults(type) {
+            const resultsDiv = document.getElementById('results');
+            const quizDiv = document.getElementById('quiz');
+            
+            const results = {
+                'A': {
+                    title: 'The Overthinker',
+                    subtitle: 'Analysis Paralysis Is Stealing Your Opportunities',
+                    pattern: 'You research endlessly, need "more information," and mistake thinking for progress. By the time you feel "ready" to decide, the opportunity is already gone. Others with less knowledge move faster and win.',
+                    cost: [
+                        '<strong>Opportunities lost:</strong> Jobs, relationships, investments gone while you were still "deciding"',
+                        '<strong>Time wasted:</strong> Weeks spent planning what takes days to execute',
+                        '<strong>Momentum killed:</strong> People with 70% of your insight move 3X faster',
+                        '<strong>Mental exhaustion:</strong> Constant analysis drains you without producing results'
+                    ],
+                    why: 'Your brain treats uncertainty as danger. You think more data = safety. But perfect information doesn\'t exist—waiting for it guarantees failure.',
+                    solution: 'You don\'t need more information. You need a system that forces fast, accurate choices at 70% information—the same framework Navy SEALs use when perfect intel isn\'t available.',
+                    free: '<strong>Quick Win: The 70% Rule</strong><br><br>• Is the decision reversible? (Most are)<br>• Do you have 70% of the info needed?<br>• If yes to both → decide in 60 seconds<br>• Set a timer. Force the choice.<br><br>Waiting for 100% certainty guarantees you\'ll miss the window.',
+                    hook: 'This quick win helps today. But what if you didn\'t need emergency resets at all?'
+                },
+                'B': {
+                    title: 'The Avoider',
+                    subtitle: 'Procrastination Is Stealing 20+ Hours Every Week',
+                    pattern: 'You know exactly what needs to be done. You just don\'t do it. You find busywork, get distracted, scroll endlessly—anything to avoid the real task. Days turn into weeks. Nothing moves forward.',
+                    cost: [
+                        '<strong>Time hemorrhage:</strong> 15-25 hours lost weekly to avoidance and distraction',
+                        '<strong>Progress gap:</strong> Others with less skill advance while you stay frozen',
+                        '<strong>Self-trust destroyed:</strong> Every delay confirms you can\'t follow through',
+                        '<strong>Momentum impossible:</strong> Can\'t build what you never start'
+                    ],
+                    why: 'You think you\'re lazy. You\'re not. Your brain learned that certain actions = discomfort, so it redirects you to "safer" tasks. Procrastination is protection—not a character flaw.',
+                    solution: 'You don\'t need more motivation. You need a system that makes starting automatic and avoidance impossible—the same forcing functions operators use when motivation doesn\'t exist.',
+                    free: '<strong>Quick Win: The 2-Minute Start</strong><br><br>• Set timer for exactly 2 minutes<br>• Start the avoided task—any entry point<br>• When timer ends, you have permission to stop<br>• (You won\'t. Momentum takes over.)<br><br>You\'re not committing to finishing. Just 2 minutes. That removes 90% of the resistance.',
+                    hook: 'This breaks one freeze. But what if you stopped freezing altogether?'
+                },
+                'C': {
+                    title: 'The Anxious Spiral',
+                    subtitle: 'Anxiety Makes Every Decision For You',
+                    pattern: 'When action is required, your body reacts like you\'re in danger. Chest tightens. Mind races with "what if" scenarios. The spiral takes control. Anxiety makes decisions for you—and the answer is always "stay frozen."',
+                    cost: [
+                        '<strong>Peace destroyed:</strong> Anxiety runs 24/7 in background, never truly off',
+                        '<strong>Decisions impossible:</strong> Every choice feels life-or-death, so you avoid choosing',
+                        '<strong>Relationships blocked:</strong> Anxiety prevents vulnerability and real connection',
+                        '<strong>Progress stopped:</strong> Fear of failure keeps you from even trying'
+                    ],
+                    why: 'Your nervous system is stuck in threat mode. Your brain treats future hypotheticals ("what if I fail") as current emergencies ("I am failing right now"). Anxiety spirals aren\'t weakness—they\'re faulty wiring.',
+                    solution: 'You don\'t need to "calm down." You need a protocol that manually overrides your threat response—the same neurological intervention Navy SEALs use when they can\'t afford anxiety under fire.',
+                    free: '<strong>Quick Win: The Reality Check</strong><br><br>When anxiety hits, ask out loud: <strong>"What do I know for certain RIGHT NOW?"</strong><br><br>Answer only with present facts:<br>"I\'m sitting here. I\'m breathing. Nothing bad is happening right now."<br><br>Your nervous system reads present reality as safety. Stops spiral in 60-90 seconds.',
+                    hook: 'This stops one spiral. But what if anxiety didn\'t control you at all?'
+                },
+                'D': {
+                    title: 'The Energy Drainer',
+                    subtitle: 'Wrong Environments Are Stealing Your Life',
+                    pattern: 'You\'re capable. Talented. But constantly drained. Wrong people, wrong environment, wrong situations stealing your energy daily. You\'re not stuck from lack of ability—you\'re stuck in systems that deplete you faster than you can recharge.',
+                    cost: [
+                        '<strong>Chronic exhaustion:</strong> Wake up tired, end days completely depleted',
+                        '<strong>Wasted potential:</strong> Your talents never fully express—nothing left to give',
+                        '<strong>Years lost:</strong> Time spent in relationships/jobs that drain you dry',
+                        '<strong>Clarity impossible:</strong> Can\'t think clearly when constantly running on empty'
+                    ],
+                    why: 'You think you need more discipline or better time management. You don\'t. You need the RIGHT environment. Operators don\'t fight biology—they design conditions for peak performance.',
+                    solution: 'You don\'t need more willpower. You need a system that ruthlessly eliminates drains and amplifies sources—the same environmental design used to maintain performance under extreme conditions.',
+                    free: '<strong>Quick Win: The 3-Day Drain Detector</strong><br><br>Track for 3 days:<br>• What activities/people GIVE you energy?<br>• What activities/people STEAL your energy?<br>• Where\'s the biggest leak?<br><br>Then eliminate ONE major drain this week. Just one. Watch what changes.',
+                    hook: 'This identifies one drain. But what if you stopped leaking energy entirely?'
+                }
+            };
+            
+            const result = results[type];
+            
+            resultsDiv.innerHTML = `
+                <div class="result-header">
+                    <div class="result-type">${result.title}</div>
+                    <div class="result-subtitle">${result.subtitle}</div>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Your Pattern</h3>
+                    <p>${result.pattern}</p>
+                </div>
+                
+                <div class="result-section">
+                    <h3>What This Is Costing You</h3>
+                    <ul>
+                        ${result.cost.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Why You're Stuck</h3>
+                    <p>${result.why}</p>
+                </div>
+                
+                <div class="result-section">
+                    <h3>What You Actually Need</h3>
+                    <p>${result.solution}</p>
+                </div>
+                
+                <div class="protocol-box">
+                    <h4>Try This Now (Free)</h4>
+                    <p>${result.free}</p>
+                </div>
+                
+                <div class="cta-box">
+                    <h3>${result.hook}</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 25px;">Here's what you need to understand:</p>
+                    <p style="font-weight: 600; font-size: 1.05em;">You didn't end up here by accident.</p>
+                    <p>There's a pattern you can't see from inside it. A loop that keeps pulling you back to the same stuck point—no matter how hard you try to move forward.</p>
+                    <p style="margin-top: 25px; font-weight: 600;">Most people waste years fighting the wrong battle.</p>
+                    <p>They think they need more discipline. Better habits. Stronger willpower. They're attacking symptoms while the system stays broken.</p>
+                    <p style="margin-top: 25px; padding: 25px; background: #fff9f0; border-left: 4px solid #d4a574; border-radius: 8px; font-size: 1.05em;">
+                        <strong style="font-size: 1.1em;">The uncomfortable truth:</strong><br><br>
+                        If you're still stuck after trying everything—motivation, therapy, books, courses—the problem isn't you.<br><br>
+                        <span style="font-weight: 600;">It's that you're trying to fix the wrong thing.</span>
+                    </p>
+                    <p style="margin-top: 30px; font-size: 1.08em;">There's a reason smart, capable people stay frozen. A biological trap most never identify.</p>
+                    <p style="font-weight: 600; font-size: 1.15em; margin-top: 25px; color: #2d2d2d;">What if you're one realization away from everything changing?</p>
+                    <a href="why-you-feel-stuck.html" class="cta-btn" style="margin-top: 30px; font-size: 1.15em; padding: 20px 45px;">Read: The Real Reason You're Stuck →</a>
+                    <p style="margin-top: 25px; font-size: 0.95em; font-style: italic; opacity: 0.85;">5-minute read. Changes how you see everything.</p>
+                </div>
+            `;
+            
+            quizDiv.style.display = 'none';
+            resultsDiv.style.display = 'block';
+            
+            // Keep progress bar visible, update to show completion
+            document.getElementById('progressText').textContent = 'Results Ready';
+            document.getElementById('progressBar').style.width = '100%';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Initialize progress tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add change listeners to all radio buttons
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(function(radio) {
+                radio.addEventListener('change', updateProgress);
+            });
+        });
+    </script>
+</body>
+</html>

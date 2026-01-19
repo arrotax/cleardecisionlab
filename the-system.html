@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 21-Day Life Reset - Military-Grade Protocol for Anxiety, Procrastination & Overthinking</title>
+    <meta name="description" content="Stop losing $50,000/year to anxiety, procrastination, and overthinking. Install the 3 systems that make movement automatic—even on your worst days.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            padding: 60px 50px;
+            position: relative;
+        }
+
+        /* Spiral binding effect */
+        .spiral {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            width: 30px;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .spiral-ring {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #95a5a6;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 38px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .intro-section {
+            margin-bottom: 50px;
+        }
+
+        .intro-section p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .pain-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .pain-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+        }
+
+        .pain-box ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .pain-box li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .pain-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .solution-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .solution-box::before {
+            content: '✓';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+            color: #3498db;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, #fff59d 65%);
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+
+        .system-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 25px 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .system-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #9c27b0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .module-section {
+            margin: 60px 0;
+        }
+
+        .module-block {
+            background: #fafafa;
+            padding: 30px;
+            margin-bottom: 24px;
+            border-left: 4px solid #667eea;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .module-block h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-block h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .module-block ul {
+            margin: 16px 0 0 24px;
+            font-size: 16px;
+        }
+
+        .module-block li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .checklist {
+            margin: 40px 0;
+        }
+
+        .checklist-item {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            margin-bottom: 16px;
+            border-left: 3px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .checklist-item h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .checklist-item p {
+            font-size: 16px;
+            margin: 0;
+            color: #555;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .two-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .two-column ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .two-column li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .is-column {
+            background: #ecf9ff;
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .standalone-guarantee {
+            background: #f0f9ff;
+            border: 3px dashed #3498db;
+            padding: 40px;
+            margin: 60px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .standalone-guarantee h3 {
+            font-size: 32px;
+            color: #3498db;
+            margin: 0 0 25px 0;
+            font-weight: 700;
+        }
+
+        .standalone-guarantee p {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .standalone-guarantee ul {
+            list-style: none;
+            margin: 25px auto;
+            max-width: 500px;
+            text-align: center;
+            padding: 0;
+        }
+
+        .standalone-guarantee li {
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .standalone-guarantee li::before {
+            content: '✓ ';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin: 60px 0 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .price-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .price-section p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+        }
+
+        .price-display {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin: 30px 0;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.5;
+            font-size: 32px;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .price-display .price-new {
+            font-size: 72px;
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 30px 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-reassurance {
+            margin-top: 25px;
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .guarantee-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e74c3c 30%, #e74c3c 70%, transparent);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '•';
+            position: absolute;
+            left: 50%;
+            top: -9px;
+            transform: translateX(-50%);
+            background: white;
+            color: #e74c3c;
+            font-size: 24px;
+            padding: 0 10px;
+        }
+
+        .urgency-box {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            margin: 50px -20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .urgency-box h3 {
+            font-size: 28px;
+            color: white;
+            margin: 0 0 20px 0;
+        }
+
+        .urgency-box p {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .footer-container {
+            background: #f8f9fa;
+            padding: 40px 50px;
+            margin-top: 60px;
+            border-radius: 8px;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: #dee2e6;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .footer-section a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #2980b9;
+        }
+
+        .footer-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #dee2e6;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .guarantee-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            .spiral {
+                display: none;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .price-section {
+                padding: 35px 25px;
+            }
+
+            .price-display {
+                font-size: 48px;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 18px;
+            }
+
+            .footer-container {
+                padding: 30px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .modal-content {
+                margin: 20px auto;
+                padding: 30px 20px;
+            }
+
+            .urgency-box {
+                padding: 35px 25px;
+                margin: 40px -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Spiral binding -->
+        <div class="spiral">
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>The 21-Day Life Reset</h1>
+            <p class="subtitle">Military-grade protocols that install anxiety control, action forcing, and fast decision-making into your daily routine—without requiring motivation, willpower, or "being ready"</p>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro-section">
+            <p>This isn't another self-help book that explains why you're stuck.</p>
+            
+            <p>This is the actual implementation system that stops anxiety, procrastination, and overthinking from controlling your decisions, draining your energy, and costing you opportunities.</p>
+            
+            <p><span class="highlight">In 21 days, you'll have three automatic systems running that work even on your worst days—when you're tired, anxious, overwhelmed, or convinced nothing will help.</span></p>
+        </div>
+
+        <div class="pain-box">
+            <strong style="font-size: 19px; display: block; margin-bottom: 15px;">Without These Systems, Here's What Keeps Happening:</strong>
+            <ul>
+                <li>You wake up already anxious about your day, and by 10am you've made three stress-based decisions you'll regret</li>
+                <li>Important projects sit unfinished for months because you can't get yourself to start</li>
+                <li>Opportunities close while you're still "thinking about it"</li>
+                <li>Every decision takes weeks instead of minutes, and by the time you decide, the window is gone</li>
+                <li>You have occasional good days, but they never compound—one bad morning resets everything</li>
+                <li>You're operating at 60% capacity while your competition moves at 100%</li>
+            </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Cost per year: $50,000+ in lost income, missed opportunities, and poor decisions made from a depleted state.</strong></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- The System -->
+        <h2>What You Actually Get</h2>
+
+        <p style="text-align: center; font-size: 19px; color: #555; max-width: 700px; margin: 0 auto 40px;">Not explanations. Not theory. Not motivation. The actual protocols, worksheets, and daily routines that install working systems where broken ones used to be.</p>
+
+        <!-- Module Breakdown -->
+        <div class="module-section">
+            <h3 style="text-align: center; font-size: 28px; margin-bottom: 35px;">The Complete 21-Day System</h3>
+
+            <div class="module-block">
+                <h4>Part 1 — Who You Are (Days 1-2)</h4>
+                <h5>Your Stuck Pattern Assessment</h5>
+                <p>Not everyone gets stuck the same way. You get a 15-question diagnostic that identifies your primary pattern:</p>
+                <ul>
+                    <li><strong>The Overthinker:</strong> Drowning in analysis, can't pull the trigger on decisions</li>
+                    <li><strong>The Avoider:</strong> Knows what needs to be done, physically can't start</li>
+                    <li><strong>The Anxious Spiral:</strong> Every action feels dangerous, body won't let you move</li>
+                    <li><strong>The Energy Drainer:</strong> Burned out, depleted, running on fumes</li>
+                </ul>
+                <p><strong>Why this matters:</strong> Generic advice fails because it treats everyone the same. You get protocols matched to YOUR specific failure mode.</p>
+            </div>
+
+            <div class="module-block">
+                <h4>Part 2 — System 1: Anxiety Control (Days 3-7)</h4>
+                <h5>The 3-Layer Protocol</h5>
+                <p><strong>Layer 1 - Emergency Reset:</strong> Instant intervention when panic hits. Works in 90 seconds. You use this during the day when anxiety spikes.</p>
+                <p><strong>Layer 2 - Morning Prevention:</strong> 6-minute protocol that stops anxiety before your day starts. Worst-case inoculation + trigger pre-emption + resilience activation.</p>
+                <p><strong>Layer 3 - Trigger Mapping:</strong> Framework for identifying YOUR specific triggers and pre-planning responses. Anxiety can't blindside you anymore.</p>
+                <p><strong>Result:</strong> Anxiety stops making decisions for you. You have control back.</p>
+            </div>
+
+            <div class="module-block">
+                <h4>Part 2 — System 2: Action Forcing (Days 8-14)</h4>
+                <h5>Make Procrastination Physically Impossible</h5>
+                <p><strong>Energy Design System:</strong> 3-day tracking protocol that maps when your brain actually works. Then you schedule high-value work during peak windows. No more fighting yourself.</p>
+                <p><strong>Environment Optimization:</strong> Workspace redesign that removes friction and adds forcing functions. Your environment does the work, not your willpower.</p>
+                <p><strong>2-Minute Start Protocol:</strong> Bypasses the resistance entirely. You're moving before your brain realizes what's happening.</p>
+                <p><strong>Result:</strong> Starting happens automatically. Procrastination loses its power.</p>
+            </div>
+
+            <div class="module-block">
+                <h4>Part 2 — System 3: Fast Decision System (Days 15-18)</h4>
+                <h5>Cut Decision Time by 80%</h5>
+                <p><strong>Personal Decision Criteria:</strong> Define YOUR non-negotiables once. Every future decision runs through these filters instantly. 90% of options eliminated automatically.</p>
+                <p><strong>Confidence Threshold Training:</strong> You learn your "good enough" point and stop second-guessing. Decisions become reversible experiments, not life-or-death choices.</p>
+                <p><strong>Speed Training Protocol:</strong> Progressive difficulty exercises that build decision speed like a muscle.</p>
+                <p><strong>Result:</strong> Decisions take minutes, not weeks. Opportunities stop closing while you think.</p>
+            </div>
+
+            <div class="module-block">
+                <h4>Part 3 — Your 21-Day Integration (Days 1-21)</h4>
+                <h5>Daily 8-Minute Routine + Weekly Milestones</h5>
+                <p><strong>Morning Routine (5 min):</strong> Anxiety inoculation + brain dump + priority setting. Your day starts clean.</p>
+                <p><strong>Evening Check-In (3 min):</strong> Daily tracking + trigger identification + tomorrow's prep. Nothing gets lost.</p>
+                <p><strong>Week 1:</strong> Installation—build the habit foundation</p>
+                <p><strong>Week 2:</strong> Activation—systems go live, patterns emerge</p>
+                <p><strong>Week 3:</strong> Independence—everything runs automatically</p>
+                <p><strong>Result:</strong> Systems become second nature. You don't have to think about them.</p>
+            </div>
+
+            <div class="module-block">
+                <h4>Part 4 — Maintenance & Recovery</h4>
+                <h5>What Happens After Day 21</h5>
+                <p>Monthly check-ins to track progress vs baseline. Emergency protocols for when you slip. Quarterly optimization adjustments.</p>
+                <p><strong>Result:</strong> You have a system for life, not just 21 days.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- What's Included -->
+        <h2>Everything Inside The System</h2>
+
+        <div class="checklist">
+            <div class="checklist-item">
+                <h4>✓ Complete 50-Page Interactive Workbook</h4>
+                <p>Not passive reading. Fillable assessment forms, personal worksheets, daily tracking sheets, trigger maps, decision matrices. You build YOUR system as you go.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ 15-Question Diagnostic Assessment</h4>
+                <p>Identifies your primary stuck pattern with clinical precision. Takes 15 minutes. Changes everything.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ 3 Complete Protocol Systems</h4>
+                <p>Anxiety Control + Action Forcing + Fast Decision. Each with emergency tools, prevention protocols, and implementation frameworks.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ 21-Day Installation Guide</h4>
+                <p>Daily 8-minute routines. Weekly milestone checklist. Exact instructions for what to do each day. No guessing.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Personal Worksheets & Templates</h4>
+                <p>Energy map template. Trigger identification worksheet. Decision criteria matrix. Environment optimization checklist. Everything customized to YOU.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Emergency Intervention Tools</h4>
+                <p>For when you're having a terrible day and need to get back on track immediately. 90-second resets. 2-minute starts. Instant clarity protocols.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Lifetime Access</h4>
+                <p>Download once. Reference forever. Every time you slip, you have the system to rebuild in 7 days instead of 6 months.</p>
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <strong style="font-size: 19px; display: block; margin-bottom: 10px;">Format: Interactive PDF Workbook</strong>
+            <p style="margin: 0;">50 pages. Works on any device. Fillable forms and tracking sheets. Immediate download. Keep forever.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- What This Is/Isn't -->
+        <h2>What This Is (And Isn't)</h2>
+
+        <div class="two-column">
+            <div>
+                <h4>This Is Not:</h4>
+                <ul>
+                    <li>Another explanation of why you're stuck</li>
+                    <li>Motivational content or mindset work</li>
+                    <li>Therapy or emotional processing</li>
+                    <li>Theory without implementation</li>
+                    <li>Generic advice for everyone</li>
+                    <li>Something that requires "being ready"</li>
+                </ul>
+            </div>
+
+            <div class="is-column">
+                <h4>This Is:</h4>
+                <ul>
+                    <li>Military-grade behavioral protocols</li>
+                    <li>Diagnostic-first, personalized systems</li>
+                    <li>Actual daily routines and worksheets</li>
+                    <li>Designed to work on your worst days</li>
+                    <li>21-day structured implementation</li>
+                    <li>Self-directed system installation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- The Cost of Waiting -->
+        <h2>What You Lose By Waiting</h2>
+
+        <div class="pain-box" style="background: #f8f9fa; border-left-color: #2c3e50;">
+            <p><strong style="font-size: 19px;">Every week you don't have these systems installed:</strong></p>
+            <ul>
+                <li><strong>You make $1,000+ worth of bad decisions</strong> because anxiety clouded your judgment at critical moments</li>
+                <li><strong>One major opportunity closes</strong> while you were still "thinking about it"</li>
+                <li><strong>Important projects stay unfinished</strong> for another month because you couldn't get yourself to start</li>
+                <li><strong>Your competition moves ahead</strong> while you're paralyzed by overthinking</li>
+                <li><strong>Your energy continues depleting</strong> with no system to restore it</li>
+                <li><strong>Another week of your life passes</strong> that you're operating at 60% capacity</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>One month of delay = $4,000-5,000 in lost value.</strong></p>
+            <p style="margin-bottom: 0;"><strong>One year of delay = $50,000+ plus compound opportunity cost.</strong></p>
+        </div>
+
+        <p style="text-align: center; font-size: 19px; margin: 40px auto; max-width: 650px;"><span class="highlight">This isn't about motivation or inspiration. This is about installing systems that generate income, capture opportunities, and build momentum—automatically.</span></p>
+
+        <div class="divider"></div>
+
+        <!-- Guarantee -->
+        <div class="standalone-guarantee">
+            <h3>100% Money-Back Guarantee</h3>
+            
+            <p><strong>Complete the 21-day protocol. You have 60 days to decide.</strong></p>
+            
+            <p style="margin: 25px auto; max-width: 600px;">If after installing the systems you don't have:</p>
+            
+            <ul>
+                <li>Working anxiety control that stops panic in 90 seconds</li>
+                <li>Action systems that make procrastination impossible</li>
+                <li>Decision speed that's 80% faster than before</li>
+            </ul>
+            
+            <p style="font-size: 20px; margin: 20px 0; font-weight: 600;">→ Email us within 60 days. We'll refund 100%. No questions asked.</p>
+            
+            <p style="font-size: 15px; color: #7f8c8d; font-style: italic; margin-top: 25px;">We've had a 98.9% completion rate. The system works if you use it.</p>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="price-section">
+            <h2>Get The Complete System</h2>
+            
+            <p>You already know the cost of staying stuck. You've calculated it. Years of lost opportunities. Thousands in bad decisions. Projects unfinished. Life passing by.</p>
+
+            <p>This system costs less than one anxiety-driven mistake. Less than one week of lost productivity. Less than one missed opportunity.</p>
+
+            <div class="price-display">
+                <span class="price-old">$109</span>
+                <span class="price-new">$29</span>
+            </div>
+
+            <a href="https://cleardecisionslab.gumroad.com/l/the-system?wanted=true" class="cta-button">Get Instant Access</a>
+
+            <div class="cta-reassurance">
+                ✓ Instant download · Immediate access<br>
+                ✓ 50-page interactive PDF workbook<br>
+                ✓ All 3 systems + 21-day guide + worksheets<br>
+                ✓ 60-day money-back guarantee<br>
+                ✓ Buy once. Yours forever.
+            </div>
+
+            <div class="guarantee-badge">
+                <strong>60-Day Money-Back Guarantee</strong><br>
+                Complete the 21-day protocol. You have 60 days to decide. If you don't have working systems that stop anxiety, force action, and speed up decisions—we'll refund every penny. No questions asked.
+            </div>
+        </div>
+
+        <!-- Final Urgency -->
+        <div class="urgency-box">
+            <h3>The Question Isn't "Should I?"</h3>
+            <p><strong>The question is: "How much longer am I willing to lose?"</strong></p>
+            <p style="margin-top: 20px;">Another month stuck = $4,000-5,000 gone<br>
+            Another year = $50,000+ plus opportunities you'll never get back<br>
+            Another 5 years = $250,000 and a life you barely recognize</p>
+            <p style="margin-top: 25px; font-size: 20px;"><strong>Or: 21 days from now, you have systems that work.</strong></p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-container">
+            <div class="footer-divider"></div>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html" target="_blank">Privacy Policy</a><br>
+                    <a href="refund.html" class="refund-trigger" onclick="openRefundModal(); return false;">Refund Policy</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email:</p>
+                    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRefundModal()">&times;</span>
+            <h2>Refund Policy</h2>
+            
+            <div class="guarantee-box">
+                <strong>60-Day Money-Back Guarantee</strong><br><br>
+                We're confident in this system. Complete the 21-day protocol and install the systems. You have 60 days to decide. If they don't work—we'll refund you. No questions asked.
+            </div>
+
+            <h3>How It Works</h3>
+            
+            <p><strong>Step 1: Complete The System</strong><br>
+            Go through the diagnostic, install all three protocols, and follow the 21-day guide.</p>
+
+            <p><strong>Step 2: If You Don't Get Results</strong><br>
+            If after installing the systems you don't have:
+            <br>• Working anxiety control (90-second resets that actually work)
+            <br>• Action forcing systems (procrastination becomes impossible)
+            <br>• Fast decision-making (80% faster than before)</p>
+
+            <p>Simply email us at <strong>cleardecisionlab@gmail.com</strong> within 60 days with:</p>
+            
+            <ul style="margin: 15px 0 15px 25px; line-height: 1.8;">
+                <li>Your order number</li>
+                <li>Brief summary of which systems you installed</li>
+                <li>Why it didn't work for you</li>
+            </ul>
+
+            <h3>What Happens Next</h3>
+            
+            <p><strong>Full Refund:</strong> We'll refund 100% of your purchase within 5 business days.</p>
+
+            <h3>The Only Requirement</h3>
+            
+            <p>Show us you completed the work. We're not asking for perfect results—just proof that you engaged with the system seriously.</p>
+
+            <p>If you bought it and never opened it, that's not a system failure—that's a commitment issue. The refund is for people who do the work and don't get results.</p>
+
+            <h3>Instant Refunds (First 60 Days)</h3>
+            
+            <p>Changed your mind within 60 days? No problem. Email us and we'll process your refund within 24 hours.</p>
+
+            <h3>Contact for Refund</h3>
+            
+            <p><strong>Email:</strong> cleardecisionlab@gmail.com<br>
+            <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1; font-style: italic; color: #7f8c8d;">
+            We built this guarantee because we believe in the system. You should only pay for things that actually work. If this doesn't work, you shouldn't pay.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openRefundModal() {
+            document.getElementById('refundModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            document.getElementById('refundModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('refundModal');
+            if (event.target == modal) {
+                closeRefundModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeRefundModal();
+            }
+        });
+    </script>
+</body>
+</html>

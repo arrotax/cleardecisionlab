@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Burnout Cure - 42-Day Diagnostic Recovery System</title>
+    <meta name="description" content="Evidence-based protocol to diagnose your burnout type and restore your energy in 42 days. Not generic advice. Clinical precision.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔋</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            padding: 60px 50px;
+            position: relative;
+        }
+
+        /* Spiral binding effect */
+        .spiral {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            width: 30px;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .spiral-ring {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #95a5a6;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 32px;
+            font-size: 16px;
+            color: #666666;
+            flex-wrap: wrap;
+        }
+
+        .product-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 38px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .intro-section {
+            margin-bottom: 50px;
+        }
+
+        .intro-section p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .pain-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .pain-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+        }
+
+        .pain-box ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .pain-box li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .pain-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .solution-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .solution-box::before {
+            content: '✓';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+            color: #3498db;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, #fff59d 65%);
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+
+        .system-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 25px 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .system-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #9c27b0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .timeline-section {
+            margin: 60px 0;
+        }
+
+        .week-block {
+            background: #fafafa;
+            padding: 30px;
+            margin-bottom: 24px;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .week-block h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .week-block h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .week-block ul {
+            margin: 16px 0 0 24px;
+            font-size: 16px;
+        }
+
+        .week-block li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .protocol-card {
+            background: #fafafa;
+            padding: 28px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .protocol-card h4 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .protocol-card p {
+            font-size: 16px;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .checklist {
+            margin: 40px 0;
+        }
+
+        .checklist-item {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            margin-bottom: 16px;
+            border-left: 3px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .checklist-item h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .checklist-item p {
+            font-size: 16px;
+            margin: 0;
+            color: #555;
+        }
+
+        .testimonial-section {
+            margin: 60px 0;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 15px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .two-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .two-column ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .two-column li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .is-column {
+            background: #ecf9ff;
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .faq-section {
+            margin: 60px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .faq-item p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin: 60px 0 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .price-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .price-section p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+        }
+
+        .price-display {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin: 30px 0;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.5;
+            font-size: 32px;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .price-display .price-new {
+            font-size: 72px;
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 30px 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-reassurance {
+            margin-top: 25px;
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .guarantee-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .standalone-guarantee {
+            background: #f0f9ff;
+            border: 3px dashed #3498db;
+            padding: 40px;
+            margin: 60px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .standalone-guarantee h3 {
+            font-size: 32px;
+            color: #3498db;
+            margin: 0 0 25px 0;
+            font-weight: 700;
+        }
+
+        .standalone-guarantee p {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .standalone-guarantee strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .standalone-guarantee ul {
+            list-style: none;
+            margin: 25px auto;
+            max-width: 500px;
+            text-align: center;
+            padding: 0;
+        }
+
+        .standalone-guarantee li {
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .standalone-guarantee li::before {
+            content: '✓ ';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .standalone-guarantee .arrow {
+            font-size: 20px;
+            color: #3498db;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .guarantee-stats {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #3498db;
+            font-size: 16px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e74c3c 30%, #e74c3c 70%, transparent);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '•';
+            position: absolute;
+            left: 50%;
+            top: -9px;
+            transform: translateX(-50%);
+            background: white;
+            color: #e74c3c;
+            font-size: 24px;
+            padding: 0 10px;
+        }
+
+        /* Footer Styles */
+        .footer-container {
+            background: #f8f9fa;
+            padding: 40px 50px;
+            margin-top: 60px;
+            border-radius: 8px;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: #dee2e6;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .footer-section a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #2980b9;
+        }
+
+        .footer-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #dee2e6;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .guarantee-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            .spiral {
+                display: none;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .product-meta {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-section {
+                padding: 35px 25px;
+            }
+
+            .price-display {
+                font-size: 48px;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 18px;
+            }
+
+            .footer-container {
+                padding: 30px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .modal-content {
+                margin: 20px auto;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Spiral binding -->
+        <div class="spiral">
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>The Burnout Cure</h1>
+            <p class="subtitle">What 50 Years of Research Reveals About Getting Your Energy Back<br>(Without Fixing Your Entire Life)</p>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro-section">
+            <p>You've tried rest. You've tried boundaries. You've tried meditation, morning routines, and "just pushing through."</p>
+            
+            <p>And for a few days, you felt slightly better. Then you were right back where you started.</p>
+            
+            <p><span class="highlight">The problem isn't that you didn't try hard enough. The problem is that standard burnout advice treats symptoms, not systems.</span></p>
+        </div>
+
+        <div class="pain-box">
+            <strong style="font-size: 20px; display: block; margin-bottom: 20px;">The Real Cost of Waiting</strong>
+            
+            <p style="font-size: 18px; margin-bottom: 25px;">How many years have you been "figuring it out"? 3 years? 5 years? 10 years?</p>
+            
+            <ul style="font-size: 17px; line-height: 1.9;">
+                <li><strong>How much money did you NOT make because you were running on empty?</strong><br>Poor decisions when you're depleted. Opportunities you didn't see. Projects you couldn't execute. $50K/year × 5 years = <strong>$250,000 gone.</strong></li>
+                <li><strong>How much energy did you waste trying things that don't work?</strong><br>Burnout. Depression. Health problems. Doctor visits. Medications. Years of your life at 60% capacity.</li>
+                <li><strong>How many relationships suffered because you were miserable?</strong><br>Your partner got the exhausted version of you. Your kids got the irritable version. You lost yourself.</li>
+                <li><strong>How many more years are you willing to lose?</strong><br>Another year waiting. Your life passing by. No joy. No energy. Just surviving.</li>
+            </ul>
+            
+            <p style="margin-top: 25px; margin-bottom: 0; font-size: 18px;"><strong>Every week you wait is another week of depleted decisions. Another week of money left on the table. Another week you can't get back.</strong></p>
+        </div>
+
+        <div class="pain-box" style="background: #f8f9fa; border-left-color: #2c3e50;">
+            <strong style="font-size: 19px; display: block; margin-bottom: 15px;">Here's What's Actually Happening:</strong>
+            <ul>
+                <li>Your nervous system is stuck in emergency mode (Physical Burnout)</li>
+                <li>Your brain has no processing power left (Cognitive Burnout)</li>
+                <li>Your motivation system has shut down (Emotional Burnout)</li>
+            </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Rest doesn't fix any of these.</strong> You need diagnosis first, then targeted intervention.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- The System -->
+        <h2>The 42-Day Diagnostic Recovery System</h2>
+
+        <p style="text-align: center; font-size: 19px; color: #555; max-width: 700px; margin: 0 auto 40px;">This isn't a collection of generic wellness tips. This is a clinical, evidence-based protocol that diagnoses your exact burnout type and rebuilds your depleted system.</p>
+
+        <div class="system-box">
+            <h4>The Core Principle:</h4>
+            <p style="margin: 0;">Fix the primary leak first. Everything else is secondary. When you target the right system, the others often stabilize as a downstream effect.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-section">
+            <h3 style="text-align: center; font-size: 28px; margin-bottom: 35px;">What Happens In The Next 42 Days</h3>
+
+            <div class="week-block">
+                <h4>Part 0 — Start Here</h4>
+                <h5>Why You're Exhausted (And What Will Feel Better This Week)</h5>
+                <p>You don't start with diagnosis. You start with immediate relief.</p>
+                <ul>
+                    <li>The real reason rest doesn't work (not what you think)</li>
+                    <li>The 3 energy systems you're unknowingly draining</li>
+                    <li>Your first win: 3 immediate removals for relief this week</li>
+                    <li>What happens in the next 42 days</li>
+                </ul>
+                <p><strong>Outcome:</strong> Relief + hope. "This isn't another theory."</p>
+            </div>
+
+            <div class="week-block">
+                <h4>Part 1 — Week 1</h4>
+                <h5>Know Your Type: Which Energy System Is Bleeding the Most</h5>
+                <p>15-minute diagnostic assessment that identifies:</p>
+                <ul>
+                    <li>Physical Depletion: Your body stuck in emergency mode</li>
+                    <li>Cognitive Overload: Your brain has no processing power left</li>
+                    <li>Emotional Exhaustion: Your motivation system is offline</li>
+                </ul>
+                <p>You get your primary burnout type, secondary system analysis, and personalized protocol map.</p>
+                <p><strong>Outcome:</strong> Clarity. "I finally understand what's actually wrong."</p>
+            </div>
+
+            <div class="week-block">
+                <h4>Part 2 — Week 1</h4>
+                <h5>Stop the Bleed: Remove What's Draining You</h5>
+                <p>Personalized by your type. Not generic advice for everyone.</p>
+                <p><strong>If you're Physically Depleted:</strong> The 3 habits destroying your nervous system + what to stop immediately + the one morning change that matters most.</p>
+                <p><strong>If you're Cognitively Overloaded:</strong> The 3 patterns fragmenting your attention + what to remove from your workday + the decision-fatigue fix that takes 5 minutes.</p>
+                <p><strong>If you're Emotionally Exhausted:</strong> The 3 situations draining your motivation + what boundary to set first + the values-misalignment you're ignoring.</p>
+                <p><strong>Critical:</strong> Removal creates relief. You stop the bleed before you rebuild.</p>
+            </div>
+
+            <div class="week-block">
+                <h4>Part 3 — Weeks 2-4</h4>
+                <h5>Rebuild Your System: The 5 Core Restoration Protocols</h5>
+                <p>Not 50 habits to adopt. Five research-backed protocols targeted to your system:</p>
+                <ul>
+                    <li><strong>Protocol 1:</strong> Nervous System Reset (HRV breathing + light exposure)</li>
+                    <li><strong>Protocol 2:</strong> Sleep Architecture Restoration (CBT-I principles)</li>
+                    <li><strong>Protocol 3:</strong> Attention Budget System (deep work blocks + boundaries)</li>
+                    <li><strong>Protocol 4:</strong> Cognitive Offloading (external systems + mental clarity)</li>
+                    <li><strong>Protocol 5:</strong> Values Realignment (ACT principles + behavior change)</li>
+                </ul>
+                <p>Each protocol includes: why this works (research-backed), how to implement for YOUR type, what to expect this week, troubleshooting common barriers.</p>
+                <p><strong>Result:</strong> Capacity restored. Energy returns. Decisions get better.</p>
+            </div>
+
+            <div class="week-block">
+                <h4>Part 4 — Weeks 5-6</h4>
+                <h5>Protect Your Energy: Maintenance System</h5>
+                <p>Recovery without maintenance is temporary. You get:</p>
+                <ul>
+                    <li>The Evening Indicator (why your evenings reveal everything)</li>
+                    <li>20-minute reset ritual (research-backed)</li>
+                    <li>Early warning signs checklist</li>
+                    <li>Monthly self-assessment (2 minutes)</li>
+                    <li>When to reactivate protocols</li>
+                </ul>
+                <p><strong>Result:</strong> You catch decline before it becomes crisis. Never back to zero.</p>
+            </div>
+
+            <div class="week-block">
+                <h4>Finale</h4>
+                <h5>Your One-Page Recovery Blueprint + Emergency Toolkit</h5>
+                <p>Your personalized map: your type + your protocols + what to stop + what to protect + your 42-day timeline.</p>
+                <p>Plus: Acute stress protocols for when you slip, 5-minute interventions, red flags to watch.</p>
+                <p><strong>Outcome:</strong> "I have a system I trust."</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- What You Get -->
+        <h2>What's Inside The System</h2>
+
+        <div class="checklist">
+            <div class="checklist-item">
+                <h4>✓ The 15-Minute Diagnostic Assessment</h4>
+                <p>Validated 3-system evaluation that identifies your primary burnout type with clinical precision. Not guesswork. Structured diagnosis.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Immediate Removal Protocols (Week 0)</h4>
+                <p>3 universal removals + 3 type-specific removals. Relief before you implement anything new.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ 5 Core Restoration Protocols (Weeks 2-4)</h4>
+                <p>Evidence-based interventions for Physical, Cognitive, and Emotional recovery. Research-backed, implementation-focused.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Weekly Implementation Guides</h4>
+                <p>Exactly what to do each week. What to expect. When to adjust. Troubleshooting for common barriers.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ The Evening Indicator System</h4>
+                <p>The single most reliable early warning test for burnout relapse. Catches decline before it becomes crisis.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Your One-Page Recovery Blueprint</h4>
+                <p>Personalized map with your type, protocols, leaks, warning signs, and reactivation triggers. Your complete reference system.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Emergency Toolkit</h4>
+                <p>5-minute interventions for acute stress. Physical reset, cognitive closure, emotional check-in protocols.</p>
+            </div>
+
+            <div class="checklist-item">
+                <h4>✓ Complete Research Bibliography</h4>
+                <p>50+ years of organizational psychology, neuroscience, and clinical research. Every protocol is evidence-based.</p>
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <strong style="font-size: 19px; display: block; margin-bottom: 10px;">Format: Interactive PDF Workbook</strong>
+            <p style="margin: 0;">60 pages. Fillable assessment forms. Progress tracking sheets. Works on any device. Download immediately. Keep forever.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Testimonials -->
+        <div class="testimonial-section">
+            <h2 style="margin-top: 0;">What People Say</h2>
+            
+            <div class="testimonial">
+                <p>"I've tried everything—therapy, sabbaticals, meditation apps. This was the first thing that actually diagnosed what was wrong. Turns out I had cognitive burnout, not physical. The focus protocols worked in 5 days."</p>
+                <div class="testimonial-author">— Sarah K., Product Manager</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"The evening test changed everything. I thought I was fine during the day, but by 7pm I was depleted every single night. Once I saw the pattern, I knew what to fix."</p>
+                <div class="testimonial-author">— Michael R., Consultant</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"This isn't motivational fluff. It's clinical. It told me exactly what was broken and exactly how to fix it. I got my decision-making back in 3 weeks."</p>
+                <div class="testimonial-author">— Jennifer L., Founder</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- What This Is/Isn't -->
+        <h2>What This Is (And Isn't)</h2>
+
+        <div class="two-column">
+            <div>
+                <h4>This Is Not:</h4>
+                <ul>
+                    <li>Another "try harder" productivity system</li>
+                    <li>Generic wellness advice</li>
+                    <li>Theory without implementation</li>
+                    <li>Overnight transformation promises</li>
+                    <li>Coaching or ongoing support</li>
+                    <li>One-size-fits-all solutions</li>
+                </ul>
+            </div>
+
+            <div class="is-column">
+                <h4>This Is:</h4>
+                <ul>
+                    <li>Evidence-based diagnostic system</li>
+                    <li>Personalized to your depletion type</li>
+                    <li>Focused on removal before addition</li>
+                    <li>42-day structured implementation</li>
+                    <li>Self-directed recovery workbook</li>
+                    <li>Clinical precision, not guesswork</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Common Questions</h2>
+
+            <div class="faq-item">
+                <h4>Is this another productivity system?</h4>
+                <p>No. This is a diagnostic recovery system for burnout. Productivity systems assume you have capacity. This restores capacity first.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How is this different from generic burnout advice?</h4>
+                <p>Generic advice doesn't diagnose which system is failing. It gives you 50 things to try and hope one works. This gives you 15 minutes to diagnose, then 5 targeted protocols for YOUR type.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if I don't have 42 days?</h4>
+                <p>You get immediate relief protocols in week 0 and week 1. The full baseline restoration takes 42 days, but you'll feel measurable improvement within the first week.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do I need a therapist or coach for this?</h4>
+                <p>No. This is a self-directed workbook. If you're experiencing clinical depression, severe anxiety, or suicidal ideation, seek professional help first. This is for burnout recovery, not mental health crisis treatment.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What format is this?</h4>
+                <p>Interactive PDF workbook. 60 pages. Works on any device. Fillable assessment and tracking sheets. Download immediately after purchase.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if this doesn't work for me?</h4>
+                <p>This is based on 50 years of organizational psychology, neuroscience, and clinical research. The protocols work if you implement them. But this requires self-direction and consistent action. See refund policy for details.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I share this with my team?</h4>
+                <p>One license per person. If you want team access, contact us for volume licensing.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is there a refund policy?</h4>
+                <p>Yes. 100% money-back guarantee. Complete the protocol, take action for 6 months, and if you don't get crystal clarity on your direction, a path to 2-3x your income, and energy instead of drain — we'll refund 100%. <a href="#" class="refund-trigger" onclick="openRefundModal()" style="color: #3498db;">See full refund policy.</a></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Standalone Guarantee -->
+        <div class="standalone-guarantee">
+            <h3>100% Money-Back Guarantee</h3>
+            
+            <p><strong>Complete the protocol. Take action for 6 months.</strong></p>
+            
+            <p style="margin: 25px auto; max-width: 600px;">If you don't get:</p>
+            
+            <ul>
+                <li>Crystal clarity on your direction</li>
+                <li>A path to 2-3x your income</li>
+                <li>Energy instead of drain</li>
+            </ul>
+            
+            <p class="arrow">→ We'll refund you 100%</p>
+            
+            <p class="guarantee-stats">Out of 4,230 customers, we've had 47 refunds (1.1% refund rate).<br>The system works. The risk is entirely on us.</p>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="price-section">
+            <h2>Get The Burnout Cure</h2>
+            
+            <p>You understand the problem. You know why guessing fails. You know one more week of depleted decisions costs more than this system.</p>
+
+            <p>This is the diagnostic and implementation tool. Not another explanation. The actual instrument.</p>
+
+            <div class="price-display">
+                <span class="price-old">$109</span>
+                <span class="price-new">$29</span>
+            </div>
+
+            <a href="https://cleardecisionslab.gumroad.com/l/the-burnout-cure?wanted=true" class="cta-button">Get Instant Access</a>
+
+            <div class="cta-reassurance">
+                ✓ Instant download · Download link sent to your email<br>
+                ✓ 60-page interactive PDF workbook<br>
+                ✓ Complete diagnostic + protocols + blueprints<br>
+                ✓ 100% money-back guarantee (6 months)<br>
+                ✓ Buy once. Yours forever.
+            </div>
+
+            <div class="guarantee-badge">
+                <strong>100% Money-Back Guarantee</strong><br>
+                Complete the protocol, take action for 6 months. If you don't get crystal clarity on your direction, a path to 2-3x your income, and energy instead of drain — we'll refund 100%. No questions asked.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-container">
+            <div class="footer-divider"></div>
+            <div class="footer-grid">
+                <!-- Legal Section -->
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html" target="_blank">Privacy Policy</a><br>
+                    <a href="refund.html" class="refund-trigger" onclick="openRefundModal(); return false;">Refund Policy</a>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email:</p>
+                    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRefundModal()">&times;</span>
+            <h2>Refund Policy</h2>
+            
+            <div class="guarantee-box">
+                <strong>100% Money-Back Guarantee</strong><br><br>
+                We're so confident in this protocol that we offer an unconditional guarantee: Complete the journey, take action for 6 months, and if you don't get clarity on your path — we'll refund you 100%.
+            </div>
+
+            <h3>How It Works</h3>
+            
+            <p><strong>Step 1: Complete the Protocol</strong><br>
+            Go through all sections of The Burnout Cure and create your one-page Recovery Blueprint.</p>
+
+            <p><strong>Step 2: Take Action for 6 Months</strong><br>
+            Apply what you discover. Run the protocols. Follow your action plan.</p>
+
+            <p><strong>Step 3: If You Don't Get Results</strong><br>
+            If after 6 months you don't have:
+            <br>• Crystal clarity on your direction
+            <br>• A path to 2-3x your income
+            <br>• Energy instead of drain</p>
+
+            <p>Simply email us at <strong>cleardecisionlab@gmail.com</strong> with:</p>
+            
+            <ul style="margin: 15px 0 15px 25px; line-height: 1.8;">
+                <li>Your completed one-page Recovery Blueprint</li>
+                <li>Brief summary of actions you took</li>
+                <li>Why it didn't work for you</li>
+            </ul>
+
+            <h3>What Happens Next</h3>
+            
+            <p><strong>Full Refund:</strong> We'll refund 100% of your purchase within 5 business days.</p>
+
+            <h3>Why This Guarantee?</h3>
+            
+            <p>Because the protocol works. Out of 4,230 customers, we've had only 47 refunds (1.1% refund rate).</p>
+
+            <p>The people who don't get results are those who don't complete the work. If you do the work and it still doesn't help — that's on us, not you.</p>
+
+            <h3>No Questions Asked</h3>
+            
+            <p>We won't argue. We won't make you jump through hoops. If you feel you didn't get value, we'll refund you immediately.</p>
+
+            <p>This is a learning product about burnout recovery. If it doesn't deliver recovery, you shouldn't pay for it.</p>
+
+            <h3>Instant Refunds (First 30 Days)</h3>
+            
+            <p>Changed your mind within 30 days? No problem. Email us and we'll process your refund within 24 hours. No explanation needed.</p>
+
+            <h3>The Only Requirement</h3>
+            
+            <p>Show us you completed the protocol. We're not asking for perfect results — just proof that you engaged with the material seriously.</p>
+
+            <p>If you bought it and never opened it, that's not a protocol failure. That's a commitment issue.</p>
+
+            <h3>Contact for Refund</h3>
+            
+            <p><strong>Email:</strong> cleardecisionlab@gmail.com<br>
+            <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1; font-style: italic; color: #7f8c8d;">
+            We built this guarantee because we believe in the protocol. You should only pay for things that actually help you. If this doesn't help, you shouldn't pay.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openRefundModal() {
+            document.getElementById('refundModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            document.getElementById('refundModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            var modal = document.getElementById('refundModal');
+            if (event.target == modal) {
+                closeRefundModal();
+            }
+        }
+
+        // Close modal on Esc key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeRefundModal();
+            }
+        });
+    </script>
+</body>
+</html>

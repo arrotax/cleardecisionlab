@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Smart People Stay Burned Out (And Lose $50K/Year Doing It)</title>
+    <meta name="description" content="You've tried rest, boundaries, and meditation. You're still exhausted. Here's the hidden system failure costing you money, opportunities, and years of your life.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔋</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
+        }
+
+        .sketchbook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            position: relative;
+            padding: 60px 50px;
+        }
+
+        /* Spiral binding effect */
+        .spiral {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            width: 30px;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .spiral-ring {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #95a5a6;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: left;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: #e74c3c;
+            margin-top: 15px;
+            transform: rotate(-1deg);
+        }
+
+        .subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '→';
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin: 20px 0 20px 30px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, #fff59d 65%);
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+
+        .box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 17px;
+        }
+
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+        }
+
+        .system-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .system-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #9c27b0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .quote {
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 25px 30px;
+            margin: 35px 0;
+            line-height: 1.6;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .money-box {
+            background: #fff9f0;
+            border: 3px solid #d4a574;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .money-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 26px;
+            color: #d4a574;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .money-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .money-box li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .money-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e74c3c 30%, #e74c3c 70%, transparent);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '•';
+            position: absolute;
+            left: 50%;
+            top: -9px;
+            transform: translateX(-50%);
+            background: white;
+            color: #e74c3c;
+            font-size: 24px;
+            padding: 0 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin: 60px 0 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 36px;
+            margin-top: 0;
+        }
+
+        .cta-section h2::before {
+            content: '';
+            margin: 0;
+        }
+
+        .cta-section h3 {
+            color: white;
+            font-size: 24px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+        }
+
+        .cta-section ul {
+            text-align: left;
+            max-width: 650px;
+            margin: 20px auto;
+        }
+
+        .cta-section li {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 30px 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .ps-note {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        .ps-note::before {
+            content: 'P.S.';
+            display: block;
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .sketchbook-container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .spiral {
+                display: none;
+            }
+
+            .cta-section {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sketchbook-container">
+        <!-- Spiral binding -->
+        <div class="spiral">
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+        </div>
+
+        <h1>Why Smart People Stay Burned Out<br>(And Lose $50K/Year Doing It)</h1>
+        <p class="subtitle">The hidden system failure that makes recovery impossible—and the diagnostic protocol that finally fixes it</p>
+
+        <p>You've already done everything they told you to do.</p>
+
+        <p>You took time off. Tried meditation. Set boundaries—or at least attempted to. You bought the productivity app, listened to the podcast about morning routines, deleted social media from your phone.</p>
+
+        <p>And for about three days, maybe a week, you felt slightly better.</p>
+
+        <p><span class="highlight">Then you were right back where you started.</span> Same exhaustion. Same brain fog. Same feeling that you're making decisions at 60% capacity and missing opportunities you would have caught if you weren't so drained.</p>
+
+        <div class="money-box">
+            <h4>Here's What That Actually Costs You:</h4>
+            <ul>
+                <li><strong>The promotion you didn't apply for</strong> because you were too tired to deal with the interview process</li>
+                <li><strong>The business opportunity you missed</strong> because your brain was too foggy to see it</li>
+                <li><strong>The bad hire you made</strong> because you didn't have the energy for a thorough vetting process</li>
+                <li><strong>The negotiation you failed</strong> because you were too depleted to push back</li>
+                <li><strong>The project you abandoned</strong> because you couldn't sustain focus long enough to finish</li>
+            </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Conservative estimate: $50,000/year in lost income, poor decisions, and missed opportunities.</strong></p>
+        </div>
+
+        <p>The problem isn't that you didn't try hard enough.</p>
+
+        <p><span class="highlight">The problem is that standard burnout advice treats symptoms, not systems.</span></p>
+
+        <div class="divider"></div>
+
+        <h2>The Expensive Advice That Fails</h2>
+
+        <p>Most burnout recovery advice falls into predictable categories. All of it sounds reasonable. Almost none of it works.</p>
+
+        <h3>1. "Just take more time off"</h3>
+
+        <p>The logic sounds perfect: you're exhausted, so you need rest.</p>
+
+        <p>But if burnout were just fatigue, a vacation would fix it. It doesn't. You sleep eight hours and wake up tired. You take two weeks off and come back to find that nothing changed except your inbox is fuller and you're behind on everything.</p>
+
+        <p><span class="highlight">That's because burnout isn't sleep debt.</span> It's not a deficit you can repay with time. It's your nervous system stuck in emergency mode, unable to exit the stress response even when the threat is gone.</p>
+
+        <div class="box">
+            Rest pauses the bleed. But if your system is structurally broken, rest doesn't close the wound. You're not tired. Your operating system is corrupted.
+        </div>
+
+        <p><strong>What this costs you:</strong> Every week you spend "resting" without fixing the underlying system is another week of opportunities closing, decisions deteriorating, and income stagnating.</p>
+
+        <h3>2. "Try meditation or mindfulness"</h3>
+
+        <p>Meditation helps you notice you're drowning. It doesn't teach you to swim.</p>
+
+        <p>If you're burned out because your cognitive system is overloaded—switching between 47 tasks a day, fielding constant interruptions, making decisions without space to think—meditation might help you become more aware of the problem.</p>
+
+        <p><strong>But awareness isn't treatment.</strong></p>
+
+        <p>Worse, if you're physically depleted, meditation often makes things harder. When your nervous system is dysregulated, sitting still and "being present" just amplifies the discomfort you're trying to escape.</p>
+
+        <div class="warning-box">
+            <strong>The hidden cost:</strong> While you're meditating, hoping it will fix you, your competition isn't meditating. They're executing. They're capturing the opportunities you're too burned out to see.
+        </div>
+
+        <h3>3. "Set better boundaries"</h3>
+
+        <p>This one's particularly cruel because it sounds so obviously right.</p>
+
+        <p>But setting boundaries requires something you don't have when you're burned out: <strong>the capacity to enforce them.</strong></p>
+
+        <p>Saying no takes cognitive energy. Explaining why takes emotional energy. Dealing with the pushback? That's a third layer of drain you can't afford.</p>
+
+        <p>So you try to set a boundary, it gets tested, you don't have the bandwidth to hold it, and now you feel like a failure for not protecting your energy. Which drains you further.</p>
+
+        <p><span class="highlight">Boundaries aren't wrong. They're just step five, not step one.</span> You can't set boundaries before you restore the capacity to enforce them.</p>
+
+        <p><strong>What this costs you:</strong> Every failed boundary attempt chips away at your credibility and your energy. Each one makes the next one harder to attempt.</p>
+
+        <h3>4. "Optimize your morning routine"</h3>
+
+        <p>Cold showers. Journaling. Green smoothies. Five-minute yoga. Inbox zero before 9am.</p>
+
+        <p>The morning routine industrial complex assumes your problem is lack of optimization. That if you just had the right sequence of habits, you'd unlock your capacity.</p>
+
+        <p><span class="highlight">But burnout isn't a puzzle where you need the right combination.</span> It's structural failure. Adding more things to do—even "good" things—is like trying to improve a car's performance by adding weight to a vehicle with a broken engine.</p>
+
+        <p>The extra habits don't help. They're more items on your cognitive load. More failure points. More things to feel guilty about when you can't sustain them.</p>
+
+        <p><strong>What this costs you:</strong> Time and mental energy spent on optimization theater while the real problem—system failure—goes unaddressed.</p>
+
+        <h3>5. "Just push through it"</h3>
+
+        <p>This is the advice high performers give themselves. "I've done hard things before. I just need to be tougher."</p>
+
+        <p>But burnout isn't a lack of toughness. It's not a challenge to overcome with willpower. It's a biological state where your systems are running in the wrong mode.</p>
+
+        <div class="warning-box">
+            Pushing through burnout is like running on a sprained ankle. You're not building resilience. You're creating permanent damage. And every day you push through depleted, you're making decisions that cost you money, relationships, and opportunities you'll never get back.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>The Hidden Truth About Burnout</h2>
+
+        <p>Here's what nobody tells you:</p>
+
+        <p><span class="highlight">Burnout isn't one problem. It's three distinct system failures that present with similar symptoms.</span></p>
+
+        <div class="system-box">
+            <h4>The 3 Hidden Systems:</h4>
+            <p><strong>Physical Burnout:</strong> Your nervous system is stuck in threat mode. Every decision feels dangerous. Your body literally won't let you rest even when you're exhausted.</p>
+            <p><strong>Cognitive Burnout:</strong> Your attention is fragmented beyond repair. You can't focus, can't retain information, can't make complex decisions. Your brain has no processing power left.</p>
+            <p><strong>Emotional Burnout:</strong> Your motivation system is offline. The things that used to drive you feel hollow. You're working on values that don't match who you actually are.</p>
+        </div>
+
+        <p>Here's the expensive part: <strong>Most people have one primary system failure.</strong> Maybe two. Rarely all three.</p>
+
+        <p>If you're physically depleted, cognitive interventions won't help. If you're cognitively overloaded, emotional realignment won't fix it. If you're emotionally exhausted, nervous system work addresses the wrong layer.</p>
+
+        <p><span class="highlight">You're not broken. You're just applying the wrong fix to the actual problem.</span></p>
+
+        <div class="money-box">
+            <h4>Why This Matters For Your Income:</h4>
+            <ul>
+                <li>Physical burnout makes you miss opportunities because your threat response flags everything as dangerous</li>
+                <li>Cognitive burnout means you can't process complex information, so you default to safe (low-value) decisions</li>
+                <li>Emotional burnout keeps you grinding on projects that don't align with your actual strengths, wasting years of potential earnings</li>
+            </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Each week you treat the wrong system is another week of deteriorating performance and lost income.</strong></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Why Diagnosis Matters More Than Intervention</h2>
+
+        <p>This is the part most articles don't tell you.</p>
+
+        <p><span class="highlight">You don't need more advice. You need to know which system is actually failing.</span></p>
+
+        <p>Most people skip diagnosis entirely. They read an article, try the first thing that sounds plausible, see minimal results, and conclude that they're broken or that recovery isn't possible.</p>
+
+        <p>Neither is true. The intervention just didn't match the problem.</p>
+
+        <div class="system-box">
+            <h4>The Difference Between Theory and Recovery:</h4>
+            <p>Understanding why burnout happens is interesting. Diagnosing which system is failing is actionable. And applying targeted protocols to that specific system is what actually generates results.</p>
+        </div>
+
+        <p class="quote">"The wrong diagnosis guarantees the wrong treatment. And the wrong treatment guarantees you stay stuck—while opportunities, income, and time slip away."</p>
+
+        <div class="divider"></div>
+
+        <h2>What Actually Happens In Real Recovery</h2>
+
+        <p>Real burnout recovery follows a specific sequence. Not random advice. Not motivation. Structure.</p>
+
+        <p><strong>First: Diagnosis.</strong> Not self-assessment based on how you feel, but structured evaluation that identifies your primary depletion pattern. Physical, cognitive, or emotional—and which one is bleeding the most.</p>
+
+        <p><strong>Second: Removal.</strong> Not adding new habits. Identifying what's actively draining your primary system and stopping it. This is where immediate relief comes from. Not optimization. Subtraction.</p>
+
+        <p><strong>Third: Targeted restoration.</strong> Applying the specific protocols that address your identified system failure. Not generic wellness advice. Interventions matched to your depletion pattern.</p>
+
+        <p><strong>Fourth: Maintenance.</strong> Building the early warning system that catches decline before it becomes crisis. Because recovering once doesn't prevent burnout from happening again if you don't change the conditions that caused it.</p>
+
+        <p>This isn't complicated. But it is specific. And that specificity is why most generic advice fails.</p>
+
+        <div class="box">
+            <strong>What changes when you fix the right system:</strong><br><br>
+            Your decision-making sharpens. You see opportunities you were missing. You have the capacity to execute on them. The projects that felt impossible become manageable. The negotiations you would have avoided become winnable.<br><br>
+            <strong>This is how people break through income plateaus.</strong> Not by working harder. By fixing the system that was sabotaging them.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>The Real Reason You're Still Burned Out</h2>
+
+        <p>It's not because you haven't tried enough things.</p>
+
+        <p>It's not because you lack discipline or commitment.</p>
+
+        <p><span class="highlight">It's because you've been applying interventions without diagnosis.</span> Trying solutions designed for different problems. Following advice that treats burnout as a single condition when it's actually three distinct system failures.</p>
+
+        <p>You wouldn't take antibiotics for a broken bone. You wouldn't treat diabetes with physical therapy. But that's essentially what happens when you try meditation for cognitive fragmentation or take a vacation to fix values misalignment.</p>
+
+        <div class="system-box">
+            <h4>The Real Cost of Staying Burned Out:</h4>
+            <p>Every week you operate at 60% capacity is a week someone else captures the opportunities you're too depleted to see. Every month you stay burned out is another month of bad decisions compounding. Every year is $50,000+ you're leaving on the table.</p>
+            <p style="margin-bottom: 0;"><strong>This isn't about feeling better. This is about restoring the capacity that generates income.</strong></p>
+        </div>
+
+        <p>Understanding why standard approaches fail is useful. It explains why you're not broken, why willpower isn't the answer, and why adding more habits isn't helping.</p>
+
+        <p>But understanding the problem isn't the same as solving it.</p>
+
+        <div class="divider"></div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>The 42-Day Diagnostic Recovery System</h2>
+
+            <p>If you're ready to stop guessing—to identify which system is actually failing and apply protocols that match your specific depletion pattern—you need structured diagnosis and targeted interventions.</p>
+
+            <p style="margin-top: 30px;"><strong>THE BURNOUT CURE: What 50 Years of Research Reveals About Getting Your Energy Back</strong></p>
+
+            <p style="margin-top: 30px;">This isn't a collection of generic wellness tips. This is a clinical, evidence-based protocol that:</p>
+
+            <ul>
+                <li><strong>Diagnoses your exact burnout type</strong> through a validated 3-system assessment (15 minutes, clinical precision)</li>
+                <li><strong>Identifies your specific energy leaks</strong> so you stop wasting effort on interventions that don't match your pattern</li>
+                <li><strong>Provides immediate removal protocols</strong> that create relief within days—not months of trial and error</li>
+                <li><strong>Rebuilds your depleted system</strong> with targeted restoration protocols matched to your diagnosis</li>
+                <li><strong>Restores decision-making capacity</strong> so you stop leaving money on the table</li>
+            </ul>
+
+            <h3>What You Get:</h3>
+
+            <ul style="font-size: 16px;">
+                <li><strong>The 15-Minute Diagnostic Assessment</strong> that identifies your primary burnout type</li>
+                <li><strong>Week 0: Immediate Relief Protocol</strong> — 3 removals that create breathing room this week</li>
+                <li><strong>Week 1: Stop The Bleed</strong> — Personalized removal strategies for your specific system failure</li>
+                <li><strong>Weeks 2-4: System Rebuild</strong> — 5 core restoration protocols (Sleep, Nervous System, Focus, Decision Hygiene, Emotional Alignment)</li>
+                <li><strong>Weeks 5-6: Protection Protocol</strong> — Early warning system that prevents relapse</li>
+                <li><strong>Your Complete Recovery Blueprint</strong> — One-page map of your system, warning signs, and reactivation triggers</li>
+                <li><strong>Emergency Toolkit</strong> — 5-minute interventions for acute crisis moments</li>
+            </ul>
+
+            <p style="margin-top: 30px;"><strong>The Timeline:</strong></p>
+
+            <p>✅ Relief this week (immediate removal protocols)<br>
+            ✅ Noticeable capacity return by Week 2<br>
+            ✅ Decision-making restored by Week 4<br>
+            ✅ Full system rebuild in 42 days<br>
+            ✅ Maintenance framework for life</p>
+
+            <h3>Who This Is For:</h3>
+
+            <ul>
+                <li>If you've tried rest, meditation, and boundaries but you're still exhausted and underperforming</li>
+                <li>If you suspect your problem is deeper than "just being tired"</li>
+                <li>If you're making worse decisions because you're depleted and it's costing you money</li>
+                <li>If you're ready to diagnose the actual system failure instead of treating symptoms</li>
+            </ul>
+
+            <a href="burnout-cure.html" class="cta-button">→ See The Complete System</a>
+
+            <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page interactive PDF workbook<br>
+            ✅ Evidence-based protocols from 50 years of research<br>
+            ✅ Personalized diagnostic assessment<br>
+            ✅ A system you can return to whenever you need it</p>
+
+            <p style="margin-top: 40px; font-size: 15px; font-style: italic;">"Rest treats the symptom. Diagnosis treats the system."</p>
+        </div>
+
+        <!-- P.S. Section -->
+        <div class="ps-note">
+            Here's something you need to understand:<br><br>
+
+            Every day you stay burned out, you're making worse decisions. Missing opportunities. Damaging relationships. Operating at 60% capacity while pretending you're fine.<br><br>
+
+            <strong>The cost isn't just exhaustion. It's everything that exhaustion touches.</strong><br><br>
+
+            Most people will read this, nod along, and then do nothing. They'll go back to trying random solutions, hoping something eventually clicks. They'll spend another year burned out, another $50,000 lost to poor performance and missed opportunities.<br><br>
+
+            But you're still reading. Which means you already know something needs to change.<br><br>
+
+            <strong>The question isn't whether you need a system. The question is whether you're ready to discover which system is actually failing.</strong><br><br>
+
+            42 days from now, you could have your energy back. Your decision-making restored. Your capacity rebuilt. Opportunities you're currently too depleted to see become visible again.<br><br>
+
+            Or you could still be here, exhausted, trying the next generic solution that wasn't designed for your specific system failure. Still losing $50,000/year to depleted performance.<br><br>
+
+            The path forward exists. The question is whether you're ready to take it.<br><br>
+
+            <strong>Start with diagnosis. Everything else follows.</strong>
+        </div>
+
+    </div>
+</body>
+</html>
