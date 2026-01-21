@@ -6,6 +6,25 @@
     <title>Why Smart People Stay Burned Out (And Lose $50K/Year Doing It)</title>
     <meta name="description" content="You've tried rest, boundaries, and meditation. You're still exhausted. Here's the hidden system failure costing you money, opportunities, and years of your life.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔋</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0718BZ9H0J');
+        
+        // Track CTA button clicks to burnout-cure page
+        function trackCTAClick() {
+            gtag('event', 'cta_click', {
+                'event_category': 'engagement',
+                'event_label': 'burnout_cure_page',
+                'page_location': window.location.href
+            });
+        }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -597,7 +616,7 @@
                 <li>If you're ready to diagnose the actual system failure instead of treating symptoms</li>
             </ul>
 
-            <a href="burnout-cure.html" class="cta-button">→ See The Complete System</a>
+            <a href="burnout-cure.html" class="cta-button" onclick="trackCTAClick()">→ See The Complete System</a>
 
             <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page interactive PDF workbook<br>
             ✅ Evidence-based protocols from 50 years of research<br>

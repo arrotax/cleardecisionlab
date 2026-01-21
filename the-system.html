@@ -6,6 +6,25 @@
     <title>The 21-Day Life Reset - Military-Grade Protocol for Anxiety, Procrastination & Overthinking</title>
     <meta name="description" content="Stop losing $50,000/year to anxiety, procrastination, and overthinking. Install the 3 systems that make movement automatic—even on your worst days.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0718BZ9H0J');
+        
+        // Track CTA button clicks to payment page
+        function trackCTAClick() {
+            gtag('event', 'cta_click', {
+                'event_category': 'conversion',
+                'event_label': 'payment_page_21day',
+                'page_location': window.location.href
+            });
+        }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -864,7 +883,7 @@
                 <span class="price-new">$29</span>
             </div>
 
-            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button">Get Instant Access</a>
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" onclick="trackCTAClick()">Get Instant Access</a>
 
             <div class="cta-reassurance">
                 ✓ Instant download · Immediate access<br>
@@ -903,7 +922,7 @@
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Email:</p>
-                    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#690a050c081b0d0c0a001a00060705080b290e04080005470a0604"><span class="__cf_email__" data-cfemail="c6a5aaa3a7b4a2a3a5afb5afa9a8aaa7a486a1aba7afaae8a5a9ab">[email&#160;protected]</span></a>
                 </div>
             </div>
 
@@ -935,7 +954,7 @@
             <br>• Action forcing systems (procrastination becomes impossible)
             <br>• Fast decision-making (80% faster than before)</p>
 
-            <p>Simply email us at <strong>cleardecisionlab@gmail.com</strong> within 60 days with:</p>
+            <p>Simply email us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92f1fef7f3e0f6f7f1fbe1fbfdfcfef3f0d2f5fff3fbfebcf1fdff">[email&#160;protected]</a></strong> within 60 days with:</p>
             
             <ul style="margin: 15px 0 15px 25px; line-height: 1.8;">
                 <li>Your order number</li>
@@ -959,7 +978,7 @@
 
             <h3>Contact for Refund</h3>
             
-            <p><strong>Email:</strong> cleardecisionlab@gmail.com<br>
+            <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6407080105160001070d170d0b0a080506240309050d084a070b09">[email&#160;protected]</a><br>
             <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
             <strong>Response Time:</strong> Within 24 hours</p>
 
@@ -969,29 +988,11 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function openRefundModal() {
             document.getElementById('refundModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
         function closeRefundModal() {
-            document.getElementById('refundModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById('refundModal');
-            if (event.target == modal) {
-                closeRefundModal();
-            }
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeRefundModal();
-            }
-        });
-    </script>
-</body>
-</html>
+            document.getEle

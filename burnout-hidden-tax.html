@@ -4,7 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Hidden Tax on Your Income: Why Burnout Isn't About Being Tired</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0718BZ9H0J');
+        
+        // Track CTA button clicks
+        function trackCTAClick() {
+            gtag('event', 'cta_click', {
+                'event_category': 'engagement',
+                'event_label': 'why_rest_doesnt_fix_burnout',
+                'page_location': window.location.href
+            });
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,319 +53,487 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.65;
-            color: #2c2c2c;
-            background: #fafafa;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
         }
         
         .container {
-            max-width: 680px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 24px 80px;
-            background: #ffffff;
-            min-height: 100vh;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            padding: 60px 50px;
         }
         
-        header {
-            margin-bottom: 48px;
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
         }
         
         h1 {
-            font-size: 36px;
-            line-height: 1.25;
-            margin-bottom: 24px;
+            font-family: 'Caveat', cursive;
+            font-size: 54px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2c3e50;
             font-weight: 700;
-            color: #000000;
-            letter-spacing: -0.02em;
         }
         
         .subtitle {
-            font-size: 20px;
-            color: #666666;
+            font-size: 22px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.4;
             font-weight: 400;
-            line-height: 1.5;
         }
         
         h2 {
-            font-size: 26px;
-            line-height: 1.3;
-            margin-top: 56px;
-            margin-bottom: 24px;
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #e74c3c;
             font-weight: 700;
-            color: #000000;
-            letter-spacing: -0.01em;
-        }
-        
-        p {
-            margin-bottom: 24px;
-            font-size: 18px;
-            color: #2c2c2c;
-        }
-        
-        .highlight-box {
-            background: #f8f8f8;
-            border-left: 4px solid #000000;
-            padding: 28px 32px;
-            margin: 40px 0;
-        }
-        
-        .highlight-box p {
-            margin: 0;
-            font-size: 19px;
-            font-weight: 500;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-        
-        .divider {
-            height: 1px;
-            background: #e0e0e0;
-            margin: 48px 0;
-            border: none;
-        }
-        
-        .cta-section {
-            background: #000000;
-            color: #ffffff;
-            padding: 48px 40px;
-            margin: 64px -24px 0;
             text-align: center;
         }
         
-        .cta-section h3 {
-            font-size: 28px;
+        h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            margin-top: 35px;
             margin-bottom: 20px;
+            color: #667eea;
             font-weight: 700;
-            letter-spacing: -0.01em;
-            line-height: 1.3;
         }
         
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 32px;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #ffffff;
-            color: #000000;
-            padding: 18px 48px;
-            text-decoration: none;
-            font-weight: 700;
+        p {
+            margin-bottom: 22px;
             font-size: 17px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            letter-spacing: 0.01em;
-        }
-        
-        .cta-button:hover {
-            background: #f0f0f0;
-            transform: translateY(-1px);
+            line-height: 1.8;
+            color: #2c3e50;
         }
         
         strong {
             font-weight: 600;
-            color: #000000;
+            color: #2c3e50;
         }
         
-        .list-item {
-            margin-bottom: 16px;
-            padding-left: 24px;
+        .pain-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .pain-box p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .solution-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .solution-box p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .insight-box {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .insight-box p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .warning-box {
+            background: #fff9e6;
+            border-left: 4px solid #d4af37;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .types-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 50px 40px;
+            margin: 50px -50px;
+            border-radius: 10px;
+        }
+        
+        .types-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .type-card {
+            background: white;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .type-card h3 {
+            margin-top: 0;
+            color: #667eea;
+            font-size: 32px;
+        }
+        
+        .type-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 50px 0;
+            border: none;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin: 60px -50px 0;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .cta-section h2 {
+            font-family: 'Caveat', cursive;
+            color: white;
+            margin-top: 0;
+            font-size: 48px;
+        }
+        
+        .cta-section p {
+            font-size: 19px;
+            margin-bottom: 35px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        .list-simple {
+            margin: 25px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .list-simple li {
+            margin-bottom: 15px;
+            padding-left: 30px;
             position: relative;
+            font-size: 17px;
+            line-height: 1.7;
         }
         
-        .list-item:before {
-            content: "—";
+        .list-simple li::before {
+            content: '→';
             position: absolute;
             left: 0;
-            color: #000000;
-            font-weight: 700;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 20px;
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
             .container {
-                padding: 40px 20px 60px;
+                padding: 40px 25px;
             }
             
             h1 {
-                font-size: 30px;
+                font-size: 40px;
             }
             
             h2 {
-                font-size: 24px;
-                margin-top: 40px;
+                font-size: 36px;
+                margin-top: 45px;
             }
             
+            h3 {
+                font-size: 28px;
+            }
+            
+            .types-section,
             .cta-section {
-                padding: 36px 24px;
-                margin: 48px -20px 0;
+                margin-left: -25px;
+                margin-right: -25px;
+                padding: 35px 25px;
             }
             
-            .highlight-box {
-                padding: 24px 20px;
+            .pain-box,
+            .solution-box,
+            .insight-box,
+            .warning-box {
+                padding: 25px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
     <div class="container">
-        <header>
-            <h1>The Hidden Tax on Your Income: Why Burnout Isn't About Being Tired</h1>
-            <p class="subtitle">What really happens when you make decisions in a state of depletion</p>
-        </header>
-
-        <p>Last month, you agreed to a project at a rate you would have rejected a year ago. You knew you should have asked for more. But in the negotiation, you just nodded. Because arguing required energy you didn't have.</p>
-
-        <p>This isn't about laziness. And it's not about lack of ambition.</p>
-
-        <p>It's about how burnout destroys your ability to make decisions that protect your income.</p>
-
-        <h2>Why the weekend doesn't fix it</h2>
-
-        <p>You've already tried resting. You took the weekend off. Maybe even a full week. You came back—and within three days, you're in the same place again.</p>
-
-        <p>The standard advice sounds like this: "You need more rest." Or: "Try meditation." Or: "Set better boundaries."</p>
-
-        <p>But if the problem was the amount of rest, you would have solved it by now.</p>
-
-        <p>The reality is that burnout isn't fatigue you can compensate with sleep. It's a system failure. And until you understand which system is broken, any advice will work like a band-aid on a leaking pipe.</p>
-
-        <h2>The real cost of burnout: the decisions you make</h2>
-
-        <p>Money doesn't disappear because you're not working hard enough. It disappears because you're making decisions in a state of overload.</p>
-
-        <p>You don't raise your rates because negotiation requires cognitive capacity you don't have.</p>
-
-        <p>You take on extra clients because you don't have the energy to say no and explain your position.</p>
-
-        <p>You agree to unfavorable terms because arguing is another attention slot, and your attention budget is depleted.</p>
-
-        <p>Each of these decisions is a hidden tax. You don't see it in the moment. But at the end of the month, you feel that the return doesn't match the investment.</p>
-
-        <div class="highlight-box">
-            <p>Burnout isn't about not being able to work. It's about losing control over the quality of your decisions.</p>
+        <div class="hero">
+            <h1>The Hidden Tax on Your Income</h1>
+            <p class="subtitle">Why burnout isn't about being tired — and what it's actually costing you</p>
         </div>
 
-        <p>And while you're trying to "push through it," you continue making decisions that slowly but systematically erode your income.</p>
+        <p>Three months ago, you agreed to a project at a rate you would have rejected a year earlier. You knew you should have asked for more. But in the negotiation, you just nodded.</p>
 
-        <h2>Why generic advice doesn't work</h2>
+        <p>Because the thought of explaining your value required energy you didn't have.</p>
 
-        <p>Imagine going to a doctor with chest pain. And they say: "Everyone benefits from aspirin."</p>
+        <p>This isn't about laziness. It's not about lack of ambition.</p>
 
-        <p>The problem is that chest pain can be a symptom of angina, intercostal neuralgia, or heartburn. And the treatment in each case is different.</p>
+        <p>It's about how burnout systematically degrades your ability to make decisions that protect your income.</p>
 
-        <p>Burnout is the same.</p>
+        <h2>The decisions you don't see yourself making</h2>
 
-        <p>One person is physically depleted: their nervous system is stuck in survival mode, they sleep 7 hours but wake up exhausted.</p>
+        <p>Money doesn't disappear because you're working less. It disappears because you're making lower-quality decisions while working the same amount—or more.</p>
 
-        <p>Another is cognitively overloaded: their brain switches between tasks 47 times a day, and they have no processing power left for decision-making.</p>
+        <div class="pain-box">
+            <p><strong>The pattern looks like this:</strong> You don't raise your rates because negotiation requires cognitive capacity you no longer have. You take on clients you should decline because saying no takes more energy than saying yes. You agree to unfavorable terms because pushing back is another decision you don't have bandwidth for.</p>
+        </div>
 
-        <p>A third is emotionally exhausted: their motivation system has shut down because they're doing work that conflicts with their values.</p>
+        <p>Each of these is a small leak. You don't notice it in the moment. But at the end of the quarter, you look at your numbers and wonder why the revenue doesn't match the effort.</p>
 
-        <p>All three are "burned out." But if you give the first one meditation, the second one better sleep, and the third one time management, nothing will change.</p>
+        <div class="solution-box">
+            <p>Burnout doesn't stop you from working. It stops you from making the decisions that make your work profitable.</p>
+        </div>
 
-        <p>Because the treatment doesn't match the diagnosis.</p>
+        <h2>Why "just rest" doesn't fix the problem</h2>
 
-        <h2>What's actually "leaking" in your system</h2>
+        <p>You've tried the obvious solution. You took time off. Maybe a long weekend. Maybe even a full week.</p>
 
-        <p>When you feel burnout, one of three systems is leaking:</p>
+        <p>For the first day or two, you felt better. Then you came back to work—and within 48 hours, you were right back in the same state.</p>
 
-        <div class="list-item"><strong>Physical.</strong> Your body is stuck in constant mobilization mode. You're not recovering, even when you rest. Sleep doesn't refresh you. Energy doesn't return.</div>
+        <p>Same fog. Same depletion. Same pattern of saying yes when you should say no.</p>
 
-        <div class="list-item"><strong>Cognitive.</strong> Your brain is fragmented. You switch between tasks, check your phone, respond to messages—and you have no resources left for deep work and strategic decisions.</div>
+        <p>Here's why rest alone doesn't work: <strong>burnout isn't a deficit you can repay with time off.</strong></p>
 
-        <div class="list-item"><strong>Emotional.</strong> Your motivation system has shut down. You're doing what you're supposed to do, but it doesn't align with what matters to you. And every day of this misalignment drains you further.</div>
+        <p>If burnout were just accumulated fatigue, sleep would fix it. You'd take a vacation, recharge, and come back restored. But that's not what happens.</p>
 
-        <p>These aren't metaphors. These are measurable systems with specific restoration protocols backed by 50 years of organizational psychology, neuroscience, and clinical research.</p>
+        <p>What actually happens is that you rest, feel temporarily better, and then return to the same conditions that caused the depletion in the first place. The system that's broken—whatever it is—is still broken.</p>
 
-        <p>But you can't apply the right protocol until you know which system is bleeding the most.</p>
+        <p>Rest is a pause button, not a fix.</p>
 
-        <h2>The problem isn't you</h2>
+        <p>This is why people cycle through burnout repeatedly. They rest when it gets unbearable, get temporary relief, go back to the same patterns, and burn out again three months later.</p>
 
-        <p>Here's what most burnout advice gets wrong: it assumes the problem is you.</p>
+        <p>The underlying problem never gets addressed.</p>
 
-        <p>That you're not disciplined enough. That you need to work harder on your mindset. That you haven't found the right morning routine.</p>
+        <div class="types-section">
+            <h2>The real problem: you're fixing the wrong system</h2>
+            
+            <p style="text-align: center; font-size: 18px; margin-bottom: 35px;">Burnout isn't one thing. It's at least three different system failures that look similar on the surface but require completely different interventions.</p>
 
-        <p>The actual problem is that you're trying to fix a systemic depletion with willpower. And willpower is the first thing to go when your system is compromised.</p>
+            <div class="type-card">
+                <h3>Physical Burnout</h3>
+                <p>Your body is stuck in a chronic stress response. Your nervous system can't downregulate. You sleep seven hours but wake up exhausted because your physiology never shifts out of emergency mode.</p>
+                <p><strong>This isn't about needing more sleep</strong>—it's about your body being locked in a state that prevents actual recovery.</p>
+            </div>
 
-        <p>The solution isn't to try harder. It's to stop the leak.</p>
+            <div class="type-card">
+                <h3>Cognitive Burnout</h3>
+                <p>Your brain has no processing power left. You're switching between tasks constantly, making dozens of micro-decisions every hour, operating in reactive mode.</p>
+                <p><strong>This isn't about focus techniques</strong>—it's about attention capacity being completely depleted.</p>
+            </div>
+
+            <div class="type-card">
+                <h3>Emotional Burnout</h3>
+                <p>Your motivation system is offline. You're doing work that fundamentally conflicts with what you value. Every day drains you not because the work is hard, but because it's misaligned.</p>
+                <p><strong>This isn't about discipline</strong>—it's about your system recognizing a fundamental mismatch and trying to get you to stop.</p>
+            </div>
+        </div>
+
+        <p>All three look like "burnout." But they're different problems with different solutions.</p>
+
+        <div class="warning-box">
+            <p><strong>Critical insight:</strong> If you apply the wrong intervention to the wrong type of burnout, it doesn't just fail to help—it can make things worse.</p>
+        </div>
+
+        <h2>Why generic advice makes the problem worse</h2>
+
+        <p>Most burnout advice assumes burnout is one thing with one solution. Take more breaks. Try meditation. Set better boundaries. Get more sleep.</p>
+
+        <p>These interventions work for some types of burnout. But they fail—or actively backfire—for others.</p>
+
+        <h3>If you're physically depleted:</h3>
+        <p>Meditation can make things worse. Sitting still and "being present" when your nervous system is dysregulated often just amplifies the discomfort you're trying to escape.</p>
+
+        <p>It's not that meditation is bad—it's that it's the wrong tool for this particular problem.</p>
+
+        <h3>If you're cognitively overloaded:</h3>
+        <p>Taking more breaks doesn't help because the issue isn't the volume of work—it's the fragmentation of attention. You need to restructure how you work, not work less.</p>
+
+        <p>More breaks just means more transitions, which is exactly what's draining you.</p>
+
+        <h3>If you're emotionally exhausted:</h3>
+        <p>Time management and productivity systems make things worse. You become more efficient at doing work that's fundamentally draining you.</p>
+
+        <p>You're optimizing the wrong variable.</p>
+
+        <div class="insight-box">
+            <p>This is why so many people try five or six different approaches to burnout recovery and none of them work. They're not failing because they lack discipline. They're failing because they're applying interventions that don't match their specific depletion pattern.</p>
+        </div>
+
+        <h2>The hidden cost you're not calculating</h2>
+
+        <p>When you're burned out, you're not just tired. You're making decisions from a compromised baseline.</p>
+
+        <p>Every week, you're probably making three or four decisions that cost you money. Not big, obvious mistakes—small degradations in judgment that compound over time.</p>
+
+        <ul class="list-simple">
+            <li>You say yes to a project at your old rate instead of your new rate because the negotiation feels too hard. That's $2,000 you left on the table.</li>
+            <li>You don't push back on scope creep because you don't have the bandwidth to have the conversation. That's 10 hours of unpaid work.</li>
+            <li>You miss a strategic opportunity because you're operating in reactive mode and don't have the cognitive space to evaluate whether it's good for you.</li>
+        </ul>
+
+        <p>None of these feel catastrophic in the moment. But over a quarter, they add up to thousands of dollars in lost revenue. Over a year, tens of thousands.</p>
+
+        <div class="pain-box">
+            <p><strong>And the worst part?</strong> You're normalizing it. Your brain is learning that this is how you operate now. That saying yes to less is easier. That pushing back takes too much energy. That accepting lower rates is safer than negotiating.</p>
+        </div>
+
+        <p>You're not just losing money. You're training yourself to make decisions that perpetually undervalue your work.</p>
+
+        <h2>Why most people stay stuck</h2>
+
+        <p>At this point, most people do one of two things.</p>
+
+        <p><strong>Option one: They try harder.</strong> They read another article about productivity. They download another app. They're convinced that if they just optimize better, work smarter, or push through more effectively, they'll break through.</p>
+
+        <p>This doesn't work because the problem isn't effort. It's system failure. Trying harder when your system is compromised is like trying to improve a car's performance by pressing the accelerator harder while the engine is overheating.</p>
+
+        <p><strong>Option two: They accept it.</strong> They conclude that this is just how life is now. That feeling depleted is normal. They lower their baseline and adapt to operating at 60% capacity.</p>
+
+        <p>This is arguably worse than option one because it becomes permanent.</p>
 
         <hr class="divider">
 
-        <h2>What you actually need</h2>
+        <h2>The one thing that actually matters</h2>
 
-        <p>You already understand why rest doesn't work. Why pushing through fails. Why generic advice misses.</p>
+        <p>Recovery from burnout doesn't start with an intervention. It starts with diagnosis.</p>
 
-        <p>But understanding doesn't restore your system. It just makes the gap more frustrating.</p>
+        <p>Not self-assessment. Not intuition about what you think is wrong. <strong>Structured evaluation that identifies which of the three systems is actually failing.</strong></p>
 
-        <p>Actual recovery requires three things:</p>
-
-        <div class="list-item"><strong>Diagnosis.</strong> You need to know which of the three systems is bleeding. Not guesswork. Not "try this and see." Actual assessment that tells you where to focus.</div>
-
-        <div class="list-item"><strong>Removal before addition.</strong> You don't need more habits. You need to identify what's actively draining you and remove it first. Relief comes from subtraction, not optimization.</div>
-
-        <div class="list-item"><strong>Specific protocols, not generic tips.</strong> Once you know your type, you need targeted interventions that address your specific depletion pattern. Not 50 things to try. Five protocols that actually work for your system.</div>
-
-        <p>This is the difference between feeling slightly better for a few days and actually restoring your baseline capacity.</p>
-
-        <p>But here's what most people miss: understanding which system is failing isn't the same as having the diagnostic tool to identify it accurately. Or the removal protocols sequenced to your type. Or the implementation structure that prevents you from fixing the wrong system first and quietly making it worse.</p>
-
-        <p>Most people who try to self-diagnose get it wrong. They think they're cognitively overloaded when they're actually physically depleted. They apply protocols that don't match their primary leak. And they burn out on recovery itself.</p>
-
-        <h2>Why this matters now</h2>
-
-        <p>Every week you operate in depletion, you're making decisions that compound the problem.</p>
-
-        <p>You're saying yes to projects you should decline. You're not negotiating rates you deserve. You're losing strategic focus because you're in reactive mode.</p>
-
-        <p>And you're normalizing it. Your brain is learning that this is how you operate. That saying yes to less is easier than the cognitive load of saying no. That accepting lower rates is safer than the energy required to negotiate.</p>
-
-        <p>The cost isn't just in how you feel. It's in the revenue you're leaving on the table every single month. The opportunities you're missing because you don't have the cognitive capacity to evaluate them. The compound effect of decisions made from a depleted baseline.</p>
-
-        <div class="highlight-box">
-            <p>You're already paying for burnout. Every time you accept less than you're worth. Every time you say yes when you should say no. Every strategic decision you defer because you don't have the capacity. That's the tax. And it's compounding.</p>
+        <div class="solution-box">
+            <p>Because here's what most people don't realize: <strong>you can't tell which system is broken just by how you feel.</strong></p>
         </div>
 
-        <p>Your system is compromised. And it won't restore itself through rest or willpower.</p>
+        <p>Physical depletion feels like cognitive overload. Cognitive overload feels like emotional exhaustion. Emotional exhaustion mimics physical burnout.</p>
 
-        <h2>What happens next</h2>
+        <p>They all produce the same surface experience: you're tired, overwhelmed, and nothing seems to help.</p>
 
-        <p>At this point, most people do the same thing.</p>
+        <p>Most people guess. They try the intervention that sounds most plausible. It doesn't work. They try something else. That doesn't work either. They conclude they're broken or that recovery isn't possible for them.</p>
 
-        <p>They nod. They recognize themselves in this. And then they go back to guessing.</p>
+        <p>The intervention isn't the problem. The diagnosis is.</p>
 
-        <p>They try to rest more. They try to focus harder. They try meditation, or better boundaries, or a new productivity system.</p>
+        <h2>What actually needs to happen</h2>
 
-        <p>And because they never identify which system is actually failing, nothing changes.</p>
+        <p>Real recovery follows a specific sequence.</p>
 
-        <p>Understanding the problem isn't the same as solving it. And most people don't fail because they don't understand this—they fail because they postpone diagnosis.</p>
+        <p><strong>First: Identify which system is actually failing.</strong> Not which one you think is the problem, but which one the evidence points to. Physical, cognitive, or emotional. Primary and secondary patterns.</p>
 
-        <p>Without knowing which system is actually failing, you're not just staying stuck. You're actively training yourself into worse patterns every single day.</p>
+        <p><strong>Second: Remove what's actively draining that system.</strong> Not add new habits. Subtraction comes before addition. This is where immediate relief happens—not from doing more, but from stopping what's causing the leak.</p>
 
-        <p>The next step—the only step that matters—is diagnosis. Not intuition. Not trial and error. Actual assessment that tells you which of the three systems is bleeding, what to remove first, and which specific protocols will restore your capacity.</p>
+        <p><strong>Third: Apply restoration protocols specific to your depletion type.</strong> Not generic wellness advice. Targeted interventions that address the actual system that's compromised.</p>
 
-        <h2>The cost of waiting</h2>
+        <p><strong>Fourth: Build maintenance systems</strong> that catch early warning signs before full burnout happens again.</p>
 
-        <p>Every week you operate without diagnosis, you're not just losing time. You're compounding the problem.</p>
+        <p>This isn't complicated. But it is specific. And that specificity is exactly why most approaches fail.</p>
 
-        <p>You're reinforcing the pattern of saying yes to lowball rates. You're normalizing decisions made from depletion. You're teaching your nervous system that this is baseline.</p>
+        <div class="warning-box">
+            <p><strong>The difference between trying five things that don't work and finding one thing that does isn't luck.</strong> It's accurate diagnosis followed by matched intervention.</p>
+        </div>
 
-        <p>The cost isn't just how you feel. It's the revenue you leave on the table because you don't have the capacity to negotiate. The clients you take on when you should decline. The strategic opportunities you miss because you're operating in reactive mode.</p>
+        <h2>The real question</h2>
 
-        <p>One bad decision made from depletion this month costs more than fixing the system. You're not deciding whether to invest in recovery. You're deciding whether to keep paying the tax of operating broken.</p>
+        <p>You now understand why you're still burned out. Why rest doesn't fix it. Why trying harder makes it worse. Why generic advice fails.</p>
+
+        <p>The question isn't whether you need to do something different. You already know you do.</p>
+
+        <p>The question is: what happens next?</p>
+
+        <p>Most people nod, recognize themselves in this, and then go back to the same patterns. They try to rest more, or push through more effectively, or apply slightly different versions of the same interventions that haven't worked.</p>
+
+        <p>Because even though they now understand the problem conceptually, they still don't know which specific system is failing or what to do about it.</p>
+
+        <p><strong>Understanding why you're burned out isn't the same as knowing how to stop being burned out.</strong></p>
 
         <div class="cta-section">
-            <h3>The Diagnostic Recovery System</h3>
-            <p>You're already paying the cost of burnout. Every negotiation you don't push back on. Every client you take when you should decline. Every strategic decision you defer because you don't have the capacity.</p>
-            <p>This is the exit: a 58-page interactive workbook with diagnostic assessment, personalized removal protocols, and 5 targeted restoration systems.</p>
-            <p>Not motivation. Not generic advice. Clinical recovery of your decision-making capacity in 42 days.</p>
-            <p>You don't need another explanation. You need the tool that stops the leak.</p>
-            <a href="burnout-cure.html" class="cta-button">Get The Complete System - $39</a>
+            <h2>Why Rest Doesn't Fix Burnout</h2>
+            <p>The next article breaks down exactly why physical rest fails for cognitive and emotional burnout—and what actually needs to happen for each type.</p>
+            <p>This is where diagnosis becomes actionable.</p>
+            <a href="why-rest-doesnt-fix-burnout.html" class="cta-button" onclick="trackCTAClick()">Read Why Rest Fails →</a>
         </div>
     </div>
+    
+    <!-- Progress Bar Script -->
+    <script>
+        // Update progress bar on scroll
+        window.addEventListener('scroll', function() {
+            const progressBar = document.getElementById('progressBar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercentage + '%';
+        });
+    </script>
 </body>
 </html>
