@@ -15,13 +15,36 @@
         gtag('js', new Date());
         gtag('config', 'G-0718BZ9H0J');
         
- // Track CTA button clicks (GA4)
+ // Track CTA button clicks (GA4) with reliable send before navigation
 function trackCTAClick(linkUrl) {
-    gtag('event', 'cta_click', {
-        page_path: window.location.pathname,
-        page_location: window.location.href,
-        link_url: linkUrl || null
-    });
+    try {
+        if (typeof gtag !== 'function') {
+            window.location.href = linkUrl;
+            return false;
+        }
+
+        let navigated = false;
+        const go = () => {
+            if (navigated) return;
+            navigated = true;
+            window.location.href = linkUrl;
+        };
+
+        gtag('event', 'cta_click', {
+            page_path: window.location.pathname,
+            page_location: window.location.href,
+            link_url: linkUrl || undefined,
+            transport_type: 'beacon',
+            event_callback: go
+        });
+
+        // Fallback in case callback is blocked
+        setTimeout(go, 800);
+        return false;
+    } catch (e) {
+        window.location.href = linkUrl;
+        return false;
+    }
 }
 
     </script>
@@ -1060,7 +1083,7 @@ function trackCTAClick(linkUrl) {
            <a
   href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/2c30cebc-5294-49ed-aacf-568fcea3d651"
   class="cta-button"
-  onclick="trackCTAClick(this.href); setTimeout(() => { window.location.href = this.href; }, 150); return false;"
+  onclick="return trackCTAClick(this.href);"
 >
   Get Instant Access
 </a>
@@ -1184,4 +1207,14 @@ function trackCTAClick(linkUrl) {
 
         function closeRefundModal() {
             document.getElementById('refundModal').style.display = 'none';
-            document.body.style
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function (event) {
+            var modal = document.getElementById('refundModal');
+            if (event.target === modal) closeRefundModal();
+        });
+    </script>
+</body>
+</html>
