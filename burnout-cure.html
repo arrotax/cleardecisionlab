@@ -30,7 +30,7 @@ function trackCTAClick(linkUrl) {
             window.location.href = linkUrl;
         };
 
-        gtag('event', 'cta_click', {
+        gtag('event', 'burnout_cta_click', {
             page_path: window.location.pathname,
             page_location: window.location.href,
             link_url: linkUrl || undefined,
