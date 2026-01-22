@@ -15,13 +15,38 @@
         gtag('js', new Date());
         gtag('config', 'G-0718BZ9H0J');
         
-        // Track CTA button clicks to the-system page
-        function trackCTAClick() {
-            gtag('event', 'cta_click', {
-                'event_category': 'engagement',
-                'event_label': 'the_system_page',
-                'page_location': window.location.href
-            });
+        // Track CTA button clicks (GA4) with reliable send before navigation
+        function trackCTAClick(linkUrl) {
+            try {
+                if (typeof gtag !== 'function') {
+                    window.location.href = linkUrl;
+                    return false;
+                }
+
+                let navigated = false;
+                const go = () => {
+                    if (navigated) return;
+                    navigated = true;
+                    window.location.href = linkUrl;
+                };
+
+                gtag('event', '21day_warmup_cta_click', {
+                    page_path: window.location.pathname,
+                    page_location: window.location.href,
+                    link_url: linkUrl || undefined,
+                    transport_type: 'beacon',
+                    event_callback: go
+                });
+
+                // Fallback in case callback is blocked
+                setTimeout(go, 800);
+                return false;
+            } catch (e) {
+                window.location.href = linkUrl;
+                return false;
+            }
+        }
+);
         }
     </script>
     
@@ -712,7 +737,7 @@
     <div class="cta-section">
         <h2>Get The Complete 21-Day System</h2>
         <p>The exact protocols, worksheets, and daily routines that install anxiety control, action forcing, and fast decision-making into your life—starting this week</p>
-        <a href="the-system.html" class="cta-button" onclick="trackCTAClick()">See The Full Protocol →</a>
+        <a href="the-system.html" class="cta-button" onclick="return trackCTAClick(this.href);">See The Full Protocol →</a>
     </div>
 
 </div>
