@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern Woman's Safety System - A Clear Framework for Recognizing Risk Early</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f5f2 0%, #e8e4df 100%);
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7c 100%);
+            color: white;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-quote {
+            font-size: 18px;
+            color: #a8d5e2;
+            font-style: italic;
+            border-left: 3px solid #ff6b6b;
+            padding-left: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content */
+        .content {
+            padding: 60px 50px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #1a3a52;
+            font-weight: 700;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: linear-gradient(180deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #fdcb6e 60%);
+            padding: 3px 2px;
+            font-weight: 600;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #ff6b6b;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.9;
+        }
+
+        .warning-box strong {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #c0392b;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 0 8px 8px 0;
+            line-height: 2;
+        }
+
+        .success-box strong {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #047857;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #1a3a52;
+        }
+
+        /* NOT FOR Box */
+        .not-for-box {
+            background: #fffbeb;
+            border: 2px solid #fbbf24;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .not-for-box h3 {
+            margin-top: 0;
+            color: #92400e;
+            font-size: 22px;
+        }
+
+        .not-for-box ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        .not-for-box li {
+            margin-bottom: 12px;
+            color: #78350f;
+        }
+
+        /* Divider */
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+            margin: 60px auto;
+            border-radius: 2px;
+        }
+
+        /* Module */
+        .module {
+            margin-bottom: 30px;
+            border-left: 3px solid #e5e7eb;
+            padding-left: 25px;
+            transition: border-color 0.3s;
+        }
+
+        .module:hover {
+            border-left-color: #008b8b;
+        }
+
+        .module-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .module-number {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .module-content {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            margin: 40px 0;
+        }
+
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .comparison-item.highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #10b981;
+            font-weight: 600;
+        }
+
+        .comparison-label {
+            color: #4b5563;
+        }
+
+        .comparison-value {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        /* Price Section */
+        .price-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 50px;
+            margin: 60px -50px;
+            text-align: center;
+        }
+
+        .price-box {
+            margin: 40px 0;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            color: #1a3a52;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .price-subtext {
+            font-size: 18px;
+            color: #6b7280;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 19px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(238, 90, 111, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(238, 90, 111, 0.6);
+        }
+
+        /* Compact feature list */
+        .features-compact {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            padding: 30px 40px;
+            margin: 35px 0;
+            border-radius: 8px;
+        }
+
+        .features-compact ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .features-compact li {
+            padding-left: 35px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 0;
+        }
+
+        .features-compact li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .features-compact li strong {
+            display: block;
+            color: #1a3a52;
+            margin-bottom: 3px;
+        }
+
+        /* Guarantee */
+        .guarantee-standalone {
+            background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+            border: 3px solid #10b981;
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+        }
+
+        .guarantee-standalone h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #047857;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .guarantee-standalone p {
+            color: #065f46;
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 15px auto;
+            max-width: 650px;
+        }
+
+        .guarantee-standalone strong {
+            color: #047857;
+            font-size: 20px;
+        }
+
+        /* P.S. Note */
+        .ps-note {
+            background: #fffbeb;
+            border-left: 5px solid #fbbf24;
+            padding: 35px;
+            margin: 50px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #78350f;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 60px 50px;
+            background: #f9fafb;
+        }
+
+        /* Footer */
+        .footer-container {
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            color: #1a3a52;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .footer-section a {
+            color: #008b8b;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 50px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from { 
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #95a5a6;
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 35px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #2c3e50;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            color: #1a3a52;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            text-align: left;
+            padding-left: 0;
+        }
+
+        .modal-content h2::before {
+            display: none;
+        }
+
+        .modal-content h3 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .modal-content ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        .modal-content li {
+            margin-bottom: 10px;
+            color: #4b5563;
+        }
+
+        .modal-content .guarantee-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+            border-left: 4px solid #10b981;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        ul {
+            margin: 20px 0 20px 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .header,
+            .content,
+            .price-section,
+            .footer-cta {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .price {
+                font-size: 56px;
+            }
+
+            .features-compact ul {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 30px 20px;
+                margin: 10% auto;
+            }
+        }
+
+        /* --- Footer + Refund modal (synced with the-system.html) --- */
+.footer-container {
+            background: #f8f9fa;
+            padding: 40px 50px;
+            margin-top: 60px;
+            border-radius: 8px;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: #dee2e6;
+            margin-bottom: 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .footer-section a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #2980b9;
+        }
+
+        .footer-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #dee2e6;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .guarantee-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+@media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0718BZ9H0J');
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230b5cff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300c2ff%22/%3E%0A%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23g%29%22/%3E%0A%3Cpath%20d%3D%22M32%2012c10%206%2018%204%2018%204v18c0%2013-9%2023-18%2028C23%2057%2014%2047%2014%2034V16s8%202%2018-4Z%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.92%29%22/%3E%0A%3Cpath%20d%3D%22M27.5%2034.5l-4-4%202.3-2.3%201.7%201.7%2010-10%202.3%202.3-12.3%2012.3Z%22%20fill%3D%22%230b5cff%22/%3E%0A%3C/svg%3E">
+<style>
+/* Tighten spacing in the "Here's what you'll actually do" box */
+.action-box h2,
+.action-box h3 {
+  margin-bottom: 10px !important;
+}
+.action-box p.subtitle,
+.action-box .subtitle {
+  margin-top: 6px !important;
+  margin-bottom: 12px !important;
+}
+.action-box ol,
+.action-box ul {
+  margin-top: 10px !important;
+}
+</style>
+
+<style>
+/* Improve readability of steps list */
+.steps-list li {
+  margin-bottom: 18px;
+}
+.steps-list li .step-desc {
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #444;
+  line-height: 1.45;
+}
+</style>
+
+
+<style>
+.steps-list li {
+  margin-bottom: 28px;
+}
+.steps-list li strong {
+  display: block;
+  margin-bottom: 2px;
+}
+.steps-list li .step-desc {
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 14px;
+  font-size: 0.95em;
+  color: #555;
+}
+</style>
+
+<style>
+/* Rebuilt "Here's what you'll actually do" box */
+.info-box.action-box {
+  padding: 22px 22px;
+}
+.info-box.action-box .action-title {
+  margin: 0 0 14px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.info-box.action-box .action-steps {
+  margin: 0;
+  padding-left: 22px;
+}
+.info-box.action-box .action-steps li {
+  margin: 0 0 16px 0;
+}
+.info-box.action-box .action-steps li:last-child {
+  margin-bottom: 0;
+}
+.info-box.action-box .step-main {
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+.info-box.action-box .step-sub {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.45;
+}
+</style>
+<style>
+/* Reading progress bar */
+#scroll-progress{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(44, 95, 124, 0.18);
+  z-index: 9999;
+  pointer-events: none;
+}
+#scroll-progress-bar{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #fdcb6e 0%, #e17055 100%);
+  box-shadow: 0 2px 8px rgba(253, 203, 110, 0.45);
+  transform: translateZ(0);
+  transition: width 120ms linear;
+}
+</style>
+</head>
+<body>
+<!-- Reading progress bar -->
+<div id="scroll-progress" aria-hidden="true">
+  <div id="scroll-progress-bar"></div>
+</div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>The Modern Woman's Safety System</h1>
+            <p class="subtitle">A practical framework for recognizing risk early and knowing exactly when to leave—before situations become dangerous</p>
+            <p class="header-quote">"You already know how to sense danger. What you need is a clear threshold for when to act on it."</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h2>The System for Knowing Exactly When to Exit</h2>
+
+            <p>You've just identified the pattern: hesitation wins because there's no exit rule.</p>
+
+            <p>You understand why your instincts fail without clear thresholds. You know that "trust your gut" doesn't work when you've been trained to override it your whole life.</p>
+
+            <p><span class="highlight">What you need now is the actual system—the specific thresholds for each situation, the exact moment to leave, and the protocols for exiting without confrontation.</span></p>
+
+            <p>That's what this guide gives you.</p>
+
+            <div class="divider"></div>
+
+            <h2>Here's How It Works</h2>
+
+            <p>You're on a date. He changes the location last minute—somewhere quieter, more isolated.</p>
+
+            <p>Without a system, you think: <em>"Maybe it's nothing. Maybe I'm overthinking. What if I'm wrong?"</em></p>
+
+            <p>With this system, you know: <strong>Location change without mutual agreement = exit threshold crossed.</strong></p>
+
+            <p>You don't negotiate with yourself. You don't wait for more evidence. You have a pre-set rule, and you follow it.</p>
+
+            <p>The rideshare takes an unexpected route. The hotel room has a broken lock. The colleague asks you to stay late after everyone's left.</p>
+
+            <p><span class="highlight">Each situation has a clear threshold—a specific point where ambiguity ends and your exit begins.</span></p>
+
+            <div class="warning-box">
+                <strong>What this system eliminates:</strong>
+                In-the-moment negotiation ("Maybe I'm wrong")<br>
+                Waiting for certainty ("Let me see if it gets worse")<br>
+                Social pressure overriding instinct ("I don't want to seem rude")<br>
+                Second-guessing your decision after you've left
+            </div>
+
+            <p>This isn't about becoming paranoid. It's about having clarity.</p>
+
+            <p>False alarms cost you nothing. Missing one real warning sign carries consequences you can't undo.</p>
+
+            <div class="divider"></div>
+
+            <h2>What You'll Gain</h2>
+
+            <p>This isn't about self-defense training. It's not about pepper spray or panic buttons.</p>
+
+            <p><span class="highlight">This is a decision system that removes the "Am I overreacting?" paralysis.</span></p>
+
+            <p>After reading this guide, you'll have something most women don't:</p>
+
+            <div class="success-box">
+                <strong>Internal certainty without second-guessing</strong>
+                ✓ You'll trust your instincts without negotiating with yourself<br>
+                ✓ You'll make safety decisions from clarity, not fear<br>
+                ✓ You'll move through the world with quiet confidence, not constant anxiety
+            </div>
+
+            <p>Not "maybe I should leave."</p>
+
+            <p><strong>Just: "I'm leaving."</strong></p>
+
+            <p>The decision is made before you're scared. The threshold is set before you're confused.</p>
+
+            <div class="divider"></div>
+
+            <h2>What's Inside</h2>
+
+            <div class="module">
+                <div class="module-title">
+                    <span class="module-number">1</span>
+                    PART 1: Foundation
+                </div>
+                <div class="module-content">
+                    <strong>Chapter 1: How Danger Actually Develops</strong><br>
+                    The 3 stages every unsafe situation follows—and why hesitation at stage 1 traps you by stage 3<br><br>
+                    <strong>Chapter 2: Why Your Instincts Fail Without Rules</strong><br>
+                    The assessment window where your brain evaluates vs. the freeze response that blocks action
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="module-title">
+                    <span class="module-number">2</span>
+                    PART 2: The 5 Situations
+                </div>
+                <div class="module-content">
+                    <strong>Chapter 3: First Dates</strong> • Pre-date verification • Red flags that mean leave now • Exit protocols<br><br>
+                    <strong>Chapter 4: Rideshares</strong> • Before getting in the car • When the route deviates • Emergency exit strategies<br><br>
+                    <strong>Chapter 5: Solo Travel</strong> • Hotel room assessment • Street awareness protocols • Emergency protocols abroad<br><br>
+                    <strong>Chapter 6: Workplace</strong> • 6 escalation patterns • Personal documentation • Exit strategies<br><br>
+                    <strong>Chapter 7: Public Spaces</strong> • How predators select targets • How to opt out • Immediate exit protocols
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="module-title">
+                    <span class="module-number">3</span>
+                    PART 3: Exit Strategies
+                </div>
+                <div class="module-content">
+                    <strong>Chapter 8: Leaving Without Confrontation</strong><br>
+                    • Neutral exit phrases by situation (3 tiers each)<br>
+                    • Pre-planned interruption systems<br>
+                    • Code words and silent signals<br>
+                    • Psychology of guilt-free exit
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="module-title">
+                    <span class="module-number">+</span>
+                    PRACTICAL TOOLS (Printable)
+                </div>
+                <div class="module-content">
+                    • 5 Wallet-Size Safety Cards (one for each situation)<br>
+                    • Decision Flowcharts ("Should I get in this car?" / "Is this date unsafe?")<br>
+                    • Emergency Contact Templates<br>
+                    • Safety App Recommendations<br>
+                    • Quick Reference Guides
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="module-title">
+                    <span class="module-number">?</span>
+                    OPTIONAL REFERENCE
+                </div>
+                <div class="module-content">
+                    <strong>If Something Already Happened</strong><br>
+                    • Immediate safety steps<br>
+                    • Medical care and evidence collection<br>
+                    • Reporting options<br>
+                    • Legal resources<br>
+                    • Mental health support
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Why This Works</h2>
+
+            <div class="info-box">
+                <strong>The truth about prevention:</strong>
+                Most dangerous situations are preventable through early recognition—not through fighting or freezing.<br><br>
+                
+                The women who've been hurt aren't the ones who "should have known better." They recognized danger but didn't have a clear rule for when to act on it.<br><br>
+                
+                This system gives you that rule.
+            </div>
+
+            <h3>What makes this different:</h3>
+
+            <ul>
+                <li><strong>Not self-defense:</strong> You learn to leave gracefully before fighting becomes necessary</li>
+                <li><strong>Not fear-based:</strong> Clear protocols mean you can relax when safe and act decisively when not</li>
+                <li><strong>Not vague advice:</strong> "Be careful" and "trust your gut" are replaced with concrete thresholds</li>
+            </ul>
+
+            <p style="text-align: center; font-size: 19px; margin: 40px auto; max-width: 650px;"><em>"False alarms cost you nothing. Missing one real warning sign carries consequences you can't undo."</em></p>
+
+            <div class="divider"></div>
+
+            <h2>What Women Usually Spend on "Safety"</h2>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <span class="comparison-label">Pepper spray:</span>
+                    <span class="comparison-value">$15 (rarely accessible when needed)</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Self-defense class:</span>
+                    <span class="comparison-value">$150+ (requires ongoing practice most won't maintain)</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Therapy after incident:</span>
+                    <span class="comparison-value">$200/session × 10 = $2,000</span>
+                </div>
+                <div class="comparison-item highlight">
+                    <span class="comparison-label">This decision system:</span>
+                    <span class="comparison-value">$39 for clarity that works under pressure</span>
+                </div>
+            </div>
+
+            <p>The cost of uncertainty compounds every day you move through the world without clear thresholds.</p>
+
+            <p><span class="highlight">This isn't an expense. It's insurance for peace of mind.</span></p>
+
+        </div>
+
+        <!-- Price Section -->
+        <div class="price-section">
+            <h2>Get Your Safety Decision System</h2>
+
+            <p style="font-size: 19px; margin-bottom: 40px;">Complete 73-page guide + Printable tools</p>
+
+            <p style="font-size: 17px; margin-bottom: 30px; color: #4b5563; max-width: 600px; margin-left: auto; margin-right: auto;">The difference between hesitation and immediate clarity when you need it most.</p>
+
+            <div class="price-box">
+                <div class="price">$39</div>
+                <div class="price-subtext">One-time payment. Lifetime access.</div>
+            </div>
+
+            <div class="features-compact">
+                <ul>
+                    <li><strong>8 Comprehensive Chapters</strong>73 pages total</li>
+                    <li><strong>5 Printable Safety Cards</strong>Wallet-size, laminate-ready</li>
+                    <li><strong>4 Decision Flowcharts</strong>Visual quick-reference protocols</li>
+                    <li><strong>Emergency Templates</strong>Pre-formatted for instant use</li>
+                    <li><strong>Safety App Guide</strong>Vetted recommendations</li>
+                    <li><strong>Quick Reference Guides</strong>Exit rules, code words, assessments</li>
+                </ul>
+            </div>
+
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" data-cta-id="safety_checkout_primary">Yes, I Want This Guide — $39</a>
+
+            <p style="margin-top: 35px; font-size: 15px; opacity: 0.9;">
+                ✓ Instant download · Read on any device<br>
+                ✓ Print at home or on the go<br>
+                ✓ Lifetime access with all future updates<br>
+                ✓ 60-day money-back promise
+            </p>
+        </div>
+
+        <div class="content">
+            <h2>Is This For You?</h2>
+
+            <p><strong>This guide is for you if:</strong></p>
+
+            <ul>
+                <li>You date—whether through apps or in person</li>
+                <li>You use Uber, Lyft, taxis, or any rideshares</li>
+                <li>You travel alone, even occasionally</li>
+                <li>You walk to your car after dark</li>
+                <li>You work with male colleagues or clients</li>
+                <li>You want to feel quietly confident, not constantly anxious</li>
+                <li>You're tired of vague "stay safe" advice that doesn't actually help</li>
+            </ul>
+
+            <p><span class="highlight">If you're a woman moving through the world, this system is for you.</span></p>
+
+            <div class="divider"></div>
+
+            <!-- NOT FOR Section -->
+            <div class="not-for-box">
+                <h3>This Guide Is NOT For:</h3>
+                <ul>
+                    <li><strong>Women seeking self-defense training</strong> — This focuses on early recognition and exit, not physical confrontation</li>
+                    <li><strong>Women looking for legal advice</strong> — This is a personal safety system, not legal counsel</li>
+                    <li><strong>Women wanting fear-based content</strong> — This creates confidence through clarity, not anxiety through worst-case scenarios</li>
+                    <li><strong>Women expecting extreme survival tactics</strong> — This is for everyday situations, not wilderness survival or active shooter scenarios</li>
+                </ul>
+                <p style="margin-top: 20px; margin-bottom: 0; color: #92400e;">If any of the above describe what you're looking for, this guide won't meet your needs.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Standalone Guarantee -->
+            <div class="guarantee-standalone">
+                <div class="guarantee-badge">60-Day Guarantee</div>
+                <h3>100% Money-Back Promise</h3>
+                
+                <p><strong>Read the guide. Try the systems. You have 60 full days to decide.</strong></p>
+                
+                <p>If after implementing these protocols you don't feel significantly safer and more confident as you navigate dating, travel, work, and everyday life—I want you to have your money back.</p>
+                
+                <p style="font-size: 19px; font-weight: 600; margin-top: 25px;">No questions asked. Just send me an email within 60 days.</p>
+                
+                <p style="font-size: 15px; font-style: italic; margin-top: 25px; color: #065f46;">I truly believe this system will help you. But you should only pay for something that genuinely protects you.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>What You'll Actually Use</h2>
+
+            <p>I know you're busy. You won't memorize all 73 pages, and that's completely okay.</p>
+
+            <p>That's exactly why I created the printable tools—because real safety needs to be practical and accessible.</p>
+
+            <div class="info-box action-box">
+  <h3 class="action-title">Here's what you'll actually do:</h3>
+
+  <ol class="action-steps">
+    <li>
+      <div class="step-main">Read the guide once</div>
+      <div class="step-sub">Maybe over a weekend, 2–3 hours total.</div>
+    </li>
+    <li>
+      <div class="step-main">Print the 5 situation cards</div>
+      <div class="step-sub">They fit perfectly in your wallet.</div>
+    </li>
+    <li>
+      <div class="step-main">Screenshot the flowcharts</div>
+      <div class="step-sub">Keep them in a folder on your phone.</div>
+    </li>
+    <li>
+      <div class="step-main">Set up code words</div>
+      <div class="step-sub">With your trusted people.</div>
+    </li>
+    <li>
+      <div class="step-main">Use the system</div>
+      <div class="step-sub">Whenever you need it — and breathe easier knowing it’s there.</div>
+    </li>
+  </ol>
+</div>
+
+            <p>The cards live in your wallet. The flowcharts are always on your phone. The exit phrases become second nature.</p>
+
+            <p><strong>You don't need to remember everything. You just need the right tools ready when you need them.</strong></p>
+
+            <!-- P.S. Section - SHORTENED -->
+            <div class="ps-note">
+                Most women wait until something scary happens to learn these skills.<br><br>
+
+                But you're here reading this BEFORE something happens.<br><br>
+
+                That tells me you're someone who prepares thoughtfully instead of just hoping everything will work out.<br><br>
+
+                <strong>You're about to have something most women don't: a clear system that works BEFORE it's too late.</strong><br><br>
+
+                You deserve to feel safe—truly safe—in your own body, in your own life.<br><br>
+
+                Let me help you get there.
+            </div>
+
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" style="font-size: 20px; padding: 22px 55px;">Yes, I Want to Feel Safer ($39)</a>
+            
+            <p style="margin-top: 35px; font-size: 15px; color: #6b7280;">
+                Secure payment · Instant download · Lifetime access
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="content">
+            <div class="footer-container">
+                <div class="footer-divider"></div>
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Legal</h3>
+                        <a href="privacy.html" rel="noopener">Privacy Policy</a><br>
+                        <a href="#" class="refund-trigger" onclick="openRefundModal(); return false;" data-cta-id="refund_policy_open">Refund Policy</a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>Email:</p>
+                        <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Clear Decision Lab. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRefundModal()">&times;</span>
+            <h2>Refund Policy</h2>
+            
+            <div class="guarantee-box">
+                <strong>60-Day Money-Back Promise</strong><br><br>
+                I'm confident this system will help you feel safer. Read the guide, try the protocols, and give yourself 60 days to decide. If it doesn't work for you—I'll refund you. No questions, no hassle.
+            </div>
+
+            <h3>How It Works</h3>
+            
+            <p><strong>Step 1: Try The System</strong><br>
+            Read the guide, print the safety cards, and start implementing the protocols in your daily life.</p>
+
+            <p><strong>Step 2: If It Doesn't Work For You</strong><br>
+            If after using the system you don't feel:
+            <br>• More confident assessing risky situations
+            <br>• Clearer about when to leave
+            <br>• Better prepared with practical tools</p>
+
+            <p>Just email me at <strong><a href="/cdn-cgi/l/email-protection#e6858a8387948283858f958f89888a8784a6818b878f8ac885898b"><span class="__cf_email__" data-cfemail="a1c2cdc4c0d3c5c4c2c8d2c8cecfcdc0c3e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a></strong> within 60 days.</p>
+            
+            <h3>What I'll Need</h3>
+            
+            <ul>
+                <li>Your order number or purchase email</li>
+                <li>A brief note about why it didn't work for you (helps me improve)</li>
+            </ul>
+
+            <h3>What Happens Next</h3>
+            
+            <p><strong>Full Refund:</strong> I'll process your 100% refund within 5 business days. Simple as that.</p>
+
+            <h3>Changed Your Mind? (First 60 Days)</h3>
+            
+            <p>If you change your mind for any reason within 60 days, just let me know. I'll process your refund within 24 hours.</p>
+
+            <h3>Contact for Refund</h3>
+            
+            <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#83e0efe6e2f1e7e6e0eaf0eaecedefe2e1c3e4eee2eaefade0ecee"><span class="__cf_email__" data-cfemail="fb98979e9a899f9e989288929495979a99bb9c969a9297d5989496">[email&#160;protected]</span></a><br>
+            <strong>Subject Line:</strong> "Refund Request"<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-style: italic; color: #6b7280;">
+            I created this guarantee because I genuinely believe in this system. You should only pay for something that truly helps you. If this doesn't protect you the way I promise it will, you shouldn't pay.
+            </p>
+        </div>
+    </div>
+
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        function openRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        // Close on outside click
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            if (event.target === modal) {
+                closeRefundModal();
+            }
+        });
+
+        // Close on ESC
+        window.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') closeRefundModal();
+        });
+    </script>
+<script>
+(function () {
+  function safeGtagEvent(name, params, cb) {
+    try {
+      if (typeof gtag !== 'function') { if (cb) cb(); return; }
+      var done = false;
+      var go = function () { if (done) return; done = true; if (cb) cb(); };
+      params = params || {};
+      params.transport_type = 'beacon';
+      params.event_callback = go;
+      gtag('event', name, params);
+      setTimeout(go, 800);
+    } catch (e) {
+      if (cb) cb();
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('[data-cta-id]') : null;
+    if (!el) return;
+
+    var ctaId = el.getAttribute('data-cta-id') || 'unknown';
+    var href = el.getAttribute('href') || '';
+    var isNav = href && (el.tagName === 'A' || el.getAttribute('role') === 'link') && !href.startsWith('#');
+
+    if (isNav) {
+      e.preventDefault();
+      safeGtagEvent('cta_click', {
+        cta_id: ctaId,
+        page_path: window.location.pathname,
+        page_title: document.title,
+        link_url: href || undefined
+      }, function () { window.location.href = href; });
+    } else {
+      safeGtagEvent('cta_click', {
+        cta_id: ctaId,
+        page_path: window.location.pathname,
+        page_title: document.title,
+        link_url: href || undefined
+      });
+    }
+  }, true);
+})();
+</script>
+<script>
+(function () {
+  function updateProgress() {
+    var doc = document.documentElement;
+    var body = document.body;
+    var scrollTop = doc.scrollTop || body.scrollTop || 0;
+    var scrollHeight = (doc.scrollHeight || body.scrollHeight || 0) - doc.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    var bar = document.getElementById('scroll-progress-bar');
+    if (bar) bar.style.width = Math.min(100, Math.max(0, pct)).toFixed(2) + '%';
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  document.addEventListener('DOMContentLoaded', updateProgress);
+})();
+</script>
+</body>
+</html>
