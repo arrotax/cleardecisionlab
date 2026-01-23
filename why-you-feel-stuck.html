@@ -14,40 +14,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-0718BZ9H0J');
-        
-        // Track CTA button clicks (GA4) with reliable send before navigation
-        function trackCTAClick(linkUrl) {
-            try {
-                if (typeof gtag !== 'function') {
-                    window.location.href = linkUrl;
-                    return false;
-                }
-
-                let navigated = false;
-                const go = () => {
-                    if (navigated) return;
-                    navigated = true;
-                    window.location.href = linkUrl;
-                };
-
-                gtag('event', '21day_warmup_cta_click', {
-                    page_path: window.location.pathname,
-                    page_location: window.location.href,
-                    link_url: linkUrl || undefined,
-                    transport_type: 'beacon',
-                    event_callback: go
-                });
-
-                // Fallback in case callback is blocked
-                setTimeout(go, 800);
-                return false;
-            } catch (e) {
-                window.location.href = linkUrl;
-                return false;
-            }
-        }
-);
-        }
     </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -737,7 +703,7 @@
     <div class="cta-section">
         <h2>Get The Complete 21-Day System</h2>
         <p>The exact protocols, worksheets, and daily routines that install anxiety control, action forcing, and fast decision-making into your life—starting this week</p>
-        <a href="the-system.html" class="cta-button" onclick="return trackCTAClick(this.href);">See The Full Protocol →</a>
+        <a href="the-system.html" class="cta-button" data-cta-id="primary">See The Full Protocol →</a>
     </div>
 
 </div>
@@ -752,6 +718,63 @@
         const scrollPercentage = (scrollTop / scrollHeight) * 100;
         progressBar.style.width = scrollPercentage + '%';
     });
+</script>
+
+
+<script>
+(function () {
+  function closestWithAttr(el, attr) {
+    while (el && el !== document) {
+      if (el.hasAttribute && el.hasAttribute(attr)) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = closestWithAttr(e.target, 'data-cta-id');
+    if (!el) return;
+
+    var ctaId = el.getAttribute('data-cta-id') || '';
+    if (!ctaId) return;
+
+    var href = el.getAttribute('href') || '';
+    var isAnchor = el.tagName && el.tagName.toUpperCase() === 'A';
+
+    // allow new tab / modified clicks
+    var opensNewTab = e.metaKey || e.ctrlKey || e.shiftKey || (el.getAttribute('target') === '_blank');
+    if (!isAnchor || opensNewTab || e.button !== 0) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          cta_id: ctaId,
+          link_url: href || undefined
+        });
+      }
+      return;
+    }
+
+    // If GA not present, allow normal navigation
+    if (typeof gtag !== 'function' || !href) return;
+
+    e.preventDefault();
+
+    var navigated = false;
+    var go = function () {
+      if (navigated) return;
+      navigated = true;
+      window.location.href = href;
+    };
+
+    gtag('event', 'cta_click', {
+      cta_id: ctaId,
+      link_url: href || undefined,
+      transport_type: 'beacon',
+      event_callback: go
+    });
+
+    setTimeout(go, 400);
+  }, { capture: true });
+})();
 </script>
 
 </body>
