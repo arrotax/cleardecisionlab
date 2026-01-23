@@ -14,6 +14,33 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-0718BZ9H0J');
+        
+        // Track CTA button clicks (GA4) with reliable send before navigation
+        function trackCTAClick(linkUrl) {
+            try {
+                if (typeof gtag !== 'function') {
+                    window.location.href = linkUrl;
+                    return false;
+                }
+
+                let navigated = false;
+                const go = () => {
+                    if (navigated) return;
+                    navigated = true;
+                    window.location.href = linkUrl;
+                };
+
+                // Fallback in case callback is blocked
+                setTimeout(go, 800);
+                return false;
+            } catch (e) {
+                window.location.href = linkUrl;
+                return false;
+            }
+        }
+
+);
+        }
     </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -897,7 +924,7 @@
                 <span class="price-new">$29</span>
             </div>
 
-            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="checkout_primary">Get Instant Access</a>
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="system_checkout">Get Instant Access</a>
 
             <div class="cta-reassurance">
                 ✓ Instant download · Immediate access<br>
@@ -1037,6 +1064,7 @@
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
     </script>
 
+
 <script>
 (function () {
   function closestWithAttr(el, attr) {
@@ -1079,6 +1107,8 @@
     gtag('event', 'cta_click', {
       cta_id: ctaId,
       link_url: href || undefined,
+      page_path: window.location.pathname,
+      page_title: document.title,
       transport_type: 'beacon',
       event_callback: go
     });
