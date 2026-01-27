@@ -844,6 +844,26 @@
   transition: width 120ms linear;
 }
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {
+           if (document.scripts[j].src === r) return;
+       }
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(106465827, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <!-- Reading progress bar -->
@@ -1310,7 +1330,11 @@
       params.transport_type = 'beacon';
       params.event_callback = go;
       gtag('event', name, params);
-      setTimeout(go, 800);
+      
+      if (name === 'cta_click' && typeof ym === 'function' && params && params.cta_id) {
+        ym(106465827, 'reachGoal', params.cta_id, params);
+      }
+setTimeout(go, 800);
     } catch (e) {
       if (cb) cb();
     }
@@ -1329,6 +1353,8 @@
       safeGtagEvent('cta_click', {
         cta_id: ctaId,
         page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
         page_title: document.title,
         link_url: href || undefined
       }, function () { window.location.href = href; });
@@ -1336,6 +1362,8 @@
       safeGtagEvent('cta_click', {
         cta_id: ctaId,
         page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
         page_title: document.title,
         link_url: href || undefined
       });
@@ -1358,6 +1386,51 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);
   document.addEventListener('DOMContentLoaded', updateProgress);
+})();
+</script>
+<script>
+(function() {
+  // Custom GA4 scroll depth events (25/50/75/90/100) with stable page attribution params
+  const sent = new Set();
+  const thresholds = [25, 50, 75, 90, 100];
+
+  function getScrollPercent() {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || doc.scrollTop || 0;
+    const height = Math.max(doc.scrollHeight, doc.offsetHeight) - window.innerHeight;
+    if (height <= 0) return 100;
+    return Math.round((scrollTop / height) * 100);
+  }
+
+  function fire() {
+    const p = getScrollPercent();
+    for (const t of thresholds) {
+      if (p >= t && !sent.has(t)) {
+        sent.add(t);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            depth: t,
+            page_path_param: window.location.pathname,
+            page_location_param: window.location.href,
+            page_title: document.title
+          });
+        }
+      }
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      fire();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // Fire once on load in case the page is short or already scrolled
+  fire();
 })();
 </script>
 </body>

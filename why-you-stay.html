@@ -379,6 +379,26 @@
   gtag('config', 'G-0718BZ9H0J');
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230b5cff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300c2ff%22/%3E%0A%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23g%29%22/%3E%0A%3Cpath%20d%3D%22M32%2012c10%206%2018%204%2018%204v18c0%2013-9%2023-18%2028C23%2057%2014%2047%2014%2034V16s8%202%2018-4Z%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.92%29%22/%3E%0A%3Cpath%20d%3D%22M27.5%2034.5l-4-4%202.3-2.3%201.7%201.7%2010-10%202.3%202.3-12.3%2012.3Z%22%20fill%3D%22%230b5cff%22/%3E%0A%3C/svg%3E">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {
+           if (document.scripts[j].src === r) return;
+       }
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(106465827, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <!-- Progress Bar -->
@@ -614,7 +634,11 @@
       params.transport_type = 'beacon';
       params.event_callback = go;
       gtag('event', name, params);
-      setTimeout(go, 800);
+      
+      if (name === 'cta_click' && typeof ym === 'function' && params && params.cta_id) {
+        ym(106465827, 'reachGoal', params.cta_id, params);
+      }
+setTimeout(go, 800);
     } catch (e) {
       if (cb) cb();
     }
@@ -633,6 +657,8 @@
       safeGtagEvent('cta_click', {
         cta_id: ctaId,
         page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
         page_title: document.title,
         link_url: href || undefined
       }, function () { window.location.href = href; });
@@ -640,11 +666,58 @@
       safeGtagEvent('cta_click', {
         cta_id: ctaId,
         page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
         page_title: document.title,
         link_url: href || undefined
       });
     }
   }, true);
+})();
+</script>
+<script>
+(function() {
+  // Custom GA4 scroll depth events (25/50/75/90/100) with stable page attribution params
+  const sent = new Set();
+  const thresholds = [25, 50, 75, 90, 100];
+
+  function getScrollPercent() {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || doc.scrollTop || 0;
+    const height = Math.max(doc.scrollHeight, doc.offsetHeight) - window.innerHeight;
+    if (height <= 0) return 100;
+    return Math.round((scrollTop / height) * 100);
+  }
+
+  function fire() {
+    const p = getScrollPercent();
+    for (const t of thresholds) {
+      if (p >= t && !sent.has(t)) {
+        sent.add(t);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            depth: t,
+            page_path_param: window.location.pathname,
+            page_location_param: window.location.href,
+            page_title: document.title
+          });
+        }
+      }
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      fire();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // Fire once on load in case the page is short or already scrolled
+  fire();
 })();
 </script>
 </body>
