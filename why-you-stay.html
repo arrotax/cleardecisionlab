@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.9;
+                        line-height: 1.75;
             color: #2d3436;
             background: #fafafa;
             padding: 0;
@@ -96,6 +96,13 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
 
+/* Hard centering fix (desktop & mobile-safe) */
+.article-container {
+    max-width: 740px;
+    margin: 60px auto 0 !important;
+    display: block;
+}
+
         .drop-cap::first-letter {
             font-family: 'Lora', serif;
             font-size: 75px;
@@ -107,9 +114,9 @@
         }
 
         p {
-            margin-bottom: 28px;
-            font-size: 18px;
-            line-height: 1.8;
+            margin-bottom: 22px;
+            font-size: 17px;
+            line-height: 1.65;
             color: #2d3436;
         }
 
@@ -166,9 +173,9 @@
         }
 
         .recognition-item {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 16px;
             color: #2d3436;
         }
 
@@ -228,9 +235,9 @@
         }
 
         .simple-list li {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 12px;
             padding-left: 0;
             color: #2d3436;
         }
@@ -258,10 +265,10 @@
 
         .cta-section p {
             color: white !important;
-            font-size: 18px;
+            font-size: 17px;
             max-width: 620px;
-            margin: 22px auto;
-            line-height: 1.75;
+            margin: 18px auto;
+            line-height: 1.6;
         }
 
         .cta-section strong {
@@ -340,9 +347,61 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
+    h1 { font-size: 32px; }
+
+    .article-container {
+        padding: 36px 22px;
+        margin: 36px 16px 0;
+    }
+
+    h2 { font-size: 26px; margin-top: 44px; margin-bottom: 18px; }
+
+    p {
+        font-size: 16px;
+        line-height: 1.58;
+        margin-bottom: 18px;
+    }
+
+    .recognition-item,
+    .simple-list li {
+        font-size: 16px;
+        line-height: 1.58;
+        margin-bottom: 14px;
+    }
+
+    .pull-quote {
+        font-size: 20px;
+        line-height: 1.45;
+        padding: 20px 20px;
+        margin: 36px 0;
+    }
+
+    .cta-section {
+        margin: 52px -22px 0;
+        padding: 38px 22px;
+        border-radius: 16px;
+    }
+
+    .cta-section h2 { font-size: 30px; }
+
+    .cta-section p {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+        margin: 16px auto !important;
+    }
+
+    /* Overrides the one inline-styled bullet paragraph inside CTA */
+    .cta-section p[style] {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+        margin: 18px auto !important;
+    }
+
+    .drop-cap::first-letter {
+        font-size: 56px;
+        line-height: 46px;
+    }
+}
 
             .article-container {
                 padding: 40px 25px;
