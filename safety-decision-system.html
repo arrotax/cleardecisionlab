@@ -909,6 +909,64 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+
+<style>
+/* Fix comparison rows so label/value never visually merge */
+.comparison-item{
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto;
+  column-gap: 18px;
+  align-items: start;
+}
+.comparison-label{ padding-right: 8px; }
+.comparison-value{ text-align: right; white-space: normal; }
+@media (max-width: 768px){
+  .comparison-item{
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14px;
+  }
+  .comparison-value{ text-align: right; }
+}
+
+/* Tighten the purchase block spacing */
+.price-section{ padding-top: 52px; padding-bottom: 52px; }
+.price-box{ margin: 26px 0 14px; }
+.price-subtext{ margin-top: 6px; }
+.price-section p{ line-height: 1.55; }
+.price-section .purchase-meta{
+  line-height: 1.5;
+  margin-top: 18px !important;
+}
+.price-section .cta-button{ margin-top: 16px; }
+@media (max-width: 768px){
+  .price-section{ padding-top: 44px; padding-bottom: 44px; }
+  .price-section .cta-button{
+    width: 100%;
+    max-width: 520px;
+    display: inline-block;
+  }
+  .price-section .purchase-meta{
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    margin-top: 16px !important;
+  }
+}
+
+/* Refund policy modal: prevent "too narrow" feel */
+.modal-content{
+  width: min(760px, calc(100% - 32px));
+  max-width: 760px;
+}
+@media (max-width: 768px){
+  .modal-content{
+    width: calc(100% - 24px);
+    max-width: 720px;
+    padding: 26px 18px;
+    margin: 12% auto;
+  }
+}
+</style>
 </head>
 <body>
 <!-- Reading progress bar -->
@@ -1122,6 +1180,9 @@
 
             <div class="price-box">
                 <div class="price">$34</div>
+
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" data-cta-id="safety_checkout_primary">Get Instant Access</a>
+
                 <div class="price-subtext">One-time payment. Lifetime access.</div>
             </div>
 
@@ -1136,9 +1197,9 @@
                 </ul>
             </div>
 
-            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" data-cta-id="safety_checkout_primary">Yes, I Want This Guide — $34</a>
+            
 
-            <p style="margin-top: 35px; font-size: 15px; opacity: 0.9;">
+            <p class="purchase-meta" style="margin-top: 20px; font-size: 15px; opacity: 0.9;">
                 ✓ Instant download · Read on any device<br>
                 ✓ Print at home or on the go<br>
                 ✓ Lifetime access with all future updates<br>
