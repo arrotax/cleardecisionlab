@@ -8,41 +8,6 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-0718BZ9H0J');
-        
-        // Track CTA button clicks (GA4) with reliable send before navigation
-        function trackCTAClick(linkUrl) {
-            try {
-                if (typeof gtag !== 'function') {
-                    window.location.href = linkUrl;
-                    return false;
-                }
-
-                let navigated = false;
-                const go = () => {
-                    if (navigated) return;
-                    navigated = true;
-                    window.location.href = linkUrl;
-                };
-
-                // Fallback in case callback is blocked
-                setTimeout(go, 800);
-                return false;
-            } catch (e) {
-                window.location.href = linkUrl;
-                return false;
-            }
-        }
-
-);
-        }
-    </script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -670,26 +635,35 @@
         }
 
     </style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-   (function(m,e,t,r,i,k,a){
-       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();
-       for (var j = 0; j < document.scripts.length; j++) {
-           if (document.scripts[j].src === r) return;
-       }
-       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(106465827, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0718BZ9H0J', { send_page_view: true });
+</script>
+
+    <!-- Yandex Metrica -->
+    <script>
+(function(m,e,t,r,i,k,a){
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++) { if (document.scripts[j].src===r) return; }
+k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(106465827, "init", {
+  clickmap:true,
+  trackLinks:true,
+  accurateTrackBounce:true,
+  webvisor:true
+});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -1108,10 +1082,7 @@
     var opensNewTab = e.metaKey || e.ctrlKey || e.shiftKey || (el.getAttribute('target') === '_blank');
     if (!isAnchor || opensNewTab || e.button !== 0) {
       if (typeof gtag === 'function') {
-        gtag('event', 'cta_click', { cta_id: ctaId, link_url: href || undefined, page_path_param: window.location.pathname, page_location_param: window.location.href, page_title: document.title });
-    if (typeof ym === 'function') {
-      ym(106465827, 'reachGoal', ctaId, { link_url: href || undefined, page_path_param: window.location.pathname, page_location_param: window.location.href, page_title: document.title });
-    }
+        gtag('event', 'cta_click', { cta_id: ctaId, link_url: href || undefined });
       }
       return;
     }
@@ -1131,8 +1102,6 @@
       cta_id: ctaId,
       link_url: href || undefined,
       page_path: window.location.pathname,
-      page_path_param: window.location.pathname,
-      page_location_param: window.location.href,
       page_title: document.title,
       transport_type: 'beacon',
       event_callback: go
@@ -1143,49 +1112,110 @@
 })();
 </script>
 
-<script>
-(function() {
-  // Custom GA4 scroll depth events (25/50/75/90/100) with stable page attribution params
-  const sent = new Set();
-  const thresholds = [25, 50, 75, 90, 100];
 
-  function getScrollPercent() {
-    const doc = document.documentElement;
-    const scrollTop = window.scrollY || doc.scrollTop || 0;
-    const height = Math.max(doc.scrollHeight, doc.offsetHeight) - window.innerHeight;
-    if (height <= 0) return 100;
-    return Math.round((scrollTop / height) * 100);
+
+    <!-- Unified tracking: CTA clicks + scroll depth -->
+    <script>
+(function(){
+  var YID = 106465827;
+
+  function baseParams(){
+    return {
+      page_path_param: window.location.pathname || "",
+      page_location_param: window.location.href || "",
+      page_title: document.title || ""
+    };
   }
 
-  function fire() {
-    const p = getScrollPercent();
-    for (const t of thresholds) {
-      if (p >= t && !sent.has(t)) {
-        sent.add(t);
-        if (typeof gtag === 'function') {
-          gtag('event', 'scroll_depth', {
-            depth: t,
-            page_path_param: window.location.pathname,
-            page_location_param: window.location.href,
-            page_title: document.title
-          });
-        }
+  function gaEvent(name, params, cb){
+    try {
+      if (typeof window.gtag === "function") {
+        params = params || {};
+        var done = false;
+        var finish = function(){ if (done) return; done = true; if (cb) cb(); };
+        params.event_callback = finish;
+        window.gtag("event", name, params);
+        setTimeout(finish, 800);
+        return;
+      }
+    } catch (e) {}
+    if (cb) cb();
+  }
+
+  function yGoal(goalId, params){
+    try {
+      if (typeof window.ym === "function" && goalId) {
+        window.ym(YID, "reachGoal", goalId, params);
+      }
+    } catch (e) {}
+  }
+
+  // CTA click tracking (delegated)
+  document.addEventListener("click", function(e){
+    var el = e.target;
+    for (var i=0; i<8 && el; i++) {
+      if (el.getAttribute && el.getAttribute("data-cta-id")) break;
+      el = el.parentElement;
+    }
+    if (!el || !el.getAttribute) return;
+
+    var ctaId = el.getAttribute("data-cta-id");
+    if (!ctaId) return;
+
+    var href = "";
+    if (el.tagName === "A" && el.href) href = el.href;
+    else if (el.getAttribute("data-href")) href = el.getAttribute("data-href");
+
+    var p = baseParams();
+    p.cta_id = ctaId;
+    p.link_url = href || "";
+
+    // Yandex goal mirrors CTA id
+    yGoal(ctaId, p);
+
+    // If it's a normal left click on a link, delay navigation briefly
+    if (el.tagName === "A" && href &&
+        !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      gaEvent("cta_click", p, function(){ window.location.href = href; });
+    } else {
+      gaEvent("cta_click", p);
+    }
+  }, true);
+
+  // Scroll depth tracking (once per threshold per page view)
+  var sent = Object.create(null);
+  var thresholds = [25, 50, 75, 90, 100];
+
+  function scrollPercent(){
+    var d = document.documentElement;
+    var b = document.body;
+    var st = window.pageYOffset || d.scrollTop || b.scrollTop || 0;
+    var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+    if (h <= 0) return 100;
+    return Math.min(100, (st / h) * 100);
+  }
+
+  function checkScroll(){
+    var pct = scrollPercent();
+    for (var i=0; i<thresholds.length; i++) {
+      var t = thresholds[i];
+      if (pct >= t && !sent[t]) {
+        sent[t] = true;
+        var p = baseParams();
+        p.depth = t;
+        gaEvent("scroll_depth", p);
       }
     }
   }
 
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      fire();
-      ticking = false;
-    });
+  var tick = null;
+  window.addEventListener("scroll", function(){
+    if (tick) return;
+    tick = window.setTimeout(function(){ tick = null; checkScroll(); }, 250);
   }, { passive: true });
 
-  // Fire once on load in case the page is short or already scrolled
-  fire();
+  window.addEventListener("load", checkScroll);
 })();
 </script>
 </body>
