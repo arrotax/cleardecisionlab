@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             color: #2c3e50;
             background: linear-gradient(135deg, #f8f5f2 0%, #e8e4df 100%);
             padding: 0;
@@ -115,9 +115,9 @@
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-size: 17px;
-            line-height: 1.8;
+            line-height: 1.65;
             color: #2c3e50;
         }
 
@@ -134,7 +134,7 @@
             padding: 30px;
             margin: 35px 0;
             border-radius: 0 8px 8px 0;
-            line-height: 1.9;
+            line-height: 1.75;
         }
 
         .warning-box strong {
@@ -151,7 +151,7 @@
             padding: 30px;
             margin: 35px 0;
             border-radius: 0 8px 8px 0;
-            line-height: 2;
+            line-height: 1.75;
         }
 
         .success-box strong {
@@ -422,7 +422,7 @@
             margin: 50px 0;
             border-radius: 0 8px 8px 0;
             font-size: 17px;
-            line-height: 1.9;
+            line-height: 1.75;
             color: #78350f;
         }
 
@@ -458,7 +458,7 @@
             color: #008b8b;
             text-decoration: none;
             font-size: 15px;
-            line-height: 2;
+            line-height: 1.75;
         }
 
         .footer-section a:hover {
@@ -590,12 +590,56 @@
         }
 
         @media (max-width: 768px) {
-            .header,
-            .content,
-            .price-section,
-            .footer-cta {
-                padding: 40px 25px;
-            }
+    body { overflow-x: hidden; }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .header,
+    .content,
+    .price-section,
+    .footer-cta {
+        padding: 40px 22px;
+    }
+
+    h1 { font-size: 34px; }
+
+    h2 { font-size: 28px; margin-top: 48px; margin-bottom: 18px; }
+
+    p { font-size: 16px; line-height: 1.6; margin-bottom: 18px; }
+
+    .price-section {
+        margin: 50px 0;
+        width: 100%;
+    }
+
+    .price { font-size: 54px; }
+
+    .cta-button {
+        width: min(520px, 92%);
+        padding: 18px 24px;
+        font-size: 18px;
+    }
+
+    .comparison-item {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .features-compact ul { grid-template-columns: 1fr; }
+
+    .modal-content {
+        width: 92%;
+        padding: 28px 20px;
+        margin: 12% auto;
+        max-height: 82vh;
+    }
+}
 
             h1 {
                 font-size: 36px;
@@ -734,6 +778,7 @@
             .container {
                 padding: 40px 25px;
             }
+}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
@@ -1057,7 +1102,7 @@
                 </div>
                 <div class="comparison-item highlight">
                     <span class="comparison-label">This decision system:</span>
-                    <span class="comparison-value">$39 for clarity that works under pressure</span>
+                    <span class="comparison-value">$34 for clarity that works under pressure</span>
                 </div>
             </div>
 
@@ -1076,7 +1121,7 @@
             <p style="font-size: 17px; margin-bottom: 30px; color: #4b5563; max-width: 600px; margin-left: auto; margin-right: auto;">The difference between hesitation and immediate clarity when you need it most.</p>
 
             <div class="price-box">
-                <div class="price">$39</div>
+                <div class="price">$34</div>
                 <div class="price-subtext">One-time payment. Lifetime access.</div>
             </div>
 
@@ -1091,7 +1136,7 @@
                 </ul>
             </div>
 
-            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" data-cta-id="safety_checkout_primary">Yes, I Want This Guide — $39</a>
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" data-cta-id="safety_checkout_primary">Yes, I Want This Guide — $34</a>
 
             <p style="margin-top: 35px; font-size: 15px; opacity: 0.9;">
                 ✓ Instant download · Read on any device<br>
@@ -1206,7 +1251,7 @@
 
         <!-- Footer CTA -->
         <div class="footer-cta">
-            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" style="font-size: 20px; padding: 22px 55px;">Yes, I Want to Feel Safer ($39)</a>
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/d2598ca2-60c5-4794-852f-7f2d54b69711" class="cta-button" style="font-size: 20px; padding: 22px 55px;">Yes, I Want to Feel Safer ($34)</a>
             
             <p style="margin-top: 35px; font-size: 15px; color: #6b7280;">
                 Secure payment · Instant download · Lifetime access
@@ -1259,7 +1304,7 @@
             <br>• Clearer about when to leave
             <br>• Better prepared with practical tools</p>
 
-            <p>Just email me at <strong><a href="/cdn-cgi/l/email-protection#e6858a8387948283858f958f89888a8784a6818b878f8ac885898b"><span class="__cf_email__" data-cfemail="a1c2cdc4c0d3c5c4c2c8d2c8cecfcdc0c3e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a></strong> within 60 days.</p>
+            <p>Just email me at <strong><a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a></strong> within 60 days.</p>
             
             <h3>What I'll Need</h3>
             
@@ -1278,7 +1323,7 @@
 
             <h3>Contact for Refund</h3>
             
-            <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#83e0efe6e2f1e7e6e0eaf0eaecedefe2e1c3e4eee2eaefade0ecee"><span class="__cf_email__" data-cfemail="fb98979e9a899f9e989288929495979a99bb9c969a9297d5989496">[email&#160;protected]</span></a><br>
+            <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
             <strong>Subject Line:</strong> "Refund Request"<br>
             <strong>Response Time:</strong> Within 24 hours</p>
 
