@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Conversation Exit System - Stop Explaining Yourself</title>
+    <meta name="description" content="A 4-route decision system for high-pressure conversations. The exact words to use when you feel trapped, rushed, guilt-tripped, or manipulated.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            padding: 40px 25px;
+            position: relative;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .system-subtitle {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            color: #7f8c8d;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #e74c3c;
+            color: #ffffff;
+            padding: 18px 45px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            margin-top: 30px;
+        }
+
+        .cta-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 38px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .pain-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .pain-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 28px;
+        }
+
+        .pain-box ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .pain-box li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 17px;
+        }
+
+        .pain-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .pain-box strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .diagnostic-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3498db;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .diagnostic-box::before {
+            content: '✓';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+            color: #3498db;
+        }
+
+        .diagnostic-box h3 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 24px;
+        }
+
+        .diagnostic-box .feeling-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .feeling-item {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+            font-size: 17px;
+        }
+
+        .feeling-item strong {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .exclusion-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .exclusion-box h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .exclusion-box ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .exclusion-box li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #856404;
+        }
+
+        .exclusion-box li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        .scenario-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .scenario-box h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .old-way {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .new-way {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+
+        .old-way strong,
+        .new-way strong {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .old-way p,
+        .new-way p {
+            color: #2c3e50;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, #fff59d 65%);
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+
+        .emphasis {
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .module-card {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .module-card h3 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .module-card ul {
+            list-style: none;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .module-card ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .module-card ul li::before {
+            content: "→ ";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .comparison-table thead {
+            display: none;
+        }
+
+        .comparison-table tbody,
+        .comparison-table tr {
+            display: block;
+        }
+
+        .comparison-table tr {
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .comparison-table td {
+            display: block;
+            padding: 5px 0;
+            border: none;
+            font-size: 16px;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .comparison-table .price {
+            font-weight: 700;
+            color: #e74c3c;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .testimonial {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .testimonial p {
+            margin-bottom: 12px;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .urgency-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-left: 4px solid #ffc107;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .urgency-box h3 {
+            color: #856404;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .urgency-box p {
+            color: #856404;
+            font-size: 17px;
+        }
+
+        .guarantee-section {
+            background: #f0f9ff;
+            padding: 40px 25px;
+            margin: 50px -25px;
+            text-align: center;
+            border-top: 3px solid #3498db;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .guarantee-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .guarantee-badge {
+            background: #ffffff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .guarantee-badge strong {
+            display: block;
+            font-size: 22px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-family: 'Caveat', cursive;
+        }
+
+        .stat-box .label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            padding: 50px 25px;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 3px;
+            margin-top: 50px;
+        }
+
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .final-cta p {
+            color: #ffffff;
+            opacity: 0.95;
+            font-size: 18px;
+        }
+
+        .final-cta .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #e74c3c;
+            padding: 20px 50px;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        .final-cta .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Footer styles */
+        .footer-wrapper {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            margin: 0 -25px -40px -25px;
+            padding: 40px 25px 20px 25px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .footer-section a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section p {
+            color: #7f8c8d;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #bdc3c7;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #7f8c8d;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #2c3e50;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            text-align: left;
+            font-size: 32px;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        .modal-content ul {
+            margin: 15px 0 15px 25px;
+            line-height: 1.8;
+        }
+
+        .modal-content .guarantee-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 60px 50px;
+            }
+
+            h1 {
+                font-size: 52px;
+            }
+
+            .system-subtitle {
+                font-size: 22px;
+            }
+
+            .subtitle {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 42px;
+            }
+
+            .diagnostic-box .feeling-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .comparison-table {
+                display: table;
+            }
+
+            .comparison-table thead {
+                display: table-header-group;
+            }
+
+            .comparison-table tbody,
+            .comparison-table tr {
+                display: table-row-group;
+            }
+
+            .comparison-table tr {
+                display: table-row;
+                margin-bottom: 0;
+                background: none;
+                padding: 0;
+                border: none;
+                border-radius: 0;
+            }
+
+            .comparison-table td {
+                display: table-cell;
+                padding: 20px;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .comparison-table th {
+                background: #2c3e50;
+                color: #ffffff;
+                padding: 20px;
+                text-align: left;
+                font-size: 18px;
+            }
+
+            .footer-wrapper {
+                margin: 0 -50px -60px -50px;
+                padding: 50px 50px 30px 50px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guarantee-section {
+                padding: 60px 50px;
+                margin: 60px -50px;
+            }
+
+            .final-cta {
+                padding: 80px 50px;
+            }
+
+            .final-cta h2 {
+                font-size: 48px;
+            }
+        }
+    </style>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0718BZ9H0J', { send_page_view: true });
+    </script>
+
+    <!-- Yandex Metrica -->
+    <script>
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j=0;j<document.scripts.length;j++) { if (document.scripts[j].src===r) return; }
+        k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+        k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(106465827, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    <!-- Unified tracking: CTA clicks + scroll depth -->
+    <script>
+    (function () {
+      var YID = 106465827;
+
+      function baseParams() {
+        return {
+          page_path_param: window.location.pathname || "",
+          page_location_param: window.location.href || "",
+          page_title: document.title || ""
+        };
+      }
+
+      function safeGtagEvent(name, params, cb) {
+        try {
+          if (typeof window.gtag !== "function") { if (cb) cb(); return; }
+          var done = false;
+          var finish = function () { if (done) return; done = true; if (cb) cb(); };
+          params = params || {};
+          params.transport_type = "beacon";
+          params.event_callback = finish;
+          window.gtag("event", name, params);
+
+          if (name === "cta_click" && typeof window.ym === "function" && params && params.cta_id) {
+            window.ym(YID, "reachGoal", params.cta_id, params);
+          }
+
+          setTimeout(finish, 800);
+        } catch (e) {
+          if (cb) cb();
+        }
+      }
+
+      // CTA click tracking (delegated). Requires elements to have data-cta-id="..."
+      document.addEventListener("click", function (e) {
+        var el = e.target && e.target.closest ? e.target.closest("[data-cta-id]") : null;
+        if (!el) return;
+
+        var ctaId = el.getAttribute("data-cta-id") || "unknown";
+        var href = el.getAttribute("href") || el.getAttribute("data-href") || "";
+        var isLink = (el.tagName === "A" || el.getAttribute("role") === "link") && href && !href.startsWith("#");
+        var isPrimaryClick = (e.button === 0) && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+
+        var p = baseParams();
+        p.cta_id = ctaId;
+        if (href) p.link_url = href;
+
+        if (isLink && isPrimaryClick) {
+          e.preventDefault();
+          safeGtagEvent("cta_click", p, function () { window.location.href = href; });
+        } else {
+          safeGtagEvent("cta_click", p);
+        }
+      }, true);
+
+      // Scroll depth tracking (25/50/75/90/100)
+      (function () {
+        var sent = Object.create(null);
+        var thresholds = [25, 50, 75, 90, 100];
+
+        function scrollPercent() {
+          var d = document.documentElement;
+          var b = document.body;
+          var st = window.pageYOffset || d.scrollTop || b.scrollTop || 0;
+          var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+          if (h <= 0) return 100;
+          return Math.min(100, (st / h) * 100);
+        }
+
+        function checkScroll() {
+          var pct = scrollPercent();
+          for (var i = 0; i < thresholds.length; i++) {
+            var t = thresholds[i];
+            if (pct >= t && !sent[t]) {
+              sent[t] = true;
+              var p = baseParams();
+              p.depth = t;
+              safeGtagEvent("scroll_depth", p);
+            }
+          }
+        }
+
+        var tick = null;
+        window.addEventListener("scroll", function () {
+          if (tick) return;
+          tick = window.setTimeout(function () { tick = null; checkScroll(); }, 250);
+        }, { passive: true });
+
+        window.addEventListener("load", checkScroll);
+        document.addEventListener("DOMContentLoaded", checkScroll);
+      })();
+    })();
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- HERO -->
+        <div class="hero">
+            <h1>Stop Explaining Yourself to People Who Don't Deserve It</h1>
+            <p class="system-subtitle">A 4-Route Decision System for High-Pressure Conversations</p>
+            <p class="subtitle">The exact words to use when you feel trapped, rushed, guilt-tripped, or manipulated. No more 20-minute justifications. No more 3 AM guilt spirals.</p>
+        </div>
+
+        <!-- THE PROBLEM -->
+        <div class="section">
+            <h2>You Already Know What's About to Happen</h2>
+            <p>You're 45 seconds into a conversation, and you can feel it. They want something. You don't want to give it. But instead of saying no, you're about to spend the next 20 minutes:</p>
+            
+            <div class="pain-box">
+                <ul>
+                    <li>
+                        <strong>Justifying</strong>
+                        Explaining your schedule, your stress levels, your commitments—even though none of it is their business.
+                    </li>
+                    <li>
+                        <strong>Softening</strong>
+                        "I wish I could, but..." / "Maybe next time..." / "If things calm down..."—trying to make them feel better about your no.
+                    </li>
+                    <li>
+                        <strong>Caving</strong>
+                        You say yes because it's easier than holding your ground. Then you resent them. And yourself.
+                    </li>
+                </ul>
+            </div>
+
+            <p style="font-size: 19px; margin-top: 30px; font-weight: 600;">And afterward? You replay the conversation for 3 days wondering if you were too harsh. Or not harsh enough. Or if you should have just said yes.</p>
+        </div>
+
+        <!-- THE DIAGNOSTIC (MOVED UP) -->
+        <div class="section">
+            <h2>Every Trapped Conversation Feels Different—But There Are Only 4 Reasons You Freeze</h2>
+            
+            <div class="diagnostic-box">
+                <h3>The 4-Second Diagnostic</h3>
+                <p>You don't freeze because you don't know what to say. You freeze because you don't know <strong>which situation you're in</strong>.</p>
+                <p style="margin-top: 20px;">This system reduces every high-pressure conversation to <span class="emphasis">one question</span>:</p>
+                <p style="font-size: 20px; font-weight: 700; margin: 25px 0; text-align: center; color: #3498db;">"What am I feeling right now?"</p>
+                
+                <div class="feeling-grid">
+                    <div class="feeling-item">
+                        <strong>Guilt</strong> → Moral pressure → Exit 1
+                    </div>
+                    <div class="feeling-item">
+                        <strong>Rushed</strong> → Constraint pressure → Exit 2
+                    </div>
+                    <div class="feeling-item">
+                        <strong>Overwhelmed</strong> → Cognitive overload → Exit 3
+                    </div>
+                    <div class="feeling-item">
+                        <strong>Their emotion</strong> → Emotional hijack → Exit 4
+                    </div>
+                </div>
+
+                <p style="margin-top: 25px; font-weight: 600; text-align: center;">Identify the feeling. Use the exit. Stop talking.</p>
+            </div>
+        </div>
+
+        <!-- SCENARIOS (REDUCED TO 2) -->
+        <div class="section">
+            <h2>Here's How It Works</h2>
+            
+            <div class="scenario-box">
+                <h3>Your mom calls about Thanksgiving...</h3>
+                <div class="old-way">
+                    <strong>Old You:</strong>
+                    <p>"Well, I'm really stressed with work right now, and the house is a mess, and I haven't even planned the menu yet, but I guess I could do it if everyone really wants to come to my place, I just wish I had more time to prepare, maybe we could do something simpler this year, or maybe someone else could host, but if no one else can then I guess I'll figure it out..."</p>
+                    <p style="margin-top: 15px; opacity: 0.8;"><strong>Result:</strong> You're hosting Thanksgiving. Again. And you're already resentful.</p>
+                </div>
+                <div class="new-way">
+                    <strong>New You:</strong>
+                    <p>"I appreciate everything you've done, and I'm not able to host this year."</p>
+                    <p style="margin-top: 10px;">[Silence]</p>
+                    <p style="margin-top: 10px;">She pushes: "But we always do it at your place!"</p>
+                    <p style="margin-top: 10px;">You repeat: "I appreciate everything you've done, and I'm not able to host this year."</p>
+                    <p style="margin-top: 10px;">She pushes again: "So you're saying you don't care about family?"</p>
+                    <p style="margin-top: 10px;">You bridge: "I've given you my answer."</p>
+                    <p style="margin-top: 15px; opacity: 0.8;"><strong>Result:</strong> Conversation over. No guilt spiral at 2 AM. Mental peace.</p>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <h3>Your boss needs an answer "right now"...</h3>
+                <div class="old-way">
+                    <strong>Old You:</strong>
+                    <p>"Uh, well, I'd need to check my current workload and see if I can move some things around, and I'm not sure about the timeline, but maybe if we push back that other project, or if someone can help me with the research part, I think I could probably make it work, let me just..."</p>
+                    <p style="margin-top: 15px; opacity: 0.8;"><strong>Result:</strong> You've just taken on a project you don't have time for. And your boss knows you'll always say yes under pressure.</p>
+                </div>
+                <div class="new-way">
+                    <strong>New You:</strong>
+                    <p>"I hear the timeline. I'll get back to you tomorrow morning."</p>
+                    <p style="margin-top: 10px;">Boss: "I need to know right now."</p>
+                    <p style="margin-top: 10px;">You: "I understand. I'll get back to you tomorrow morning."</p>
+                    <p style="margin-top: 10px;">Boss: "If you can't commit now, I'll give it to someone else."</p>
+                    <p style="margin-top: 10px;">You: "If it requires an immediate answer, I can't commit to doing it well."</p>
+                    <p style="margin-top: 15px; opacity: 0.8;"><strong>Result:</strong> You've set a boundary. Your boss now knows you don't negotiate under pressure. You keep your self-respect.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 18px; color: #7f8c8d;"><strong>10 more scenarios inside:</strong> Sales pressure, partner manipulation, scope creep, complaint dumps, and more.</p>
+        </div>
+
+        <!-- WHAT'S INSIDE -->
+        <div class="section">
+            <h2>What's Inside the System</h2>
+            <p style="text-align: center; margin-bottom: 40px;">48 pages. 4 exits. 12 real scenarios. Everything you need to walk away clean.</p>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>The 4-Second Diagnostic</h3>
+                    <ul>
+                        <li>The 4 feelings that signal manipulation</li>
+                        <li>How to identify pressure type instantly</li>
+                        <li>What to address first when feeling multiple things</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>The 4 Core Exits</h3>
+                    <ul>
+                        <li>Exit 1: Moral Pressure (guilt trips)</li>
+                        <li>Exit 2: Constraint Pressure (fake urgency)</li>
+                        <li>Exit 3: Cognitive Overload (overwhelm tactics)</li>
+                        <li>Exit 4: Emotional Hijack (tears, anger, drama)</li>
+                        <li>Exact scripts + when to use them</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>12 Live Scenarios</h3>
+                    <ul>
+                        <li>Demanding boss</li>
+                        <li>Family guilt trips</li>
+                        <li>Partner manipulation</li>
+                        <li>Sales pressure</li>
+                        <li>Scope creep</li>
+                        <li>Boundary violations</li>
+                        <li>Word-for-word scripts for each</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>When Things Go Wrong</h3>
+                    <ul>
+                        <li>Recovery if you already caved</li>
+                        <li>Power dynamics (boss vs family)</li>
+                        <li>Multiple pressure types at once</li>
+                        <li>When to exit the relationship</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="urgency-box">
+                <h3>BONUS: The Master Card</h3>
+                <p>Screenshot-ready emergency reference. All 4 scripts + bridge lines on one page. Keep on your phone for real-time use.</p>
+            </div>
+        </div>
+
+        <!-- WHO THIS IS NOT FOR -->
+        <div class="section">
+            <div class="exclusion-box">
+                <h3>This System Is NOT For:</h3>
+                <ul>
+                    <li>Fixing abusive people (it won't work, and you shouldn't try)</li>
+                    <li>Saving toxic relationships (some need to end, not script)</li>
+                    <li>People who want to win arguments or convince others (wrong goal)</li>
+                    <li>Situations where you feel physically unsafe (leave immediately)</li>
+                </ul>
+                <p style="margin-top: 20px; font-weight: 600;">This is for getting out of conversations that trap you—not for fixing people who shouldn't have that power over you in the first place.</p>
+            </div>
+        </div>
+
+        <!-- THE VALUE -->
+        <div class="section">
+            <h2>What You're Actually Buying</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>What This Costs Less Than</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>One therapy session where you talk about why you can't say no</td>
+                        <td class="price">$150-200</td>
+                    </tr>
+                    <tr>
+                        <td>The opportunities you lose by being too nice</td>
+                        <td class="price">$Thousands</td>
+                    </tr>
+                    <tr>
+                        <td>The mental energy wasted replaying conversations</td>
+                        <td class="price">Priceless</td>
+                    </tr>
+                    <tr>
+                        <td>Your self-respect when you cave under pressure</td>
+                        <td class="price">Priceless</td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Conversation Exit System</strong></td>
+                        <td class="price">$37</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="font-size: 18px; margin-top: 30px; text-align: center; font-weight: 600;">This costs less than dinner out. But it'll save you from a thousand conversations you don't want to have.</p>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <div class="section">
+            <h2>What People Are Saying</h2>
+            
+            <div class="testimonial">
+                <p>"I used the Exit 1 script with my mother-in-law about hosting Christmas. I said it once, she pushed, I repeated it word-for-word, she pushed again, I said 'I've given you my answer' and hung up. For the first time in 12 years, I did not cave. I did not feel guilty. I slept like a baby. This is worth 100x what I paid."</p>
+                <p class="author">— Sarah M., 43, Texas</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"My boss has been steamrolling me for 3 years. I read this on a Sunday night, used Exit 2 on Monday morning when he tried to dump a project on me with 'I need an answer now.' I said 'I'll get back to you tomorrow.' He tried the usual threats. I repeated the same line. He backed off. I've never felt more in control at work."</p>
+                <p class="author">— Michael R., 38, California</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"The Master Card is on my phone. I look at it before any conversation I'm dreading. Having the exact words written down makes me feel like I'm not alone. Like I have backup. I've used Exit 3 ('What's the priority?') with my overwhelm-dumping coworker three times this week. It works every single time."</p>
+                <p class="author">— Jennifer K., 41, New York</p>
+            </div>
+        </div>
+
+        <!-- GUARANTEE -->
+        <div class="guarantee-section">
+            <h2>Here's What Happens Next</h2>
+            
+            <div class="guarantee-badge">
+                <strong>60-Day Money-Back Guarantee</strong>
+                <p>Download the guide. Read it tonight. Use it in your next trapped conversation. If you don't use at least one exit in the next week—or if it doesn't work—email us at <strong>cleardecisionlab@gmail.com</strong> within 60 days for a full refund. No questions asked.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="number">20</div>
+                    <div class="label">Minutes to Read</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">4</div>
+                    <div class="label">Core Scripts</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">1</div>
+                    <div class="label">Sentence Exits</div>
+                </div>
+            </div>
+            
+            <p style="font-size: 18px; margin-top: 30px;">Read tonight. Screenshot the Master Card. Use it tomorrow.</p>
+            <p style="font-size: 18px; margin-top: 15px; font-weight: 600;">You'll know if it works within 24 hours.</p>
+        </div>
+
+        <!-- REAL RESULT -->
+        <div class="section">
+            <h2>The Real Result</h2>
+            <p>This isn't about "winning" conversations. It's not about being dominant or cold or uncaring.</p>
+            <p>It's about <span class="highlight">walking away without guilt</span>.</p>
+            <p>It's about <span class="highlight">not replaying conversations for 3 days</span>.</p>
+            <p>It's about <span class="highlight">sleeping at night</span> because you said what you meant and you didn't over-explain yourself to someone who wasn't listening anyway.</p>
+            <p style="font-size: 19px; font-weight: 600; margin-top: 30px; text-align: center;">This is what $37 buys you: <span class="emphasis">mental peace</span>.</p>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="final-cta">
+            <h2>You Have Two Choices</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Close this page and keep doing what you're doing. Keep explaining yourself to people who don't listen. Keep caving under pressure because you don't have the exact words.</p>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Or spend $37. Read for 20 minutes. Screenshot the Master Card. Use it tomorrow. Walk away clean.</p>
+            <p style="font-size: 20px; font-weight: 700; margin-bottom: 30px;">The conversation that made you search for this? It's going to happen again.</p>
+            <a href="https://newhorizonstudio.lemonsqueezy.com/checkout/buy/3341c8dd-ff8e-4e2d-a749-90bc7d61c2c0" class="cta-button">Get the 4-Exit System - $37</a>
+            <p style="margin-top: 25px; font-size: 16px; opacity: 0.9;">Instant PDF Download • 48 Pages • Lifetime Access</p>
+            <p style="margin-top: 15px; font-size: 16px; opacity: 0.9;">✓ 60-Day Money-Back Guarantee</p>
+        </div>
+
+        <!-- FOOTER (MOVED TO BOTTOM) -->
+        <div class="footer-wrapper">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Legal</h3>
+                        <a href="" class="refund-trigger" onclick="openRefundModal(); return false;">Refund Policy</a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>Email:</p>
+                        <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRefundModal()">&times;</span>
+            <h2>Refund Policy</h2>
+            
+            <div class="guarantee-box">
+                <strong>60-Day Money-Back Guarantee</strong><br><br>
+                We're confident in this system. Download the guide, read it, and use it in your next trapped conversation. You have 60 days to decide. If you don't use at least one exit—or if it doesn't work—we'll refund you. No questions asked.
+            </div>
+
+            <h3>How It Works</h3>
+            
+            <p><strong>Step 1: Download and Read</strong><br>
+            Go through the guide, learn the 4-second diagnostic, and understand the exits.</p>
+
+            <p><strong>Step 2: Use It</strong><br>
+            Try at least one exit in a real conversation. Screenshot the Master Card. Keep it on your phone.</p>
+
+            <p><strong>Step 3: If It Doesn't Work</strong><br>
+            Simply email us at <strong><a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a></strong> within 60 days with:</p>
+            
+            <ul>
+                <li>Your order number</li>
+                <li>Which exit you tried</li>
+                <li>Why it didn't work for you</li>
+            </ul>
+
+            <h3>What Happens Next</h3>
+            
+            <p><strong>Full Refund:</strong> We'll refund 100% of your purchase within 5 business days.</p>
+
+            <h3>The Only Requirement</h3>
+            
+            <p>Show us you engaged with the system. We're not asking for perfect results—just proof that you tried.</p>
+
+            <p>If you bought it and never opened it, that's not a system failure—that's a commitment issue. The refund is for people who do the work and don't get results.</p>
+
+            <h3>Instant Refunds (First 60 Days)</h3>
+            
+            <p>Changed your mind within 60 days? No problem. Email us and we'll process your refund within 24 hours.</p>
+
+            <h3>Contact for Refund</h3>
+            
+            <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
+            <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1; color: #7f8c8d;">
+            We built this guarantee because we believe in the system. You should only pay for things that actually work. If this doesn't work, you shouldn't pay.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Refund modal
+        function openRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('refundModal');
+            if (event.target === modal) closeRefundModal();
+        });
+    </script>
+
+</body>
+</html>
