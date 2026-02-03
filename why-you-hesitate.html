@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why You Stay When You Want to Leave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+                        line-height: 1.75;
+            color: #2d3436;
+            background: #fafafa;
+            padding: 0;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            z-index: 9999;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #fdcb6e 0%, #e17055 100%);
+            width: 0%;
+            transition: width 0.1s ease;
+            box-shadow: 0 2px 8px rgba(253, 203, 110, 0.4);
+        }
+
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 80px 30px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .article-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid #636e72;
+        }
+
+        .category {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            color: #fdcb6e;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 600;
+        }
+
+        .author-info {
+            font-size: 15px;
+            opacity: 0.9;
+            margin-top: 25px;
+        }
+
+        /* Article Body */
+        .article-container {
+            max-width: 740px;
+            margin: 60px auto 0;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+/* Hard centering fix (desktop & mobile-safe) */
+.article-container {
+    max-width: 740px;
+    margin: 60px auto 0 !important;
+    display: block;
+}
+
+        .drop-cap::first-letter {
+            font-family: 'Lora', serif;
+            font-size: 75px;
+            line-height: 60px;
+            float: left;
+            margin: 7px 10px 0 0;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 22px;
+            font-size: 17px;
+            line-height: 1.65;
+            color: #2d3436;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #2d3436;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-family: 'Lora', serif;
+            font-size: 26px;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            font-family: 'Lora', serif;
+            font-size: 28px;
+            line-height: 1.5;
+            color: #2d3436;
+            border-left: 5px solid #fdcb6e;
+            padding: 30px 40px;
+            margin: 50px 0;
+            background: #fffbf0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            color: #fdcb6e;
+            opacity: 0.3;
+        }
+
+        /* Recognition Box */
+        .recognition-box {
+            background: #f8f9fa;
+            padding: 35px;
+            margin: 45px 0;
+            border-radius: 8px;
+            border-left: 4px solid #636e72;
+        }
+
+        .recognition-item {
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 16px;
+            color: #2d3436;
+        }
+
+        .recognition-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Key Insight Box */
+        .insight-box {
+            background: linear-gradient(135deg, #fffbf0 0%, #fff5e0 100%);
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 12px;
+            border: 2px solid #fdcb6e;
+            text-align: center;
+        }
+
+        .insight-box p {
+            font-family: 'Lora', serif;
+            font-size: 24px;
+            line-height: 1.6;
+            color: #2d3436;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        /* Emphasis */
+        em {
+            font-style: italic;
+            color: #636e72;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #2d3436;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #fdcb6e 60%);
+            padding: 3px 2px;
+            font-weight: 600;
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #fdcb6e;
+            margin: 60px auto;
+        }
+
+        /* Simple List */
+        .simple-list {
+            margin: 30px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .simple-list li {
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 12px;
+            padding-left: 0;
+            color: #2d3436;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7c 100%);
+            color: white;
+            padding: 56px 50px;
+            margin: 80px -50px 0;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            font-family: 'Inter', 'Open Sans', sans-serif;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+            font-size: 38px;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .cta-section p {
+            color: white !important;
+            font-size: 17px;
+            max-width: 620px;
+            margin: 18px auto;
+            line-height: 1.6;
+        }
+
+        .cta-section strong {
+            color: white;
+        }
+
+        /* CTA Button — refined rounded rectangle (not pill) */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            background: #fdcb6e;
+            color: #1f2a2e;
+
+            padding: 16px 28px;
+            min-height: 54px;
+            width: min(520px, 92%);
+
+            text-decoration: none;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.10);
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+
+            box-shadow:
+                0 10px 24px rgba(0,0,0,0.18),
+                0 2px 0 rgba(255,255,255,0.25) inset;
+
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #ffd24d;
+            box-shadow:
+                0 14px 32px rgba(0,0,0,0.22),
+                0 2px 0 rgba(255,255,255,0.25) inset;
+        }
+
+        .cta-button:focus-visible {
+            outline: 3px solid rgba(253, 203, 110, 0.65);
+            outline-offset: 4px;
+        }
+
+        .cta-subtext {
+            font-size: 14px;
+            margin-top: 18px;
+            color: white !important;
+            opacity: 0.9;
+            font-family: 'Inter', 'Open Sans', sans-serif;
+        }
+
+        .cta-highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(253, 203, 110, 0.5) 60%);
+            padding: 3px 6px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Footer */
+        .article-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .share-text {
+            font-size: 14px;
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+    h1 { font-size: 32px; }
+
+    .article-container {
+        padding: 36px 22px;
+        margin: 36px 16px 0;
+    }
+
+    h2 { font-size: 26px; margin-top: 44px; margin-bottom: 18px; }
+
+    p {
+        font-size: 16px;
+        line-height: 1.58;
+        margin-bottom: 18px;
+    }
+
+    .recognition-item,
+    .simple-list li {
+        font-size: 16px;
+        line-height: 1.58;
+        margin-bottom: 14px;
+    }
+
+    .pull-quote {
+        font-size: 20px;
+        line-height: 1.45;
+        padding: 20px 20px;
+        margin: 36px 0;
+    }
+
+    .cta-section {
+        margin: 52px -22px 0;
+        padding: 38px 22px;
+        border-radius: 16px;
+    }
+
+    .cta-section h2 { font-size: 30px; }
+
+    .cta-section p {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+        margin: 16px auto !important;
+    }
+
+    /* Overrides the one inline-styled bullet paragraph inside CTA */
+    .cta-section p[style] {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+        margin: 18px auto !important;
+    }
+
+    .drop-cap::first-letter {
+        font-size: 56px;
+        line-height: 46px;
+    }
+}
+
+            .article-container {
+                padding: 40px 25px;
+                margin: 40px 20px 0;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .pull-quote {
+                font-size: 22px;
+                padding: 25px 30px;
+            }
+
+            .cta-section {
+                margin: 60px -25px 0;
+                padding: 46px 26px;
+                border-radius: 16px;
+            }
+
+            .drop-cap::first-letter {
+                font-size: 60px;
+                line-height: 50px;
+            }
+        }
+    </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0718BZ9H0J');
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230b5cff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300c2ff%22/%3E%0A%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23g%29%22/%3E%0A%3Cpath%20d%3D%22M32%2012c10%206%2018%204%2018%204v18c0%2013-9%2023-18%2028C23%2057%2014%2047%2014%2034V16s8%202%2018-4Z%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.92%29%22/%3E%0A%3Cpath%20d%3D%22M27.5%2034.5l-4-4%202.3-2.3%201.7%201.7%2010-10%202.3%202.3-12.3%2012.3Z%22%20fill%3D%22%230b5cff%22/%3E%0A%3C/svg%3E">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {
+           if (document.scripts[j].src === r) return;
+       }
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(106465827, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="article-header">
+        <div class="category">Personal Safety</div>
+        <h1>Why You Stay When You Want to Leave</h1>
+        <div class="author-info">
+            3 min read
+        </div>
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-container">
+        
+        <p class="drop-cap">I'm sitting in the back seat of an Uber.</p>
+
+        <p>He misses the turn.</p>
+
+        <p>I notice it — and immediately tell myself it's probably nothing.</p>
+
+        <p>My stomach knows otherwise.</p>
+
+        <p>But I stay quiet.</p>
+
+        <div class="divider"></div>
+
+        <p>Most unsafe situations don't feel unsafe at the beginning.</p>
+
+        <p>They feel <em>slightly off</em>.</p>
+
+        <p>Not enough to leave.</p>
+
+        <p>Just enough to hesitate.</p>
+
+        <p>The date who stands a little too close. The hotel room where something feels wrong but you can't name what. The colleague who corners you after everyone else has left.</p>
+
+        <p>In those moments, you know. Your body knows.</p>
+
+        <p>But you stay.</p>
+
+        <div class="divider"></div>
+
+        <h2>The Pattern You Already Know</h2>
+
+        <p>See if any of this sounds familiar:</p>
+
+        <div class="recognition-box">
+            <div class="recognition-item">You stay a little longer than you wanted to.</div>
+            <div class="recognition-item">You explain their behavior instead of reacting to it.</div>
+            <div class="recognition-item">You tell yourself you're "probably overthinking."</div>
+            <div class="recognition-item">You wait for a clearer signal before you act.</div>
+            <div class="recognition-item">You prioritize not seeming rude over leaving early.</div>
+        </div>
+
+        <p>This isn't random.</p>
+
+        <p>This is a pattern.</p>
+
+        <p>And if you've done it once, you've done it a dozen times—in rideshares, on dates, in hotel rooms, at work, walking to your car.</p>
+
+        <p>Small moments where something felt wrong, but not <em>wrong enough</em>.</p>
+
+        <div class="divider"></div>
+
+        <h2>The Real Problem</h2>
+
+        <p>Here's what took me years to understand:</p>
+
+        <div class="insight-box">
+            <p>The problem is not lack of awareness.</p>
+            <p>It's the absence of an exit rule.</p>
+        </div>
+
+        <p>You <em>do</em> sense danger. Your instincts work perfectly.</p>
+
+        <p>What you don't have is a clear threshold for when "slightly uncomfortable" becomes "time to leave."</p>
+
+        <p>So you wait. You gather more evidence. You give him the benefit of the doubt.</p>
+
+        <p>And by the time the situation becomes <em>obviously</em> unsafe, your options for leaving have already narrowed.</p>
+
+        <p class="pull-quote">Most women don't stay because they feel safe. They stay because leaving feels socially expensive.</p>
+
+        <div class="divider"></div>
+
+        <h2>Why "Trust Your Gut" Fails</h2>
+
+        <p>Your brain is excellent at detecting <em>something is off</em>.</p>
+
+        <p>It's terrible at deciding <em>when to leave</em> without a rule.</p>
+
+        <p>Because in the moment, you're processing:</p>
+
+        <div class="recognition-box">
+            <div class="recognition-item">What if I'm wrong?</div>
+            <div class="recognition-item">What if I seem paranoid?</div>
+            <div class="recognition-item">What if I embarrass myself?</div>
+            <div class="recognition-item">What if I'm being dramatic?</div>
+            <div class="recognition-item">What if he's actually nice and I'm ruining this?</div>
+        </div>
+
+        <p>These aren't irrational thoughts.</p>
+
+        <p>They're the result of a lifetime of being taught that your comfort matters less than someone else's feelings.</p>
+
+        <p>So when your instinct says "leave," your conditioning says "wait."</p>
+
+        <p><span class="highlight">And without a threshold, hesitation always wins.</span></p>
+
+        <div class="divider"></div>
+
+        <h2>The Question Nobody Asks</h2>
+
+        <p>Here's what I wish someone had asked me at 25:</p>
+
+        <p><strong>At what exact point do you leave?</strong></p>
+
+        <p>Not "when it gets bad."</p>
+
+        <p>Not "when you feel uncomfortable."</p>
+
+        <p>But: <em>What specific moment triggers your exit?</em></p>
+
+        <p>Most of us don't have an answer.</p>
+
+        <p>We know we <em>should</em> leave if something feels wrong. But "something feels wrong" is too vague to act on when you're scared, confused, or second-guessing yourself.</p>
+
+        <p>You need a line. A clear, non-negotiable threshold.</p>
+
+        <p>Something specific enough that you don't have to negotiate with yourself in the moment.</p>
+
+        <p>That's a rule you can follow under pressure.</p>
+
+        <div class="divider"></div>
+
+        <h2>What Happens Without This</h2>
+
+        <p>Without clear thresholds, you end up making safety decisions in real-time, while adrenaline is flooding your system and your brain is frantically trying to calculate social risk.</p>
+
+        <p>That's not a fair fight.</p>
+
+        <p>You can't think clearly when you're scared. You can't weigh options rationally when someone is standing too close or the car is going the wrong direction.</p>
+
+        <p><span class="highlight">The decision has to be made before you're in the situation.</span></p>
+
+        <p>That's what a system does.</p>
+
+        <p>It removes the in-the-moment deliberation. It removes the "Am I overreacting?" paralysis.</p>
+
+        <p>It gives you a tripwire. And when it's crossed, you act.</p>
+
+        <p>Not because you're certain there's danger.</p>
+
+        <p>But because you decided in advance that this specific line matters more than someone's comfort.</p>
+
+        <div class="divider"></div>
+
+        <h2>The Thing You Can't Do Alone</h2>
+
+        <p>Here's the hard part:</p>
+
+        <p>You can't build this system while you're reading an article.</p>
+
+        <p>Because knowing "I need clearer thresholds" doesn't tell you:</p>
+
+        <ul class="simple-list">
+            <li>What those thresholds should be for a first date vs. a rideshare vs. a hotel room</li>
+            <li>How to set them without becoming hypervigilant or paranoid</li>
+            <li>What to actually say when you need to leave</li>
+            <li>How to exit without confrontation, explanation, or guilt</li>
+            <li>What signals to look for that you're currently missing</li>
+        </ul>
+
+        <p>Understanding the problem is not the same as solving it.</p>
+
+        <p>And right now, you're still in the understanding phase.</p>
+
+        <div class="divider"></div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>The Next Step</h2>
+            
+            <p>The page after this shows the exact framework for:</p>
+            
+            <p style="font-size: 20px; line-height: 1.7; margin: 35px auto;">
+                – Recognizing early signals in the five situations where women are most vulnerable<br>
+                – Setting a personal exit threshold that works under pressure<br>
+                – Acting without internal negotiation
+            </p>
+            
+            <p>It's not about fear.</p>
+            <p>It's about decision clarity.</p>
+
+            <a href="personal-decision-system.html" class="cta-button" data-cta-id="safety_system_view">See the Safety Decision System</a>
+            
+            <p class="cta-subtext">A clear threshold is the difference between hesitation and action.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="article-footer">
+            <p class="share-text">Know someone who needs to read this? Share it with her.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', function() {
+            const progressBar = document.getElementById('progressBar');
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const trackLength = documentHeight - windowHeight;
+            const percentScrolled = Math.floor((scrollTop / trackLength) * 100);
+            
+            progressBar.style.width = percentScrolled + '%';
+        });
+    </script>
+<script>
+(function () {
+  function safeGtagEvent(name, params, cb) {
+    try {
+      if (typeof gtag !== 'function') { if (cb) cb(); return; }
+      var done = false;
+      var go = function () { if (done) return; done = true; if (cb) cb(); };
+      params = params || {};
+      params.transport_type = 'beacon';
+      params.event_callback = go;
+      gtag('event', name, params);
+      
+      if (name === 'cta_click' && typeof ym === 'function' && params && params.cta_id) {
+        ym(106465827, 'reachGoal', params.cta_id, params);
+      }
+setTimeout(go, 800);
+    } catch (e) {
+      if (cb) cb();
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('[data-cta-id]') : null;
+    if (!el) return;
+
+    var ctaId = el.getAttribute('data-cta-id') || 'unknown';
+    var href = el.getAttribute('href') || '';
+    var isNav = href && (el.tagName === 'A' || el.getAttribute('role') === 'link') && !href.startsWith('#');
+
+    if (isNav) {
+      e.preventDefault();
+      safeGtagEvent('cta_click', {
+        cta_id: ctaId,
+        page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
+        page_title: document.title,
+        link_url: href || undefined
+      }, function () { window.location.href = href; });
+    } else {
+      safeGtagEvent('cta_click', {
+        cta_id: ctaId,
+        page_path: window.location.pathname,
+        page_path_param: window.location.pathname,
+        page_location_param: window.location.href,
+        page_title: document.title,
+        link_url: href || undefined
+      });
+    }
+  }, true);
+})();
+</script>
+<script>
+(function() {
+  // Custom GA4 scroll depth events (25/50/75/90/100) with stable page attribution params
+  const sent = new Set();
+  const thresholds = [25, 50, 75, 90, 100];
+
+  function getScrollPercent() {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || doc.scrollTop || 0;
+    const height = Math.max(doc.scrollHeight, doc.offsetHeight) - window.innerHeight;
+    if (height <= 0) return 100;
+    return Math.round((scrollTop / height) * 100);
+  }
+
+  function fire() {
+    const p = getScrollPercent();
+    for (const t of thresholds) {
+      if (p >= t && !sent.has(t)) {
+        sent.add(t);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            depth: t,
+            page_path_param: window.location.pathname,
+            page_location_param: window.location.href,
+            page_title: document.title
+          });
+        }
+      }
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      fire();
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // Fire once on load in case the page is short or already scrolled
+  fire();
+})();
+</script>
+</body>
+</html>
