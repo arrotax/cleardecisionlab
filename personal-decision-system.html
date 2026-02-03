@@ -12,12 +12,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.75;
             color: #2c3e50;
             background: linear-gradient(135deg, #f8f5f2 0%, #e8e4df 100%);
-            padding: 0;
+            padding: 0 0 100px 0;
         }
 
         .container {
@@ -31,7 +35,7 @@
         .header {
             background: linear-gradient(135deg, #1a3a52 0%, #2c5f7c 100%);
             color: white;
-            padding: 60px 50px;
+            padding: 50px 30px;
             position: relative;
             overflow: hidden;
         }
@@ -80,7 +84,7 @@
 
         /* Content */
         .content {
-            padding: 60px 50px;
+            padding: 50px 30px;
         }
 
         h2 {
@@ -590,7 +594,10 @@
         }
 
         @media (max-width: 768px) {
-    body { overflow-x: hidden; }
+    body { 
+        overflow-x: hidden;
+        padding: 0 0 90px 0;
+    }
 
     .container {
         width: 100%;
@@ -599,30 +606,36 @@
         box-shadow: none;
     }
 
-    .header,
-    .content,
-    .price-section,
-    .footer-cta {
-        padding: 40px 22px;
+    .header {
+        padding: 30px 15px;
     }
 
-    h1 { font-size: 34px; }
+    .content {
+        padding: 30px 15px;
+    }
 
-    h2 { font-size: 28px; margin-top: 48px; margin-bottom: 18px; }
+    .price-section,
+    .footer-cta {
+        padding: 30px 15px;
+    }
+
+    h1 { font-size: 32px; }
+
+    h2 { font-size: 26px; margin-top: 40px; margin-bottom: 18px; }
 
     p { font-size: 16px; line-height: 1.6; margin-bottom: 18px; }
 
     .price-section {
-        margin: 50px 0;
+        margin: 40px 0;
         width: 100%;
     }
 
-    .price { font-size: 54px; }
+    .price { font-size: 50px; }
 
     .cta-button {
-        width: min(520px, 92%);
+        width: calc(100% - 20px);
         padding: 18px 24px;
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .comparison-item {
@@ -638,6 +651,10 @@
         padding: 28px 20px;
         margin: 12% auto;
         max-height: 82vh;
+    }
+
+    .pain-box, .solution-box, .value-prop {
+        padding: 25px 20px;
     }
 }
 
@@ -779,6 +796,52 @@
                 padding: 40px 25px;
             }
 }
+
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            padding: 12px 16px;
+            z-index: 9998;
+            display: flex;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .sticky-cta-button {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7c 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: 0 4px 15px rgba(26, 58, 82, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 58, 82, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 10px 10px;
+            }
+
+            .sticky-cta-button {
+                padding: 18px 20px;
+                font-size: 16px;
+                width: calc(100% - 20px);
+                text-align: center;
+            }
+        }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
@@ -969,6 +1032,11 @@
 </style>
 </head>
 <body>
+<!-- Sticky Bottom CTA -->
+<div class="sticky-cta">
+    <a href="#buy-now" class="sticky-cta-button" data-cta-id="sticky-bottom">Get Instant Access</a>
+</div>
+
 <!-- Reading progress bar -->
 <div id="scroll-progress" aria-hidden="true">
   <div id="scroll-progress-bar"></div>
@@ -1171,7 +1239,7 @@
         </div>
 
         <!-- Price Section -->
-        <div class="price-section">
+        <div class="price-section" id="buy-now">
             <h2>Get Your Safety Decision System</h2>
 
             <p style="font-size: 19px; margin-bottom: 40px;">Complete 73-page guide + Printable tools</p>
@@ -1333,7 +1401,7 @@
                     <div class="footer-section">
                         <h3>Contact</h3>
                         <p>Email:</p>
-                        <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                        <a href="/cdn-cgi/l/email-protection#beddd2dbdfccdadbddd7cdd7d1d0d2dfdcfed9d3dfd7d290ddd1d3"><span class="__cf_email__" data-cfemail="4d2e21282c3f29282e243e242223212c2f0d2a202c2421632e2220">[email&#160;protected]</span></a>
                     </div>
                 </div>
 
@@ -1365,7 +1433,7 @@
             <br>• Clearer about when to leave
             <br>• Better prepared with practical tools</p>
 
-            <p>Just email me at <strong><a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a></strong> within 60 days.</p>
+            <p>Just email me at <strong><a href="/cdn-cgi/l/email-protection#1c7f70797d6e78797f756f757372707d7e5c7b717d7570327f7371"><span class="__cf_email__" data-cfemail="2447484145564041474d574d4b4a484546644349454d480a474b49">[email&#160;protected]</span></a></strong> within 60 days.</p>
             
             <h3>What I'll Need</h3>
             
@@ -1384,7 +1452,7 @@
 
             <h3>Contact for Refund</h3>
             
-            <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
+            <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#583b343d392a3c3d3b312b31373634393a183f35393134763b3735"><span class="__cf_email__" data-cfemail="63000f0602110706000a100a0c0d0f020123040e020a0f4d000c0e">[email&#160;protected]</span></a><br>
             <strong>Subject Line:</strong> "Refund Request"<br>
             <strong>Response Time:</strong> Within 24 hours</p>
 
@@ -1395,7 +1463,7 @@
     </div>
 
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         function openRefundModal() {
             const modal = document.getElementById('refundModal');
@@ -1514,30 +1582,4 @@ setTimeout(go, 800);
       if (p >= t && !sent.has(t)) {
         sent.add(t);
         if (typeof gtag === 'function') {
-          gtag('event', 'scroll_depth', {
-            depth: t,
-            page_path_param: window.location.pathname,
-            page_location_param: window.location.href,
-            page_title: document.title
-          });
-        }
-      }
-    }
-  }
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      fire();
-      ticking = false;
-    });
-  }, { passive: true });
-
-  // Fire once on load in case the page is short or already scrolled
-  fire();
-})();
-</script>
-</body>
-</html>
+          gtag('event', 'scro
