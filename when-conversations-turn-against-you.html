@@ -14,12 +14,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.8;
             color: #1a1a1a;
             background: #f5f5f5;
-            padding: 0;
+            padding: 0 0 100px 0;
         }
 
         .article-container {
@@ -31,7 +35,7 @@
 
         .header-section {
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            padding: 60px 30px;
+            padding: 50px 25px;
             text-align: center;
             color: #ffffff;
         }
@@ -53,7 +57,7 @@
         }
 
         .content {
-            padding: 50px 30px;
+            padding: 40px 25px;
         }
 
         h2 {
@@ -240,37 +244,91 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0 0 90px 0;
+            }
+
             .header-section {
-                padding: 40px 25px;
+                padding: 30px 15px;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
             .subtitle {
-                font-size: 18px;
+                font-size: 17px;
             }
 
             .content {
-                padding: 35px 25px;
+                padding: 30px 15px;
             }
 
             h2 {
-                font-size: 28px;
-                margin-top: 45px;
+                font-size: 26px;
+                margin-top: 40px;
             }
 
             .cta-section {
-                padding: 45px 25px;
+                padding: 30px 15px;
             }
 
             .cta-section h2 {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .ps-section {
-                padding: 30px 25px;
+                padding: 25px 15px;
+            }
+
+            .info-block, .warning-block, .reality-block, .cost-block {
+                padding: 25px 20px;
+            }
+        }
+
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            padding: 12px 16px;
+            z-index: 9998;
+            display: flex;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .sticky-cta-button {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 55, 72, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 10px 10px;
+            }
+
+            .sticky-cta-button {
+                padding: 18px 20px;
+                font-size: 16px;
+                width: calc(100% - 20px);
+                text-align: center;
             }
         }
     </style>
@@ -415,6 +473,11 @@ ym(106465827, "init", {
 </script>
 </head>
 <body>
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-cta">
+        <a href="#buy-now" class="sticky-cta-button" data-cta-id="sticky-bottom">Get The System</a>
+    </div>
+
     <div class="article-container">
         <div class="header-section">
             <h1>The $50,000 You're Losing in Conversations You Can't Exit</h1>
@@ -632,7 +695,7 @@ ym(106465827, "init", {
         </div>
 
         <!-- CTA Section -->
-        <div class="cta-section">
+        <div class="cta-section" id="buy-now">
             <h2>You Need the System—Because Advice Doesn't Work Under Pressure</h2>
 
             <p style="font-size: 19px; margin-bottom: 25px;">When they're pressuring you and your mind goes blank, you don't have time to think.</p>
