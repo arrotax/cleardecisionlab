@@ -16,12 +16,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.8;
             color: #2c3e50;
             background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-            padding: 20px;
+            padding: 15px 10px 100px 10px;
         }
 
         .container {
@@ -30,7 +34,7 @@
             background: #fff;
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             border-radius: 3px;
-            padding: 60px 50px;
+            padding: 50px 30px;
             position: relative;
         }
 
@@ -564,8 +568,12 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px 5px 90px 5px;
+            }
+
             .container {
-                padding: 40px 25px;
+                padding: 30px 15px;
             }
 
             .spiral {
@@ -573,11 +581,11 @@
             }
 
             h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             h2 {
-                font-size: 30px;
+                font-size: 28px;
             }
 
             .two-column {
@@ -586,7 +594,7 @@
             }
 
             .price-section {
-                padding: 35px 25px;
+                padding: 30px 20px;
             }
 
             .price-display {
@@ -599,7 +607,7 @@
             }
 
             .footer-container {
-                padding: 30px 25px;
+                padding: 30px 20px;
             }
 
             .footer-grid {
@@ -613,8 +621,12 @@
             }
 
             .urgency-box {
-                padding: 35px 25px;
+                padding: 25px 20px;
                 margin: 40px -10px;
+            }
+
+            .pain-box, .solution-box, .system-box {
+                padding: 25px 20px;
             }
         }
     
@@ -632,6 +644,52 @@
             height: 100%;
             width: 0%;
             background: #667eea;
+        }
+
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            padding: 12px 16px;
+            z-index: 9998;
+            display: flex;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .sticky-cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 10px 10px;
+            }
+
+            .sticky-cta-button {
+                padding: 18px 20px;
+                font-size: 16px;
+                width: calc(100% - 20px);
+                text-align: center;
+            }
         }
 
     </style>
@@ -666,6 +724,11 @@ ym(106465827, "init", {
 <noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
+
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-cta">
+        <a href="#buy-now" class="sticky-cta-button" data-cta-id="sticky-bottom">Get Instant Access</a>
+    </div>
 
     <!-- Scroll Progress Bar -->
     <div id="scrollProgressContainer" aria-hidden="true">
@@ -906,7 +969,7 @@ ym(106465827, "init", {
         </div>
 
         <!-- Pricing Section -->
-        <div class="price-section">
+        <div class="price-section" id="buy-now">
             <h2>Get The Complete System</h2>
             
             <p>You already know the cost of staying stuck. You've calculated it. Years of lost opportunities. Thousands in bad decisions. Projects unfinished. Life passing by.</p>
@@ -1148,30 +1211,4 @@ setTimeout(go, 800);
       if (p >= t && !sent.has(t)) {
         sent.add(t);
         if (typeof gtag === 'function') {
-          gtag('event', 'scroll_depth', {
-            depth: t,
-            page_path_param: window.location.pathname,
-            page_location_param: window.location.href,
-            page_title: document.title
-          });
-        }
-      }
-    }
-  }
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      fire();
-      ticking = false;
-    });
-  }, { passive: true });
-
-  // Fire once on load in case the page is short or already scrolled
-  fire();
-})();
-</script>
-</body>
-</html>
+          gtag('event', 'scro
