@@ -21,7 +21,7 @@
             line-height: 1.8;
             color: #2c3e50;
             background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-            padding: 20px;
+            padding: 20px 20px 120px 20px;
         }
 
         .sketchbook-container {
@@ -299,7 +299,52 @@
                 text-align: center;
             }
         }
-    </style>
+    
+        .cta-center {
+            text-align: center;
+            margin: 40px 0 50px 0;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: center;
+            z-index: 9998;
+        }
+
+        .sticky-cta-button {
+            background: #e74c3c;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35);
+            transition: all 0.2s ease;
+            max-width: 900px;
+            width: auto;
+        }
+
+        .sticky-cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+</style>
 </head>
 <body>
     <div id="scrollProgressBar"></div>
@@ -513,9 +558,9 @@
                 <li>If you're making worse decisions because you're depleted and it's costing you money</li>
                 <li>If you're ready to diagnose the actual system failure instead of treating symptoms</li>
             </ul>
-
-            <a href="burnout-cure.html" class="cta-button" data-cta-id="primary">→ Get the protocol</a>
-
+            <div class="cta-center">
+                <a href="burnout-cure.html" class="cta-button" data-cta-id="primary">→ Get the protocol</a>
+            </div>
             <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page detection and correction manual<br>
             ✅ Evidence-based protocols from organizational psychology and clinical research<br>
             ✅ Personalized diagnostic assessment<br>
@@ -693,6 +738,11 @@
       window.addEventListener("load", checkScroll);
     })();
     </script>
+
+
+    <div class="sticky-cta">
+        <a href="burnout-cure.html" class="sticky-cta-button" data-cta-id="sticky">→ Get the protocol</a>
+    </div>
 
 </body>
 </html>
