@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This Is Costing You $50,000 a Year (And You Haven't Noticed)</title>
-    <meta name="description" content="You're operating at 60% capacity and calling it normal. The deal you didn't take, the decision you delayed—that money is gone. Detection protocol before the next mistake costs you more.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+    <title>Why Smart People Stay Burned Out (And Lose $50K/Year Doing It)</title>
+    <meta name="description" content="You've tried rest, boundaries, and meditation. You're still exhausted. Here's the hidden system failure costing you money, opportunities, and years of your life.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔋</text></svg>">
     
     <!-- Google Analytics -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -230,51 +234,96 @@
             position: relative;
         }
 
+        .divider::after {
+            content: '•';
+            position: absolute;
+            left: 50%;
+            top: -9px;
+            transform: translateX(-50%);
+            background: white;
+            color: #e74c3c;
+            font-size: 24px;
+            padding: 0 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin: 60px 0 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 36px;
+            margin-top: 0;
+        }
+
+        .cta-section h2::before {
+            content: '';
+            margin: 0;
+        }
+
+        .cta-section h3 {
+            color: white;
+            font-size: 24px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+        }
+
+        .cta-section ul {
+            text-align: left;
+            max-width: 650px;
+            margin: 20px auto;
+        }
+
+        .cta-section li {
+            color: rgba(255,255,255,0.95);
+        }
+
         .cta-button {
             display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 18px 40px;
+            background: white;
+            color: #667eea;
+            padding: 18px 50px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 8px;
             font-weight: 700;
-            font-size: 19px;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            font-size: 18px;
+            margin: 30px 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-            background: #c0392b;
-        }
-
-        /* Scroll Progress Bar */
-        #scrollProgressBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 4px;
-            background: linear-gradient(to right, #3498db, #e74c3c);
-            z-index: 9999;
-            transition: width 0.1s ease;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
         .ps-note {
-            background: linear-gradient(135deg, #ecf9ff 0%, #f3e5f5 100%);
-            border-left: 5px solid #3498db;
-            padding: 40px;
-            margin: 60px 0 0 0;
-            border-radius: 0 10px 10px 0;
-            font-size: 17px;
-            line-height: 1.9;
-            color: #2c3e50;
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #495057;
+            line-height: 1.8;
         }
 
-        .ps-note strong {
-            color: #e74c3c;
+        .ps-note::before {
+            content: 'P.S.';
+            display: block;
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         @media (max-width: 768px) {
@@ -287,7 +336,7 @@
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
             h2 {
@@ -298,61 +347,62 @@
                 display: none;
             }
 
-            .cta-button {
-                display: block;
-                text-align: center;
+            .cta-section {
+                padding: 30px 20px;
             }
 
-            .content-wrapper {
-                margin-left: 0 !important;
-            }
-
-            .money-box {
-                padding: 25px 20px;
-            }
-
-            .ps-note {
+            .info-box, .pattern-box, .recognition-box {
                 padding: 25px 20px;
             }
         }
     
-        .cta-center {
-            text-align: center;
-            margin: 40px 0 50px 0;
+        /* Scroll progress bar (always visible) */
+        #scrollProgressContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(0,0,0,0.08);
+            z-index: 99999;
+        }
+        #scrollProgressBar {
+            height: 100%;
+            width: 0%;
+            background: #667eea;
         }
 
+        /* Sticky CTA Button */
         .sticky-cta {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
             padding: 12px 16px;
+            z-index: 9998;
             display: flex;
             justify-content: center;
-            z-index: 9998;
             backdrop-filter: blur(10px);
         }
 
         .sticky-cta-button {
-            background: #e74c3c;
-            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 17px;
+            border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35);
-            transition: all 0.2s ease;
-            max-width: 900px;
-            width: auto;
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .sticky-cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -361,20 +411,59 @@
             }
 
             .sticky-cta-button {
-                width: calc(100% - 20px);
-                text-align: center;
                 padding: 18px 20px;
                 font-size: 16px;
+                width: calc(100% - 20px);
+                text-align: center;
             }
         }
 
-</style>
+    </style>
+
+
+        <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0718BZ9H0J');
+    </script>
+
+
+    <!-- Yandex Metrica -->
+    <script>
+(function(m,e,t,r,i,k,a){
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++) { if (document.scripts[j].src===r) return; }
+k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(106465827, "init", {
+  clickmap:true,
+  trackLinks:true,
+  accurateTrackBounce:true,
+  webvisor:true
+});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
-    <div id="scrollProgressBar"></div>
-    
+
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-cta">
+        <a href="#buy-now" class="sticky-cta-button" data-cta-id="sticky-bottom">See The System</a>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgressContainer" aria-hidden="true">
+        <div id="scrollProgressBar"></div>
+    </div>
+
     <div class="sketchbook-container">
-        <!-- Spiral binding rings -->
+        <!-- Spiral binding -->
         <div class="spiral">
             <div class="spiral-ring"></div>
             <div class="spiral-ring"></div>
@@ -383,233 +472,280 @@
             <div class="spiral-ring"></div>
             <div class="spiral-ring"></div>
             <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
         </div>
 
-        <!-- Main Content -->
-        <div class="content-wrapper" style="margin-left: 25px;">
-            <h1>You already lost<br>~$50,000 last year.</h1>
-            
-            <p class="subtitle">The deal you passed on. The decision you delayed. The move you didn't make.</p>
+        <h1>Why Smart People Stay Burned Out<br>(And Lose $50K/Year Doing It)</h1>
+        <p class="subtitle">The hidden system failure that makes recovery impossible—and the diagnostic protocol that finally fixes it</p>
 
-            <p style="margin-top: 30px;">You did what you were supposed to do.</p>
+        <p>You've already done everything they told you to do.</p>
 
-            <p>You slowed down. Took breaks. Tried to reset.</p>
+        <p>You took time off. Tried meditation. Set boundaries—or at least attempted to. You bought the productivity app, listened to the podcast about morning routines, deleted social media from your phone.</p>
 
-            <p>For a few days, it worked.</p>
+        <p>And for about three days, maybe a week, you felt slightly better.</p>
 
-            <p>Then everything came back.</p>
+        <p><span class="highlight">Then you were right back where you started.</span> Same exhaustion. Same brain fog. Same feeling that you're making decisions at 60% capacity and missing opportunities you would have caught if you weren't so drained.</p>
 
-            <p style="margin-top: 30px;">This isn't because you're weak.</p>
-
-            <p>And it's not because you lack discipline.</p>
-
-            <p style="margin-top: 30px;"><strong>It's because you kept operating below your real capacity and calling it normal.</strong></p>
-
-            <p style="margin-top: 30px;">You thought it was temporary.</p>
-
-            <p>You convinced yourself next week would be different. Next month. After this project ends.</p>
-
-            <p>But the decisions kept piling up. The opportunities kept passing by.</p>
-
-            <h3 style="margin-top: 40px; margin-bottom: 25px;">This is how capacity loss shows up in real life</h3>
-
-            <p><strong>You delay decisions that used to be obvious.</strong><br>
-            — Passing on deals or opportunities because evaluating them feels too heavy.<br>
-            — Staying in a job you outgrew because interviewing or switching feels exhausting.</p>
-
-            <p><strong>You accept pressure instead of correcting it.</strong><br>
-            — Delaying a hire that would remove load.<br>
-            — Taking on extra responsibilities instead of pushing back or renegotiating scope.</p>
-
-            <p><strong>You settle for "good enough" instead of optimal.</strong><br>
-            — Choosing safer, smaller moves instead of high-leverage ones.<br>
-            — Accepting roles, shifts, or projects below your real level just to avoid friction.</p>
-
-            <p><strong>You mistake slowdown for maturity.</strong><br>
-            — Calling hesitation "being careful" or "strategic patience."<br>
-            — Calling stagnation "stability" or "being realistic."</p>
-
-            <p><strong>You lose money in different ways — but you lose it anyway.</strong><br>
-            — Through missed upside, delayed growth, and weak execution.<br>
-            — Through stalled income, missed raises, delayed transitions, and years spent below your actual level.</p>
-
-            <div class="box" style="margin-top: 35px;">
-                <p style="margin-bottom: 10px;"><strong>Different roles. Same mechanism.</strong></p>
-                <p style="margin-bottom: 0;">Capacity loss always converts into money — either through missed upside or prolonged stagnation.</p>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="money-box">
-                <h4>The $50,000 Performance Tax You Already Paid</h4>
-                
-                <p><strong>This is what 40% capacity loss cost you last year:</strong></p>
-
-                <ul>
-                    <li><strong>$15,000:</strong> Opportunities you passed on because you didn't have processing power to evaluate them properly</li>
-                    <li><strong>$12,000:</strong> Critical decisions you delayed—costing you timing advantages and early-mover benefits</li>
-                    <li><strong>$10,000:</strong> Mistakes you made operating on degraded capacity (hiring errors, contract oversights, strategic miscalculations)</li>
-                    <li><strong>$8,000:</strong> Revenue lost from underperformance in key client/customer interactions</li>
-                    <li><strong>$5,000:</strong> Time wasted on low-value tasks because you lacked focus to prioritize effectively</li>
-                </ul>
-
-                <p style="margin-top: 20px; font-style: italic;">This doesn't include relationship damage, reputation costs, or the compounding effect of operating below capacity for years. This is what you already paid.</p>
-            </div>
-
-            <h2>The Pattern</h2>
-
-            <p>You're still functioning. Meetings attended. Emails sent. Projects delivered.</p>
-
-            <p>But decision quality has dropped. You're taking 3 days to make calls that used to take 3 hours. Missing opportunities that should have been obvious. Operating at 60% capacity while convincing yourself you're fine.</p>
-
-            <p>The cost isn't visible in your calendar. It's visible in:</p>
-
+        <div class="money-box">
+            <h4>Here's What That Actually Costs You:</h4>
             <ul>
-                <li>The deal you passed on because you didn't have mental bandwidth to evaluate it properly</li>
-                <li>The hire you delayed because decision-making felt too heavy</li>
-                <li>The strategic pivot you saw coming but were too depleted to execute</li>
-                <li>The relationship damage from operating on autopilot for months</li>
+                <li><strong>The promotion you didn't apply for</strong> because you were too tired to deal with the interview process</li>
+                <li><strong>The business opportunity you missed</strong> because your brain was too foggy to see it</li>
+                <li><strong>The bad hire you made</strong> because you didn't have the energy for a thorough vetting process</li>
+                <li><strong>The negotiation you failed</strong> because you were too depleted to push back</li>
+                <li><strong>The project you abandoned</strong> because you couldn't sustain focus long enough to finish</li>
             </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Conservative estimate: $50,000/year in lost income, poor decisions, and missed opportunities.</strong></p>
+        </div>
 
-            <h2>Why You Missed It</h2>
+        <p>The problem isn't that you didn't try hard enough.</p>
 
-            <p>Capacity loss is invisible until the damage is done. Your system compensates by:</p>
+        <p><span class="highlight">The problem is that standard burnout advice treats symptoms, not systems.</span></p>
 
+        <div class="divider"></div>
+
+        <h2>The Expensive Advice That Fails</h2>
+
+        <p>Most burnout recovery advice falls into predictable categories. All of it sounds reasonable. Almost none of it works.</p>
+
+        <h3>1. "Just take more time off"</h3>
+
+        <p>The logic sounds perfect: you're exhausted, so you need rest.</p>
+
+        <p>But if burnout were just fatigue, a vacation would fix it. It doesn't. You sleep eight hours and wake up tired. You take two weeks off and come back to find that nothing changed except your inbox is fuller and you're behind on everything.</p>
+
+        <p><span class="highlight">That's because burnout isn't sleep debt.</span> It's not a deficit you can repay with time. It's your nervous system stuck in emergency mode, unable to exit the stress response even when the threat is gone.</p>
+
+        <div class="box">
+            Rest pauses the bleed. But if your system is structurally broken, rest doesn't close the wound. You're not tired. Your operating system is corrupted.
+        </div>
+
+        <p><strong>What this costs you:</strong> Every week you spend "resting" without fixing the underlying system is another week of opportunities closing, decisions deteriorating, and income stagnating.</p>
+
+        <h3>2. "Try meditation or mindfulness"</h3>
+
+        <p>Meditation helps you notice you're drowning. It doesn't teach you to swim.</p>
+
+        <p>If you're burned out because your cognitive system is overloaded—switching between 47 tasks a day, fielding constant interruptions, making decisions without space to think—meditation might help you become more aware of the problem.</p>
+
+        <p><strong>But awareness isn't treatment.</strong></p>
+
+        <p>Worse, if you're physically depleted, meditation often makes things harder. When your nervous system is dysregulated, sitting still and "being present" just amplifies the discomfort you're trying to escape.</p>
+
+        <div class="warning-box">
+            <strong>The hidden cost:</strong> While you're meditating, hoping it will fix you, your competition isn't meditating. They're executing. They're capturing the opportunities you're too burned out to see.
+        </div>
+
+        <h3>3. "Set better boundaries"</h3>
+
+        <p>This one's particularly cruel because it sounds so obviously right.</p>
+
+        <p>But setting boundaries requires something you don't have when you're burned out: <strong>the capacity to enforce them.</strong></p>
+
+        <p>Saying no takes cognitive energy. Explaining why takes emotional energy. Dealing with the pushback? That's a third layer of drain you can't afford.</p>
+
+        <p>So you try to set a boundary, it gets tested, you don't have the bandwidth to hold it, and now you feel like a failure for not protecting your energy. Which drains you further.</p>
+
+        <p><span class="highlight">Boundaries aren't wrong. They're just step five, not step one.</span> You can't set boundaries before you restore the capacity to enforce them.</p>
+
+        <p><strong>What this costs you:</strong> Every failed boundary attempt chips away at your credibility and your energy. Each one makes the next one harder to attempt.</p>
+
+        <h3>4. "Optimize your morning routine"</h3>
+
+        <p>Cold showers. Journaling. Green smoothies. Five-minute yoga. Inbox zero before 9am.</p>
+
+        <p>The morning routine industrial complex assumes your problem is lack of optimization. That if you just had the right sequence of habits, you'd unlock your capacity.</p>
+
+        <p><span class="highlight">But burnout isn't a puzzle where you need the right combination.</span> It's structural failure. Adding more things to do—even "good" things—is like trying to improve a car's performance by adding weight to a vehicle with a broken engine.</p>
+
+        <p>The extra habits don't help. They're more items on your cognitive load. More failure points. More things to feel guilty about when you can't sustain them.</p>
+
+        <p><strong>What this costs you:</strong> Time and mental energy spent on optimization theater while the real problem—system failure—goes unaddressed.</p>
+
+        <h3>5. "Just push through it"</h3>
+
+        <p>This is the advice high performers give themselves. "I've done hard things before. I just need to be tougher."</p>
+
+        <p>But burnout isn't a lack of toughness. It's not a challenge to overcome with willpower. It's a biological state where your systems are running in the wrong mode.</p>
+
+        <div class="warning-box">
+            Pushing through burnout is like running on a sprained ankle. You're not building resilience. You're creating permanent damage. And every day you push through depleted, you're making decisions that cost you money, relationships, and opportunities you'll never get back.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>The Hidden Truth About Burnout</h2>
+
+        <p>Here's what nobody tells you:</p>
+
+        <p><span class="highlight">Burnout isn't one problem. It's three distinct system failures that present with similar symptoms.</span></p>
+
+        <div class="system-box">
+            <h4>The 3 Hidden Systems:</h4>
+            <p><strong>Physical Burnout:</strong> Your nervous system is stuck in threat mode. Every decision feels dangerous. Your body literally won't let you rest even when you're exhausted.</p>
+            <p><strong>Cognitive Burnout:</strong> Your attention is fragmented beyond repair. You can't focus, can't retain information, can't make complex decisions. Your brain has no processing power left.</p>
+            <p><strong>Emotional Burnout:</strong> Your motivation system is offline. The things that used to drive you feel hollow. You're working on values that don't match who you actually are.</p>
+        </div>
+
+        <p>Here's the expensive part: <strong>Most people have one primary system failure.</strong> Maybe two. Rarely all three.</p>
+
+        <p>If you're physically depleted, cognitive interventions won't help. If you're cognitively overloaded, emotional realignment won't fix it. If you're emotionally exhausted, nervous system work addresses the wrong layer.</p>
+
+        <p><span class="highlight">You're not broken. You're just applying the wrong fix to the actual problem.</span></p>
+
+        <div class="money-box">
+            <h4>Why This Matters For Your Income:</h4>
             <ul>
-                <li><strong>Narrowing decision windows</strong> — You defer, delay, and avoid complex choices because processing them takes too much energy</li>
-                <li><strong>Reducing signal detection</strong> — You miss opportunities and warnings that should trigger immediate action</li>
-                <li><strong>Operating on autopilot</strong> — Default responses replace strategic thinking; you confuse routine execution with actual performance</li>
-                <li><strong>Normalizing capacity loss</strong> — What used to feel sharp now feels "good enough"; you recalibrated baseline downward without noticing</li>
+                <li>Physical burnout makes you miss opportunities because your threat response flags everything as dangerous</li>
+                <li>Cognitive burnout means you can't process complex information, so you default to safe (low-value) decisions</li>
+                <li>Emotional burnout keeps you grinding on projects that don't align with your actual strengths, wasting years of potential earnings</li>
             </ul>
+            <p style="margin-top: 20px; margin-bottom: 0;"><strong>Each week you treat the wrong system is another week of deteriorating performance and lost income.</strong></p>
+        </div>
 
-            <p>You confuse degraded capacity with "not having time right now" when the real problem is you don't have processing power left.</p>
+        <div class="divider"></div>
 
-            <div class="divider"></div>
+        <h2>Why Diagnosis Matters More Than Intervention</h2>
 
-            <h2>The Three System Failures</h2>
+        <p>This is the part most articles don't tell you.</p>
 
-            <p>Capacity loss isn't random. It follows predictable patterns based on which system is compromised:</p>
+        <p><span class="highlight">You don't need more advice. You need to know which system is actually failing.</span></p>
 
-            <div class="system-box">
-                <h4>Physical System Degradation</h4>
-                <p><strong>Signal:</strong> Your nervous system is stuck in emergency mode. HRV is low. Sleep architecture is disrupted. Recovery capacity is offline.</p>
-                <p><strong>Cost:</strong> Decision-making requires more effort. Risk assessment becomes conservative or reckless (no middle ground). Physical symptoms appear: tension, digestive issues, immune suppression.</p>
-            </div>
+        <p>Most people skip diagnosis entirely. They read an article, try the first thing that sounds plausible, see minimal results, and conclude that they're broken or that recovery isn't possible.</p>
 
-            <div class="system-box">
-                <h4>Cognitive System Degradation</h4>
-                <p><strong>Signal:</strong> Attention fragmentation. Task-switching costs accumulate. Working memory is overloaded. You can't hold complex problems in your head anymore.</p>
-                <p><strong>Cost:</strong> Strategic thinking becomes impossible. You default to reactive problem-solving. Planning horizons shrink from quarterly to weekly to daily.</p>
-            </div>
+        <p>Neither is true. The intervention just didn't match the problem.</p>
 
-            <div class="system-box">
-                <h4>Emotional System Degradation</h4>
-                <p><strong>Signal:</strong> Motivation system is offline. Nothing feels meaningful. You're going through motions. Values misalignment creates constant low-grade friction.</p>
-                <p><strong>Cost:</strong> Decision quality drops because you're operating without internal compass. You tolerate situations that violate your values because confronting them requires energy you don't have.</p>
-            </div>
+        <div class="system-box">
+            <h4>The Difference Between Theory and Recovery:</h4>
+            <p>Understanding why burnout happens is interesting. Diagnosing which system is failing is actionable. And applying targeted protocols to that specific system is what actually generates results.</p>
+        </div>
 
-            <h2>Why Generic Interventions Fail</h2>
+        <p class="quote">"The wrong diagnosis guarantees the wrong treatment. And the wrong treatment guarantees you stay stuck—while opportunities, income, and time slip away."</p>
 
-            <p>You've tried meditation. Boundaries. Vacation. More sleep.</p>
+        <div class="divider"></div>
 
-            <p>None of it restored capacity because <span class="highlight">you treated symptoms instead of diagnosing which system actually failed.</span></p>
+        <h2>What Actually Happens In Real Recovery</h2>
 
-            <p>Physical system degradation doesn't respond to cognitive interventions. Cognitive overload doesn't respond to emotional work. Emotional depletion doesn't respond to physical protocols.</p>
+        <p>Real burnout recovery follows a specific sequence. Not random advice. Not motivation. Structure.</p>
 
-            <div class="warning-box">
-                <strong>The Pattern That Costs You Money:</strong><br><br>
-                
-                You implement generic "self-care" without understanding your failure mode → capacity doesn't improve → you conclude the problem is unsolvable → you accept degraded performance as permanent → opportunity cost compounds for years.
-            </div>
+        <p><strong>First: Diagnosis.</strong> Not self-assessment based on how you feel, but structured evaluation that identifies your primary depletion pattern. Physical, cognitive, or emotional—and which one is bleeding the most.</p>
 
-            <h2>What Actually Restores Capacity</h2>
+        <p><strong>Second: Removal.</strong> Not adding new habits. Identifying what's actively draining your primary system and stopping it. This is where immediate relief comes from. Not optimization. Subtraction.</p>
 
-            <p><strong>1. Accurate diagnosis of which system is compromised</strong><br>
-            Not "I'm depleted." But "My cognitive system is overloaded while my physical system is intact" or "My nervous system is dysregulated while cognitive function remains strong."</p>
+        <p><strong>Third: Targeted restoration.</strong> Applying the specific protocols that address your identified system failure. Not generic wellness advice. Interventions matched to your depletion pattern.</p>
 
-            <p><strong>2. Targeted removal of what's actively degrading that specific system</strong><br>
-            Not generic boundaries. But identifying the three specific patterns creating overload in YOUR system and eliminating them first.</p>
+        <p><strong>Fourth: Maintenance.</strong> Building the early warning system that catches decline before it becomes crisis. Because recovering once doesn't prevent burnout from happening again if you don't change the conditions that caused it.</p>
 
-            <p><strong>3. Evidence-based restoration protocols matched to your failure pattern</strong><br>
-            Not wellness tips. But clinical interventions from organizational psychology, neuroscience, and behavioral medicine that target the specific system that's offline.</p>
+        <p>This isn't complicated. But it is specific. And that specificity is why most generic advice fails.</p>
 
-            <p><strong>4. Early detection system that prevents future degradation</strong><br>
-            Not hoping you'll notice next time. But having a 2-minute monthly assessment that identifies warning signs before capacity loss becomes catastrophic.</p>
+        <div class="box">
+            <strong>What changes when you fix the right system:</strong><br><br>
+            Your decision-making sharpens. You see opportunities you were missing. You have the capacity to execute on them. The projects that felt impossible become manageable. The negotiations you would have avoided become winnable.<br><br>
+            <strong>This is how people break through income plateaus.</strong> Not by working harder. By fixing the system that was sabotaging them.
+        </div>
 
-            <div class="divider"></div>
+        <div class="divider"></div>
 
-            <h2>The Protocol</h2>
+        <h2>The Real Reason You're Still Burned Out</h2>
 
-            <p>If you're ready to stop operating at 60% capacity—to diagnose which system is actually failing and apply protocols that match your specific degradation pattern—you need structured detection and targeted correction.</p>
+        <p>It's not because you haven't tried enough things.</p>
 
-            <p style="margin-top: 30px;"><strong>PERFORMANCE FAILURE MANUAL: Detection and Correction Protocol for High-Load Operations</strong></p>
+        <p>It's not because you lack discipline or commitment.</p>
 
-            <p style="margin-top: 30px;">This is not a recovery guide. This is a detection and correction manual for people operating under constant load.</p>
+        <p><span class="highlight">It's because you've been applying interventions without diagnosis.</span> Trying solutions designed for different problems. Following advice that treats burnout as a single condition when it's actually three distinct system failures.</p>
+
+        <p>You wouldn't take antibiotics for a broken bone. You wouldn't treat diabetes with physical therapy. But that's essentially what happens when you try meditation for cognitive fragmentation or take a vacation to fix values misalignment.</p>
+
+        <div class="system-box">
+            <h4>The Real Cost of Staying Burned Out:</h4>
+            <p>Every week you operate at 60% capacity is a week someone else captures the opportunities you're too depleted to see. Every month you stay burned out is another month of bad decisions compounding. Every year is $50,000+ you're leaving on the table.</p>
+            <p style="margin-bottom: 0;"><strong>This isn't about feeling better. This is about restoring the capacity that generates income.</strong></p>
+        </div>
+
+        <p>Understanding why standard approaches fail is useful. It explains why you're not broken, why willpower isn't the answer, and why adding more habits isn't helping.</p>
+
+        <p>But understanding the problem isn't the same as solving it.</p>
+
+        <div class="divider"></div>
+
+        <!-- CTA Section -->
+        <div class="cta-section" id="buy-now">
+            <h2>The 42-Day Diagnostic Recovery System</h2>
+
+            <p>If you're ready to stop guessing—to identify which system is actually failing and apply protocols that match your specific depletion pattern—you need structured diagnosis and targeted interventions.</p>
+
+            <p style="margin-top: 30px;"><strong>THE BURNOUT CURE: What 50 Years of Research Reveals About Getting Your Energy Back</strong></p>
+
+            <p style="margin-top: 30px;">This isn't a collection of generic wellness tips. This is a clinical, evidence-based protocol that:</p>
 
             <ul>
-                <li><strong>Diagnoses your exact failure mode</strong> through a validated 3-system assessment (15 minutes, clinical precision)</li>
-                <li><strong>Identifies specific capacity leaks</strong> so you stop applying interventions that don't match your degradation pattern</li>
-                <li><strong>Provides immediate removal protocols</strong> that create capacity restoration within days—not months of trial and error</li>
-                <li><strong>Rebuilds compromised systems</strong> with targeted restoration protocols matched to your diagnosis</li>
+                <li><strong>Diagnoses your exact burnout type</strong> through a validated 3-system assessment (15 minutes, clinical precision)</li>
+                <li><strong>Identifies your specific energy leaks</strong> so you stop wasting effort on interventions that don't match your pattern</li>
+                <li><strong>Provides immediate removal protocols</strong> that create relief within days—not months of trial and error</li>
+                <li><strong>Rebuilds your depleted system</strong> with targeted restoration protocols matched to your diagnosis</li>
                 <li><strong>Restores decision-making capacity</strong> so you stop leaving money on the table</li>
             </ul>
 
             <h3>What You Get:</h3>
 
             <ul style="font-size: 16px;">
-                <li><strong>The 15-Minute Diagnostic Assessment</strong> that identifies your primary system failure</li>
-                <li><strong>Week 0: Immediate Correction Protocol</strong> — 3 removals that create capacity restoration this week</li>
-                <li><strong>Week 1: Stop The Leak</strong> — Personalized removal strategies for your specific system degradation</li>
-                <li><strong>Weeks 2-4: System Restoration</strong> — 5 core correction protocols (Sleep Architecture, Nervous System Reset, Attention Budget, Cognitive Offloading, Values Realignment)</li>
-                <li><strong>Weeks 5-6: Protection Protocol</strong> — Early detection system that prevents future degradation</li>
-                <li><strong>Your Complete Restoration Blueprint</strong> — One-page map of your system, warning signals, and reactivation triggers</li>
-                <li><strong>Emergency Toolkit</strong> — 5-minute interventions for acute capacity drops</li>
+                <li><strong>The 15-Minute Diagnostic Assessment</strong> that identifies your primary burnout type</li>
+                <li><strong>Week 0: Immediate Relief Protocol</strong> — 3 removals that create breathing room this week</li>
+                <li><strong>Week 1: Stop The Bleed</strong> — Personalized removal strategies for your specific system failure</li>
+                <li><strong>Weeks 2-4: System Rebuild</strong> — 5 core restoration protocols (Sleep, Nervous System, Focus, Decision Hygiene, Emotional Alignment)</li>
+                <li><strong>Weeks 5-6: Protection Protocol</strong> — Early warning system that prevents relapse</li>
+                <li><strong>Your Complete Recovery Blueprint</strong> — One-page map of your system, warning signs, and reactivation triggers</li>
+                <li><strong>Emergency Toolkit</strong> — 5-minute interventions for acute crisis moments</li>
             </ul>
 
             <p style="margin-top: 30px;"><strong>The Timeline:</strong></p>
 
-            <p>✅ Capacity restoration begins this week (immediate removal protocols)<br>
-            ✅ Noticeable performance improvement by Week 2<br>
-            ✅ Decision-making capacity restored by Week 4<br>
-            ✅ Full system correction in 42 days<br>
-            ✅ Detection framework for ongoing operation</p>
+            <p>✅ Relief this week (immediate removal protocols)<br>
+            ✅ Noticeable capacity return by Week 2<br>
+            ✅ Decision-making restored by Week 4<br>
+            ✅ Full system rebuild in 42 days<br>
+            ✅ Maintenance framework for life</p>
 
             <h3>Who This Is For:</h3>
 
             <ul>
-                <li>If you've tried generic interventions but you're still operating below capacity</li>
-                <li>If you suspect your problem is system degradation, not temporary load</li>
+                <li>If you've tried rest, meditation, and boundaries but you're still exhausted and underperforming</li>
+                <li>If you suspect your problem is deeper than "just being tired"</li>
                 <li>If you're making worse decisions because you're depleted and it's costing you money</li>
                 <li>If you're ready to diagnose the actual system failure instead of treating symptoms</li>
             </ul>
-            <div class="cta-center">
-                <a href="burnout-cure.html" class="cta-button" data-cta-id="primary">→ Get the protocol</a>
-            </div>
-            <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page detection and correction manual<br>
-            ✅ Evidence-based protocols from organizational psychology and clinical research<br>
-            ✅ Personalized diagnostic assessment<br>
-            ✅ A system you can return to whenever degradation signals appear</p>
 
-            <p style="margin-top: 40px; font-size: 15px; font-style: italic;">"Generic solutions treat symptoms. Diagnosis corrects systems."</p>
+            <a href="burnout-cure.html" class="cta-button" data-cta-id="primary">→ See The Complete System</a>
+
+            <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page interactive PDF workbook<br>
+            ✅ Evidence-based protocols from 50 years of research<br>
+            ✅ Personalized diagnostic assessment<br>
+            ✅ A system you can return to whenever you need it</p>
+
+            <p style="margin-top: 40px; font-size: 15px; font-style: italic;">"Rest treats the symptom. Diagnosis treats the system."</p>
         </div>
 
         <!-- P.S. Section -->
         <div class="ps-note">
-            Every day you operate at 60% capacity, you're making worse decisions. Missing opportunities. Damaging relationships. Losing money.<br><br>
+            Here's something you need to understand:<br><br>
 
-            <strong>The cost isn't the capacity loss. It's everything degraded capacity already cost you.</strong><br><br>
+            Every day you stay burned out, you're making worse decisions. Missing opportunities. Damaging relationships. Operating at 60% capacity while pretending you're fine.<br><br>
 
-            Most people will read this, recognize the pattern, and do nothing. They'll go back to trying random solutions. They'll spend another year at 60% capacity, another $50,000 lost to poor performance and missed opportunities.<br><br>
+            <strong>The cost isn't just exhaustion. It's everything that exhaustion touches.</strong><br><br>
 
-            <strong>The question isn't whether you need correction. The question is whether you're ready to stop bleeding money.</strong><br><br>
+            Most people will read this, nod along, and then do nothing. They'll go back to trying random solutions, hoping something eventually clicks. They'll spend another year burned out, another $50,000 lost to poor performance and missed opportunities.<br><br>
 
-            42 days from now, you could have your capacity back. Decision-making restored. Systems corrected. Opportunities you're currently too degraded to see become visible again.<br><br>
+            But you're still reading. Which means you already know something needs to change.<br><br>
 
-            Or you could still be here, operating at 60%, trying the next random solution. Still losing $50,000/year. Still convincing yourself it's normal.<br><br>
+            <strong>The question isn't whether you need a system. The question is whether you're ready to discover which system is actually failing.</strong><br><br>
 
-            The path to correction exists. The question is whether you'll take it before it costs you more.<br><br>
+            42 days from now, you could have your energy back. Your decision-making restored. Your capacity rebuilt. Opportunities you're currently too depleted to see become visible again.<br><br>
 
-            <strong>Start with detection. Stop the loss.</strong>
+            Or you could still be here, exhausted, trying the next generic solution that wasn't designed for your specific system failure. Still losing $50,000/year to depleted performance.<br><br>
+
+            The path forward exists. The question is whether you're ready to take it.<br><br>
+
+            <strong>Start with diagnosis. Everything else follows.</strong>
         </div>
 
     </div>
@@ -630,9 +766,9 @@
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
     </script>
 
-    
 
     
+
 
 
     
@@ -762,11 +898,6 @@
       window.addEventListener("load", checkScroll);
     })();
     </script>
-
-
-    <div class="sticky-cta">
-        <a href="burnout-cure.html" class="sticky-cta-button" data-cta-id="sticky">→ Get the protocol</a>
-    </div>
 
 </body>
 </html>

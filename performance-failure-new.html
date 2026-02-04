@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Is Costing You $50,000 a Year (And You Haven't Noticed)</title>
+    <meta name="description" content="You're operating at 60% capacity and calling it normal. The deal you didn't take, the decision you delayed—that money is gone. Detection protocol before the next mistake costs you more.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+    
+    <!-- Google Analytics -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 15px 10px 100px 10px;
+        }
+
+        .sketchbook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            position: relative;
+            padding: 50px 30px;
+        }
+
+        /* Spiral binding effect */
+        .spiral {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            width: 30px;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .spiral-ring {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #95a5a6;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: left;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: #e74c3c;
+            margin-top: 15px;
+            transform: rotate(-1deg);
+        }
+
+        .subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '→';
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin: 20px 0 20px 30px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 65%, #fff59d 65%);
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+
+        .box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 17px;
+        }
+
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-size: 30px;
+        }
+
+        .system-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .system-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: #9c27b0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .quote {
+            font-size: 20px;
+            font-style: italic;
+            color: #555;
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 25px 30px;
+            margin: 35px 0;
+            line-height: 1.6;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .money-box {
+            background: #fff9f0;
+            border: 3px solid #d4a574;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .money-box h4 {
+            font-family: 'Caveat', cursive;
+            font-size: 26px;
+            color: #d4a574;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .money-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .money-box li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .money-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e74c3c 30%, #e74c3c 70%, transparent);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 19px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            background: #c0392b;
+        }
+
+        /* Scroll Progress Bar */
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        .ps-note {
+            background: linear-gradient(135deg, #ecf9ff 0%, #f3e5f5 100%);
+            border-left: 5px solid #3498db;
+            padding: 40px;
+            margin: 60px 0 0 0;
+            border-radius: 0 10px 10px 0;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #2c3e50;
+        }
+
+        .ps-note strong {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px 90px 5px;
+            }
+
+            .sketchbook-container {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .spiral {
+                display: none;
+            }
+
+            .cta-button {
+                display: block;
+                text-align: center;
+            }
+
+            .content-wrapper {
+                margin-left: 0 !important;
+            }
+
+            .money-box {
+                padding: 25px 20px;
+            }
+
+            .ps-note {
+                padding: 25px 20px;
+            }
+        }
+    
+        .cta-center {
+            text-align: center;
+            margin: 40px 0 50px 0;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: center;
+            z-index: 9998;
+            backdrop-filter: blur(10px);
+        }
+
+        .sticky-cta-button {
+            background: #e74c3c;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 17px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35);
+            transition: all 0.2s ease;
+            max-width: 900px;
+            width: auto;
+        }
+
+        .sticky-cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.45);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                padding: 10px 10px;
+            }
+
+            .sticky-cta-button {
+                width: calc(100% - 20px);
+                text-align: center;
+                padding: 18px 20px;
+                font-size: 16px;
+            }
+        }
+
+</style>
+</head>
+<body>
+    <div id="scrollProgressBar"></div>
+    
+    <div class="sketchbook-container">
+        <!-- Spiral binding rings -->
+        <div class="spiral">
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+            <div class="spiral-ring"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-wrapper" style="margin-left: 25px;">
+            <h1>You already lost<br>~$50,000 last year.</h1>
+            
+            <p class="subtitle">The deal you passed on. The decision you delayed. The move you didn't make.</p>
+
+            <p style="margin-top: 30px;">You did what you were supposed to do.</p>
+
+            <p>You slowed down. Took breaks. Tried to reset.</p>
+
+            <p>For a few days, it worked.</p>
+
+            <p>Then everything came back.</p>
+
+            <p style="margin-top: 30px;">This isn't because you're weak.</p>
+
+            <p>And it's not because you lack discipline.</p>
+
+            <p style="margin-top: 30px;"><strong>It's because you kept operating below your real capacity and calling it normal.</strong></p>
+
+            <p style="margin-top: 30px;">You thought it was temporary.</p>
+
+            <p>You convinced yourself next week would be different. Next month. After this project ends.</p>
+
+            <p>But the decisions kept piling up. The opportunities kept passing by.</p>
+
+            <h3 style="margin-top: 40px; margin-bottom: 25px;">This is how capacity loss shows up in real life</h3>
+
+            <p><strong>You delay decisions that used to be obvious.</strong><br>
+            — Passing on deals or opportunities because evaluating them feels too heavy.<br>
+            — Staying in a job you outgrew because interviewing or switching feels exhausting.</p>
+
+            <p><strong>You accept pressure instead of correcting it.</strong><br>
+            — Delaying a hire that would remove load.<br>
+            — Taking on extra responsibilities instead of pushing back or renegotiating scope.</p>
+
+            <p><strong>You settle for "good enough" instead of optimal.</strong><br>
+            — Choosing safer, smaller moves instead of high-leverage ones.<br>
+            — Accepting roles, shifts, or projects below your real level just to avoid friction.</p>
+
+            <p><strong>You mistake slowdown for maturity.</strong><br>
+            — Calling hesitation "being careful" or "strategic patience."<br>
+            — Calling stagnation "stability" or "being realistic."</p>
+
+            <p><strong>You lose money in different ways — but you lose it anyway.</strong><br>
+            — Through missed upside, delayed growth, and weak execution.<br>
+            — Through stalled income, missed raises, delayed transitions, and years spent below your actual level.</p>
+
+            <div class="box" style="margin-top: 35px;">
+                <p style="margin-bottom: 10px;"><strong>Different roles. Same mechanism.</strong></p>
+                <p style="margin-bottom: 0;">Capacity loss always converts into money — either through missed upside or prolonged stagnation.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="money-box">
+                <h4>The $50,000 Performance Tax You Already Paid</h4>
+                
+                <p><strong>This is what 40% capacity loss cost you last year:</strong></p>
+
+                <ul>
+                    <li><strong>$15,000:</strong> Opportunities you passed on because you didn't have processing power to evaluate them properly</li>
+                    <li><strong>$12,000:</strong> Critical decisions you delayed—costing you timing advantages and early-mover benefits</li>
+                    <li><strong>$10,000:</strong> Mistakes you made operating on degraded capacity (hiring errors, contract oversights, strategic miscalculations)</li>
+                    <li><strong>$8,000:</strong> Revenue lost from underperformance in key client/customer interactions</li>
+                    <li><strong>$5,000:</strong> Time wasted on low-value tasks because you lacked focus to prioritize effectively</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-style: italic;">This doesn't include relationship damage, reputation costs, or the compounding effect of operating below capacity for years. This is what you already paid.</p>
+            </div>
+
+            <h2>The Pattern</h2>
+
+            <p>You're still functioning. Meetings attended. Emails sent. Projects delivered.</p>
+
+            <p>But decision quality has dropped. You're taking 3 days to make calls that used to take 3 hours. Missing opportunities that should have been obvious. Operating at 60% capacity while convincing yourself you're fine.</p>
+
+            <p>The cost isn't visible in your calendar. It's visible in:</p>
+
+            <ul>
+                <li>The deal you passed on because you didn't have mental bandwidth to evaluate it properly</li>
+                <li>The hire you delayed because decision-making felt too heavy</li>
+                <li>The strategic pivot you saw coming but were too depleted to execute</li>
+                <li>The relationship damage from operating on autopilot for months</li>
+            </ul>
+
+            <h2>Why You Missed It</h2>
+
+            <p>Capacity loss is invisible until the damage is done. Your system compensates by:</p>
+
+            <ul>
+                <li><strong>Narrowing decision windows</strong> — You defer, delay, and avoid complex choices because processing them takes too much energy</li>
+                <li><strong>Reducing signal detection</strong> — You miss opportunities and warnings that should trigger immediate action</li>
+                <li><strong>Operating on autopilot</strong> — Default responses replace strategic thinking; you confuse routine execution with actual performance</li>
+                <li><strong>Normalizing capacity loss</strong> — What used to feel sharp now feels "good enough"; you recalibrated baseline downward without noticing</li>
+            </ul>
+
+            <p>You confuse degraded capacity with "not having time right now" when the real problem is you don't have processing power left.</p>
+
+            <div class="divider"></div>
+
+            <h2>The Three System Failures</h2>
+
+            <p>Capacity loss isn't random. It follows predictable patterns based on which system is compromised:</p>
+
+            <div class="system-box">
+                <h4>Physical System Degradation</h4>
+                <p><strong>Signal:</strong> Your nervous system is stuck in emergency mode. HRV is low. Sleep architecture is disrupted. Recovery capacity is offline.</p>
+                <p><strong>Cost:</strong> Decision-making requires more effort. Risk assessment becomes conservative or reckless (no middle ground). Physical symptoms appear: tension, digestive issues, immune suppression.</p>
+            </div>
+
+            <div class="system-box">
+                <h4>Cognitive System Degradation</h4>
+                <p><strong>Signal:</strong> Attention fragmentation. Task-switching costs accumulate. Working memory is overloaded. You can't hold complex problems in your head anymore.</p>
+                <p><strong>Cost:</strong> Strategic thinking becomes impossible. You default to reactive problem-solving. Planning horizons shrink from quarterly to weekly to daily.</p>
+            </div>
+
+            <div class="system-box">
+                <h4>Emotional System Degradation</h4>
+                <p><strong>Signal:</strong> Motivation system is offline. Nothing feels meaningful. You're going through motions. Values misalignment creates constant low-grade friction.</p>
+                <p><strong>Cost:</strong> Decision quality drops because you're operating without internal compass. You tolerate situations that violate your values because confronting them requires energy you don't have.</p>
+            </div>
+
+            <h2>Why Generic Interventions Fail</h2>
+
+            <p>You've tried meditation. Boundaries. Vacation. More sleep.</p>
+
+            <p>None of it restored capacity because <span class="highlight">you treated symptoms instead of diagnosing which system actually failed.</span></p>
+
+            <p>Physical system degradation doesn't respond to cognitive interventions. Cognitive overload doesn't respond to emotional work. Emotional depletion doesn't respond to physical protocols.</p>
+
+            <div class="warning-box">
+                <strong>The Pattern That Costs You Money:</strong><br><br>
+                
+                You implement generic "self-care" without understanding your failure mode → capacity doesn't improve → you conclude the problem is unsolvable → you accept degraded performance as permanent → opportunity cost compounds for years.
+            </div>
+
+            <h2>What Actually Restores Capacity</h2>
+
+            <p><strong>1. Accurate diagnosis of which system is compromised</strong><br>
+            Not "I'm depleted." But "My cognitive system is overloaded while my physical system is intact" or "My nervous system is dysregulated while cognitive function remains strong."</p>
+
+            <p><strong>2. Targeted removal of what's actively degrading that specific system</strong><br>
+            Not generic boundaries. But identifying the three specific patterns creating overload in YOUR system and eliminating them first.</p>
+
+            <p><strong>3. Evidence-based restoration protocols matched to your failure pattern</strong><br>
+            Not wellness tips. But clinical interventions from organizational psychology, neuroscience, and behavioral medicine that target the specific system that's offline.</p>
+
+            <p><strong>4. Early detection system that prevents future degradation</strong><br>
+            Not hoping you'll notice next time. But having a 2-minute monthly assessment that identifies warning signs before capacity loss becomes catastrophic.</p>
+
+            <div class="divider"></div>
+
+            <h2>The Protocol</h2>
+
+            <p>If you're ready to stop operating at 60% capacity—to diagnose which system is actually failing and apply protocols that match your specific degradation pattern—you need structured detection and targeted correction.</p>
+
+            <p style="margin-top: 30px;"><strong>PERFORMANCE FAILURE MANUAL: Detection and Correction Protocol for High-Load Operations</strong></p>
+
+            <p style="margin-top: 30px;">This is not a recovery guide. This is a detection and correction manual for people operating under constant load.</p>
+
+            <ul>
+                <li><strong>Diagnoses your exact failure mode</strong> through a validated 3-system assessment (15 minutes, clinical precision)</li>
+                <li><strong>Identifies specific capacity leaks</strong> so you stop applying interventions that don't match your degradation pattern</li>
+                <li><strong>Provides immediate removal protocols</strong> that create capacity restoration within days—not months of trial and error</li>
+                <li><strong>Rebuilds compromised systems</strong> with targeted restoration protocols matched to your diagnosis</li>
+                <li><strong>Restores decision-making capacity</strong> so you stop leaving money on the table</li>
+            </ul>
+
+            <h3>What You Get:</h3>
+
+            <ul style="font-size: 16px;">
+                <li><strong>The 15-Minute Diagnostic Assessment</strong> that identifies your primary system failure</li>
+                <li><strong>Week 0: Immediate Correction Protocol</strong> — 3 removals that create capacity restoration this week</li>
+                <li><strong>Week 1: Stop The Leak</strong> — Personalized removal strategies for your specific system degradation</li>
+                <li><strong>Weeks 2-4: System Restoration</strong> — 5 core correction protocols (Sleep Architecture, Nervous System Reset, Attention Budget, Cognitive Offloading, Values Realignment)</li>
+                <li><strong>Weeks 5-6: Protection Protocol</strong> — Early detection system that prevents future degradation</li>
+                <li><strong>Your Complete Restoration Blueprint</strong> — One-page map of your system, warning signals, and reactivation triggers</li>
+                <li><strong>Emergency Toolkit</strong> — 5-minute interventions for acute capacity drops</li>
+            </ul>
+
+            <p style="margin-top: 30px;"><strong>The Timeline:</strong></p>
+
+            <p>✅ Capacity restoration begins this week (immediate removal protocols)<br>
+            ✅ Noticeable performance improvement by Week 2<br>
+            ✅ Decision-making capacity restored by Week 4<br>
+            ✅ Full system correction in 42 days<br>
+            ✅ Detection framework for ongoing operation</p>
+
+            <h3>Who This Is For:</h3>
+
+            <ul>
+                <li>If you've tried generic interventions but you're still operating below capacity</li>
+                <li>If you suspect your problem is system degradation, not temporary load</li>
+                <li>If you're making worse decisions because you're depleted and it's costing you money</li>
+                <li>If you're ready to diagnose the actual system failure instead of treating symptoms</li>
+            </ul>
+            <div class="cta-center">
+                <a href="burnout-cure.html" class="cta-button" data-cta-id="primary">→ Get the protocol</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 14px;">✅ Complete 60-page detection and correction manual<br>
+            ✅ Evidence-based protocols from organizational psychology and clinical research<br>
+            ✅ Personalized diagnostic assessment<br>
+            ✅ A system you can return to whenever degradation signals appear</p>
+
+            <p style="margin-top: 40px; font-size: 15px; font-style: italic;">"Generic solutions treat symptoms. Diagnosis corrects systems."</p>
+        </div>
+
+        <!-- P.S. Section -->
+        <div class="ps-note">
+            Every day you operate at 60% capacity, you're making worse decisions. Missing opportunities. Damaging relationships. Losing money.<br><br>
+
+            <strong>The cost isn't the capacity loss. It's everything degraded capacity already cost you.</strong><br><br>
+
+            Most people will read this, recognize the pattern, and do nothing. They'll go back to trying random solutions. They'll spend another year at 60% capacity, another $50,000 lost to poor performance and missed opportunities.<br><br>
+
+            <strong>The question isn't whether you need correction. The question is whether you're ready to stop bleeding money.</strong><br><br>
+
+            42 days from now, you could have your capacity back. Decision-making restored. Systems corrected. Opportunities you're currently too degraded to see become visible again.<br><br>
+
+            Or you could still be here, operating at 60%, trying the next random solution. Still losing $50,000/year. Still convincing yourself it's normal.<br><br>
+
+            The path to correction exists. The question is whether you'll take it before it costs you more.<br><br>
+
+            <strong>Start with detection. Stop the loss.</strong>
+        </div>
+
+    </div>
+
+    <script>
+        // Scroll progress bar
+        function updateScrollProgress() {
+            const doc = document.documentElement;
+            const scrollTop = doc.scrollTop || document.body.scrollTop;
+            const scrollHeight = doc.scrollHeight - doc.clientHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            const bar = document.getElementById('scrollProgressBar');
+            if (bar) bar.style.width = progress.toFixed(2) + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        window.addEventListener('resize', updateScrollProgress);
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
+    </script>
+
+    
+
+    
+
+
+    
+
+    <!-- Unified tracking: CTA clicks + scroll depth (GA4 + Yandex) -->
+    <script>
+    (function () {
+      var YID = 106465827;
+
+      function baseParams() {
+        return {
+          page_path: window.location.pathname || "",
+          page_location_param: window.location.href || "",
+          page_title: document.title || ""
+        };
+      }
+
+      function safeGtagEvent(name, params, cb) {
+        try {
+          if (typeof window.gtag === "function") {
+            params = params || {};
+            var done = false;
+            var finish = function () {
+              if (done) return;
+              done = true;
+              if (cb) cb();
+            };
+            params.transport_type = "beacon";
+            params.event_callback = finish;
+            window.gtag("event", name, params);
+            setTimeout(finish, 800);
+            return;
+          }
+        } catch (e) {}
+        if (cb) cb();
+      }
+
+      function yGoal(goalId, params) {
+        try {
+          if (typeof window.ym === "function" && goalId) {
+            window.ym(YID, "reachGoal", goalId, params);
+          }
+        } catch (e) {}
+      }
+
+      function closestWithAttr(el, attr) {
+        while (el && el !== document) {
+          if (el.getAttribute && el.getAttribute(attr)) return el;
+          el = el.parentElement;
+        }
+        return null;
+      }
+
+      // CTA click tracking (delegated)
+      document.addEventListener("click", function (e) {
+        var el = closestWithAttr(e.target, "data-cta-id");
+        if (!el) return;
+
+        var ctaId = el.getAttribute("data-cta-id") || "";
+        if (!ctaId) return;
+
+        var isAnchor = el.tagName && el.tagName.toUpperCase() === "A";
+        var href = isAnchor ? (el.getAttribute("href") || "") : (el.getAttribute("data-href") || "");
+
+        var p = baseParams();
+        p.cta_id = ctaId;
+        if (href) p.link_url = href;
+
+        // Yandex goal mirrors CTA id
+        yGoal(ctaId, p);
+
+        // allow new tab / modified clicks / non-links without delaying navigation
+        var opensNewTab = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || (el.getAttribute("target") === "_blank");
+        if (!isAnchor || opensNewTab || e.button !== 0 || !href) {
+          safeGtagEvent("cta_click", p);
+          return;
+        }
+
+        e.preventDefault();
+
+        var navigated = false;
+        var go = function () {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = href;
+        };
+
+        safeGtagEvent("cta_click", p, go);
+        setTimeout(go, 400);
+      }, true);
+
+      // Scroll depth tracking (once per threshold per page view)
+      var sent = Object.create(null);
+      var thresholds = [25, 50, 75, 90, 100];
+
+      function scrollPercent() {
+        var d = document.documentElement;
+        var b = document.body;
+        var st = window.pageYOffset || d.scrollTop || b.scrollTop || 0;
+        var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+        if (h <= 0) return 100;
+        return Math.min(100, (st / h) * 100);
+      }
+
+      function checkScroll() {
+        var pct = scrollPercent();
+        for (var i = 0; i < thresholds.length; i++) {
+          var t = thresholds[i];
+          if (pct >= t && !sent[t]) {
+            sent[t] = true;
+            var sp = baseParams();
+            sp.depth = t;
+            safeGtagEvent("scroll_depth", sp);
+          }
+        }
+      }
+
+      var tick = null;
+      window.addEventListener("scroll", function () {
+        if (tick) return;
+        tick = window.setTimeout(function () {
+          tick = null;
+          checkScroll();
+        }, 250);
+      }, { passive: true });
+
+      window.addEventListener("load", checkScroll);
+    })();
+    </script>
+
+
+    <div class="sticky-cta">
+        <a href="burnout-cure.html" class="sticky-cta-button" data-cta-id="sticky">→ Get the protocol</a>
+    </div>
+
+</body>
+</html>
