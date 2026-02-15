@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The 21-Day Life Reset - Restore Your Energy, Focus & Mental Clarity</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
     <style>
         * {
             margin: 0;
@@ -66,6 +67,14 @@
         .sticky-cta-text {
             font-weight: 600;
             color: #1a1a1a;
+            font-size: 17px;
+            letter-spacing: -0.01em;
+        }
+
+        @media (min-width: 769px) {
+            .sticky-cta-text {
+                font-size: 18px;
+            }
         }
 
         .sticky-cta-button {
@@ -707,7 +716,305 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Footer Styles */
+        .footer-container {
+            margin-top: 80px;
+            padding-top: 40px;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+            margin-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .footer-section a {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .footer-section p {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #9ca3af;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 35px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #374151;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 28px;
+            text-align: left;
+            color: #1a1a1a;
+        }
+
+        .modal-content h3 {
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: #374151;
+            text-align: left;
+        }
+
+        .modal-content p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .modal-content ul {
+            margin: 16px 0 16px 24px;
+            line-height: 1.8;
+        }
+
+        .modal-content li {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .guarantee-box {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            padding: 24px;
+            border-radius: 8px;
+            border: 2px solid #fbbf24;
+            margin: 24px 0;
+        }
+
+        .refund-trigger {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 30px 24px;
+                width: 95%;
+            }
+
+            .close {
+                font-size: 30px;
+                right: 15px;
+                top: 15px;
+            }
+        }
     </style>
+<!-- Analytics (GA4 + Yandex Metrica) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-0718BZ9H0J', { send_page_view: true });
+</script>
+
+<script>
+(function(m,e,t,r,i,k,a){
+  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j=0;j<document.scripts.length;j++) { if (document.scripts[j].src===r) return; }
+  k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+  k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(106465827, "init", {
+  clickmap:true,
+  trackLinks:true,
+  accurateTrackBounce:true,
+  webvisor:true
+});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<script>
+(function () {
+  var YID = 106465827;
+
+  function baseParams() {
+    return {
+      page_path: window.location.pathname || "",
+      page_location: window.location.href || "",
+      page_title: document.title || ""
+    };
+  }
+
+  function safeGtagEvent(name, params, cb) {
+    try {
+      if (typeof window.gtag !== "function") { if (cb) cb(); return; }
+      var done = false;
+      var finish = function () { if (done) return; done = true; if (cb) cb(); };
+      params = params || {};
+      params.transport_type = "beacon";
+      params.event_callback = finish;
+      window.gtag("event", name, params);
+
+      if (typeof window.ym === "function") {
+        if (name === "cta_click" && params && params.cta_id) {
+          window.ym(YID, "reachGoal", params.cta_id, params);
+        }
+        if (name === "scroll_depth" && params && params.depth) {
+          window.ym(YID, "reachGoal", "scroll_" + params.depth, params);
+        }
+      }
+
+      setTimeout(finish, 800);
+    } catch (e) {
+      if (cb) cb();
+    }
+  }
+
+  // CTA clicks: only elements with data-cta-id (keeps events clean)
+  document.addEventListener("click", function (e) {
+    var el = e.target && e.target.closest ? e.target.closest("[data-cta-id]") : null;
+    if (!el) return;
+
+    var ctaId = el.getAttribute("data-cta-id") || "unknown";
+    var href = el.getAttribute("href") || el.getAttribute("data-href") || "";
+    var isLink = (el.tagName === "A" || el.getAttribute("role") === "link") && href && !href.startsWith("#");
+    var isPrimaryClick = (e.button === 0) && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+
+    var p = baseParams();
+    p.cta_id = ctaId;
+    if (href) p.link_url = href;
+
+    if (isLink && isPrimaryClick) {
+      e.preventDefault();
+      safeGtagEvent("cta_click", p, function () { window.location.href = href; });
+    } else {
+      safeGtagEvent("cta_click", p);
+    }
+  }, true);
+
+  // Scroll depth: 25/50/75/90/100 (fire once per threshold)
+  (function () {
+    var sent = Object.create(null);
+    var thresholds = [25, 50, 75, 90, 100];
+
+    function scrollPercent() {
+      var d = document.documentElement;
+      var b = document.body;
+      var st = window.pageYOffset || d.scrollTop || b.scrollTop || 0;
+      var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+      if (h <= 0) return 100;
+      return Math.min(100, (st / h) * 100);
+    }
+
+    function checkScroll() {
+      var pct = scrollPercent();
+      for (var i = 0; i < thresholds.length; i++) {
+        var t = thresholds[i];
+        if (pct >= t && !sent[t]) {
+          sent[t] = true;
+          var p = baseParams();
+          p.depth = t;
+          safeGtagEvent("scroll_depth", p);
+        }
+      }
+    }
+
+    var tick = null;
+    window.addEventListener("scroll", function () {
+      if (tick) return;
+      tick = window.setTimeout(function () { tick = null; checkScroll(); }, 250);
+    }, { passive: true });
+
+    window.addEventListener("load", checkScroll);
+    document.addEventListener("DOMContentLoaded", checkScroll);
+  })();
+})();
+</script>
+
 </head>
 <body>
     <!-- Progress Bar -->
@@ -718,8 +1025,8 @@
     <!-- Sticky CTA -->
     <div class="sticky-cta" id="stickyCTA">
         <div class="sticky-cta-content">
-            <span class="sticky-cta-text">Ready to restore your cognitive performance?</span>
-            <a href="#pricing" class="sticky-cta-button">Get the system - $37</a>
+            <span class="sticky-cta-text">Interrupt the pattern</span>
+            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="sticky-cta-button" data-cta-id="sticky_checkout">GET INSTANT ACCESS</a>
         </div>
     </div>
 
@@ -727,26 +1034,71 @@
         <!-- Header -->
         <header class="header">
             <h1 class="main-title">The 21-Day Life Reset</h1>
-            <p class="subtitle">A Step-by-Step System to Restore Your Energy, Focus, and Mental Clarity in 21 Days</p>
+            <p class="subtitle">A structured 21-day system designed to restore execution, clarity, and behavioral control.</p>
         </header>
+
+        <!-- BLOCK 1 - Recognition + Restoration -->
+        <div style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 48px 40px; border-radius: 12px; margin-bottom: 40px; border-left: 4px solid #2563eb;">
+            <p style="font-size: 18px; margin-bottom: 16px;">You were not always operating like this.</p>
+            <p style="font-size: 18px; margin-bottom: 24px;">There was a time when action was immediate.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">When decisions did not create resistance.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">When execution did not require effort.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">That state was not motivation.</p>
+            <p style="font-size: 18px; margin-bottom: 24px;">It was normal system function.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Over time, automatic response patterns replaced that state.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Not permanently.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">But automatically.</p>
+            <p style="font-size: 19px; font-weight: 700; margin-bottom: 0; color: #1e40af;">This protocol exists to restore your original operating condition.</p>
+        </div>
+
+        <!-- Critical CTA - First Belief Formation -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="belief_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
+            <p style="margin-top: 20px; font-size: 17px; font-weight: 600; color: #475569;">Instant download. Start the system within minutes.</p>
+        </div>
+
+        <!-- BLOCK A - Installation Protocol -->
+        <div style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 40px; border-radius: 12px; margin-bottom: 40px; border-left: 4px solid #2563eb;">
+            <p style="font-size: 18px; margin-bottom: 16px; font-weight: 600;">This is not information.</p>
+            <p style="font-size: 18px; margin-bottom: 16px; font-weight: 600;">This is an installation protocol.</p>
+            <p style="font-size: 18px; margin-bottom: 24px;">It restores control over response patterns that normally operate automatically.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Most people never realize when those patterns take over.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">They only notice the consequences later.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">This protocol exists to interrupt them early.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-top: 12px; color: #dc2626;">Before they become permanent.</p>
+        </div>
+
+        <!-- BLOCK B - Recognition Bridge -->
+        <div style="background: #fff; padding: 40px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <p style="font-size: 18px; margin-bottom: 16px;">If you arrived here, something already triggered recognition.</p>
+            <p style="font-size: 18px; margin-bottom: 24px;">Not motivation.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 24px;">Recognition.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">You noticed a pattern.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">A hesitation.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">A delay.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">A reaction that did not feel deliberate.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Most people ignore that moment.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">They assume it will resolve naturally.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 24px;">It doesn't.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Patterns either become automatic.</p>
+            <p style="font-size: 17px; margin-bottom: 0;">Or they get interrupted.</p>
+        </div>
 
         <div class="section-divider"></div>
 
-        <!-- Recognition Section -->
+        <!-- BLOCK C - Short Emotional Recognition -->
         <div class="recognition">
-            <h2 class="recognition-title">You weren't always like this.</h2>
+            <h2 class="recognition-title">You were not always like this.</h2>
             
-            <p>You used to start things immediately.</p>
-            <p>Decisions were easy.</p>
-            <p>You had energy.</p>
+            <p>Your original state was faster.</p>
+            <p>Clearer.</p>
+            <p>More decisive.</p>
             
-            <p class="highlight">Now everything feels heavier.</p>
+            <p class="highlight" style="margin-top: 24px;">Automatic patterns formed gradually.</p>
             
-            <p>Simple tasks expand into entire days.</p>
-            <p>Projects you could finish in hours now take weeks.</p>
-            <p>Every decision feels like climbing a mountain.</p>
+            <p style="margin-top: 16px;">Which means they can be deliberately interrupted.</p>
             
-            <p class="italic-emphasis">And you don't know why.</p>
+            <p class="highlight" style="font-weight: 700; margin-top: 24px;">This protocol exists for that purpose.</p>
         </div>
 
         <!-- Problem Sections -->
@@ -802,9 +1154,42 @@
             <p class="highlight" style="font-weight: 700;">You're falling further behind.</p>
         </div>
 
+        <!-- BLOCK F - Inevitability -->
+        <div style="background: #fef2f2; padding: 40px; border-radius: 12px; margin: 40px 0; border-left: 4px solid #ef4444;">
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">This does not resolve naturally.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Automatic response patterns strengthen with repetition.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Each delay reinforces the loop.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">Each avoidance increases automatic control.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">This is why most people remain in the same state for years.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Not because change is impossible.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Because interruption never occurred.</p>
+        </div>
+
         <!-- Relief Anchor -->
-        <div class="relief-anchor">
+        <div class="relief-anchor" id="protocol-trigger">
             <h2>This protocol exists to restore those systems.</h2>
+        </div>
+
+        <!-- BLOCK D - Protocol Structure -->
+        <div style="background: #fff; padding: 40px; border-radius: 12px; margin: 40px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">The protocol is already structured.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">It does not depend on motivation.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">It does not depend on emotional state.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">It operates independently of resistance.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Access makes interruption possible immediately.</p>
+        </div>
+
+        <!-- CTA Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="early_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
+        </div>
+
+        <!-- MICRO-COMMITMENT BLOCK -->
+        <div style="background: linear-gradient(135deg, #fefce8, #fef9c3); padding: 32px; border-radius: 12px; margin: 40px 0; text-align: center;">
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #854d0e;">You do not need to commit to 21 days right now.</h3>
+            <p style="font-size: 18px; margin-bottom: 12px; color: #78350f;">Just open the diagnostic.</p>
+            <p style="font-size: 17px; margin-bottom: 12px; color: #78350f;">That alone will show you what has been blocking you.</p>
+            <p style="font-size: 17px; margin-bottom: 0; color: #78350f;">From there, the system guides the rest.</p>
         </div>
 
         <div class="section-divider"></div>
@@ -835,6 +1220,56 @@
             
             <p class="preview-note">Preview pages included below.</p>
         </div>
+
+        <!-- BLOCK 2 - What exactly changes -->
+        <div style="background: #fff; padding: 48px 40px; border-radius: 12px; margin: 40px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid #10b981;">
+            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; color: #1a1a1a;">What actually changes after installation:</h3>
+            
+            <ul style="list-style: none; padding: 0; margin-bottom: 32px;">
+                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
+                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
+                    You stop delaying actions you already decided to take
+                </li>
+                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
+                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
+                    Execution begins without internal resistance
+                </li>
+                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
+                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
+                    Mental clarity returns to baseline
+                </li>
+                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
+                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
+                    Anxiety stops controlling behavior
+                </li>
+                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
+                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
+                    Decisions translate into action immediately
+                </li>
+            </ul>
+            
+            <p style="text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 0; color: #1a1a1a;">This is a functional change. Not motivation. Function.</p>
+        </div>
+
+        <!-- WHAT EXACTLY CHANGES -->
+        <section class="section">
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What actually changes when you install this protocol:</h2>
+            
+            <div style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                <ul class="problem-list" style="margin-bottom: 32px;">
+                    <li>You stop freezing when you need to start something</li>
+                    <li>Tasks no longer sit unfinished for days or weeks</li>
+                    <li>Anxiety no longer decides your actions</li>
+                    <li>You regain the ability to act immediately</li>
+                    <li>Your brain stops resisting execution</li>
+                    <li>You return to operating at your real capacity</li>
+                </ul>
+                
+                <p style="text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 0;">This is a functional change. Not motivation. Not inspiration. Function.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
 
         <!-- Benefits -->
         <section class="section">
@@ -1042,6 +1477,36 @@
             <p style="text-align: center; margin-top: 32px; font-weight: 600;"><strong>Format:</strong> Interactive PDF workbook. Works on any device. Immediate download.</p>
         </section>
 
+        <!-- BLOCK 3 - Ownership clarity -->
+        <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center; border-left: 4px solid #f59e0b;">
+            <p style="font-size: 19px; font-weight: 700; margin-bottom: 16px; color: #78350f;">You receive a complete, finished system.</p>
+            <p style="font-size: 17px; margin-bottom: 12px; color: #92400e;">Nothing needs to be invented.</p>
+            <p style="font-size: 17px; margin-bottom: 12px; color: #92400e;">Nothing needs to be figured out.</p>
+            <p style="font-size: 18px; margin-bottom: 16px; color: #92400e;">You follow the structure exactly as written.</p>
+            <p style="font-size: 19px; font-weight: 700; margin-bottom: 0; color: #78350f;">Execution replaces uncertainty.</p>
+        </div>
+
+        <!-- REALITY PROOF -->
+        <section class="section">
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">This is a real, usable system. Not theory.</h2>
+            
+            <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 40px; border-radius: 12px; border-left: 4px solid #0284c7;">
+                <p style="font-size: 19px; font-weight: 600; margin-bottom: 24px;">This is a 51-page interactive workbook.</p>
+                
+                <p style="font-size: 18px; margin-bottom: 16px;">It contains:</p>
+                
+                <ul class="checklist" style="margin: 24px 0;">
+                    <li>Fillable worksheets</li>
+                    <li>Exact daily protocols</li>
+                    <li>Structured diagnostic</li>
+                    <li>Step-by-step execution sequence</li>
+                </ul>
+                
+                <p style="font-size: 17px; margin-bottom: 12px; margin-top: 32px;">You do not need to invent anything.</p>
+                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">You follow the structure.</p>
+            </div>
+        </section>
+
         <div class="section-divider"></div>
 
         <!-- What This Is/Isn't -->
@@ -1091,6 +1556,25 @@
 
         <div class="section-divider"></div>
 
+        <!-- BLOCK 4 - Instant usability -->
+        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center; border-left: 4px solid #2563eb;">
+            <p style="font-size: 19px; font-weight: 700; margin-bottom: 16px; color: #1e40af;">Access is immediate.</p>
+            <p style="font-size: 17px; margin-bottom: 12px; color: #1e3a8a;">You receive the full protocol instantly after purchase.</p>
+            <p style="font-size: 17px; margin-bottom: 12px; color: #1e3a8a;">You can begin within minutes.</p>
+            <p style="font-size: 17px; margin-bottom: 16px; color: #1e3a8a;">No waiting period.</p>
+            <p style="font-size: 17px; font-weight: 600; margin-bottom: 0; color: #1e40af;">No external dependency.</p>
+        </div>
+
+        <!-- BLOCK E - Immediate Access -->
+        <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 40px; border-radius: 12px; margin: 60px 0; border-left: 4px solid #10b981;">
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Access does not require preparation.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">It does not require external support.</p>
+            <p style="font-size: 17px; margin-bottom: 24px;">It does not require waiting.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">The protocol becomes available immediately.</p>
+            <p style="font-size: 17px; margin-bottom: 12px;">Installation begins on day one.</p>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Interruption begins immediately.</p>
+        </div>
+
         <!-- Pre-CTA Urgency -->
         <div style="text-align: center; margin: 60px 0;">
             <p style="font-size: 22px; margin-bottom: 16px;">You can continue operating at reduced capacity.</p>
@@ -1107,12 +1591,14 @@
             <p class="value-text">This protocol costs less than most people spend trying to fix this without a system.</p>
             
             <div class="price-container">
-                <p class="old-price">🚫 Regular Price: $107</p>
-                <p class="current-price">✅ Today: $37</p>
+                <p class="old-price">🚫 Regular Price: $105</p>
+                <p class="current-price">✅ Today: $35</p>
                 <p class="savings">💥 YOU SAVE: $70</p>
             </div>
             
-            <a href="#" class="cta-button">GET THE SYSTEM - $37</a>
+            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="main_checkout">GET INSTANT ACCESS</a>
+            
+            <p style="margin-top: 20px; font-size: 17px; font-weight: 600; color: #475569;">Instant download. No login required. Works immediately.</p>
             
             <ul class="checklist" style="text-align: left; max-width: 400px; margin: 40px auto 0;">
                 <li>Instant download · Immediate access</li>
@@ -1125,20 +1611,163 @@
 
         <div class="section-divider"></div>
 
-        <!-- Final Push -->
+        <!-- TIME-TO-VALUE -->
+        <section class="section">
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What happens immediately after purchase:</h2>
+            
+            <div style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                <ul class="checklist" style="font-size: 17px;">
+                    <li>You receive the PDF instantly</li>
+                    <li>You can open it on your phone, laptop, or tablet</li>
+                    <li>You complete the diagnostic in 15 minutes</li>
+                    <li>The protocol becomes active on day one</li>
+                </ul>
+                
+                <p style="text-align: center; font-size: 20px; font-weight: 700; margin-top: 32px; margin-bottom: 0;">There is no waiting period.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- RESULT-IDENTITY LOCK -->
+        <section class="section">
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">This is not about becoming someone else.</h2>
+            
+            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 40px; border-radius: 12px; border-left: 4px solid #9333ea; text-align: center;">
+                <p style="font-size: 19px; margin-bottom: 16px; color: #581c87;">This is about returning to your original operating state.</p>
+                <p style="font-size: 18px; margin-bottom: 16px; color: #6b21a8;">The state you had before overload, anxiety, and hesitation.</p>
+                <p style="font-size: 20px; font-weight: 700; margin-bottom: 0; color: #581c87;">This system restores that state.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- BLOCK 5 - Final Decision Lock -->
         <div class="final-push">
-            <h2>The Question Isn't "Should I?"</h2>
+            <p style="font-size: 22px; font-weight: 600; margin-bottom: 24px; color: #fff;">This pattern will not resolve on its own.</p>
             
-            <p class="question">The question is: "How much longer am I willing to lose?"</p>
+            <p style="font-size: 19px; margin-bottom: 12px; color: #cbd5e1;">It either remains automatic.</p>
+            <p style="font-size: 19px; margin-bottom: 32px; color: #cbd5e1;">Or it gets interrupted.</p>
             
-            <p>Another month stuck means lost opportunities you never even see.</p>
-            <p>Another year means becoming someone operating below their real level.</p>
+            <p style="font-size: 19px; margin-bottom: 24px; color: #cbd5e1;">You already recognized it.</p>
             
-            <p class="final-choice">Or: 21 days from now, you have systems that work.</p>
+            <p style="font-size: 22px; font-weight: 700; margin-bottom: 40px; color: #fbbf24;">The protocol exists for this exact moment.</p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="final_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
+            </div>
+            
+            <p style="font-size: 18px; margin-top: 40px; margin-bottom: 8px; color: #cbd5e1;">Delay reinforces the pattern.</p>
+            <p style="font-size: 19px; font-weight: 600; margin-bottom: 0; color: #fff;">Action interrupts it.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-container">
+            <div class="footer-divider"></div>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#" class="refund-trigger" onclick="openRefundModal(); return false;">Refund Policy</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p style="font-weight: 600; margin-bottom: 12px;">Digital product. Instant download. No shipping.</p>
+                    <p>Email:</p>
+                    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clear Decision Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRefundModal()">&times;</span>
+            <h2>Refund Policy</h2>
+            
+            <div class="guarantee-box">
+                <strong>60-Day Money-Back Guarantee</strong><br><br>
+                We're confident in this system. Complete the 21-day protocol and install the systems. You have 60 days to decide. If they don't work—we'll refund you. No questions asked.
+            </div>
+
+            <h3>How It Works</h3>
+            
+            <p><strong>Step 1: Complete The System</strong><br>
+            Go through the diagnostic, install all three protocols, and follow the 21-day guide.</p>
+
+            <p><strong>Step 2: If You Don't Get Results</strong><br>
+            If after installing the systems you don't have:
+            <br>• Working anxiety control (90-second resets that actually work)
+            <br>• Action forcing systems (procrastination becomes impossible)
+            <br>• Fast decision-making (significantly faster than before)</p>
+
+            <p>Simply email us at <strong><a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a></strong> within 60 days with:</p>
+            
+            <ul>
+                <li>Your order number</li>
+                <li>Brief summary of which systems you installed</li>
+                <li>Why it didn't work for you</li>
+            </ul>
+
+            <h3>What Happens Next</h3>
+            
+            <p><strong>Full Refund:</strong> We'll refund 100% of your purchase within 5 business days.</p>
+
+            <h3>The Only Requirement</h3>
+            
+            <p>Show us you completed the work. We're not asking for perfect results—just proof that you engaged with the system seriously.</p>
+
+            <p>If you bought it and never opened it, that's not a system failure—that's a commitment issue. The refund is for people who do the work and don't get results.</p>
+
+            <h3>Instant Refunds (First 60 Days)</h3>
+            
+            <p>Changed your mind within 60 days? No problem. Email us and we'll process your refund within 24 hours.</p>
+
+            <h3>Contact for Refund</h3>
+            
+            <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
+            <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
+            <strong>Response Time:</strong> Within 24 hours</p>
+
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-style: italic; color: #6b7280;">
+            We built this guarantee because we believe in the system. You should only pay for things that actually work. If this doesn't work, you shouldn't pay.
+            </p>
         </div>
     </div>
 
     <script>
+        // Refund modal functions
+        function openRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            const modal = document.getElementById('refundModal');
+            if (!modal) return;
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('refundModal');
+            if (event.target === modal) closeRefundModal();
+        });
+
+        // Close modal on Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeRefundModal();
+            }
+        });
+
         // Progress Bar
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -1147,20 +1776,25 @@
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
 
-        // Sticky CTA
+        // Sticky CTA - appears when "protocol" word becomes visible
         const stickyCTA = document.getElementById('stickyCTA');
         const pricingSection = document.getElementById('pricing');
+        const protocolTrigger = document.getElementById('protocol-trigger');
         
         window.addEventListener('scroll', () => {
             const pricingRect = pricingSection.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             
-            // Show sticky CTA when scrolled past 30% and pricing is not visible
-            if (window.scrollY > document.documentElement.scrollHeight * 0.3 && 
-                (pricingRect.top > viewportHeight || pricingRect.bottom < 0)) {
-                stickyCTA.classList.add('visible');
-            } else {
-                stickyCTA.classList.remove('visible');
+            // Show sticky CTA when protocol trigger is passed and pricing is not visible
+            if (protocolTrigger) {
+                const triggerRect = protocolTrigger.getBoundingClientRect();
+                const triggerPassed = triggerRect.top < viewportHeight / 2;
+                
+                if (triggerPassed && (pricingRect.top > viewportHeight || pricingRect.bottom < 0)) {
+                    stickyCTA.classList.add('visible');
+                } else {
+                    stickyCTA.classList.remove('visible');
+                }
             }
         });
 
@@ -1177,6 +1811,50 @@
                 }
             });
         });
+
+        // CTA Click Tracking
+        (function () {
+            function safeGtagEvent(name, params, cb) {
+                try {
+                    if (typeof gtag !== 'function') { if (cb) cb(); return; }
+                    var done = false;
+                    var go = function () { if (done) return; done = true; if (cb) cb(); };
+                    params = params || {};
+                    params.transport_type = 'beacon';
+                    params.event_callback = go;
+                    gtag('event', name, params);
+                    setTimeout(go, 800);
+                } catch (e) {
+                    if (cb) cb();
+                }
+            }
+
+            document.addEventListener('click', function (e) {
+                var el = e.target && e.target.closest ? e.target.closest('[data-cta-id]') : null;
+                if (!el) return;
+
+                var ctaId = el.getAttribute('data-cta-id') || 'unknown';
+                var href = el.getAttribute('href') || '';
+                var isNav = href && (el.tagName === 'A' || el.getAttribute('role') === 'link') && !href.startsWith('#');
+
+                if (isNav) {
+                    e.preventDefault();
+                    safeGtagEvent('cta_click', {
+                        cta_id: ctaId,
+                        page_path: window.location.pathname,
+                        page_title: document.title,
+                        link_url: href || undefined
+                    }, function () { window.location.href = href; });
+                } else {
+                    safeGtagEvent('cta_click', {
+                        cta_id: ctaId,
+                        page_path: window.location.pathname,
+                        page_title: document.title,
+                        link_url: href || undefined
+                    });
+                }
+            }, true);
+        })();
     </script>
 </body>
 </html>
