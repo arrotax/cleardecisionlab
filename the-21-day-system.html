@@ -3,892 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 21-Day Life Reset - Restore Your Energy, Focus & Mental Clarity</title>
+    <title>The 21-Day Life Reset — Restore Calm, Clarity, and Control</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <!-- Yandex Metrica -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #fafafa;
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7; color: #3A3632;
+            background: #F5F0EB;
+            padding: 0 0 100px 0;
         }
 
-        /* Progress Bar */
+        /* ── Progress Bar ── */
         .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: #e0e0e0;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+            background: rgba(0,0,0,0.04); z-index: 9999;
         }
-
         .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #2563eb, #3b82f6);
-            width: 0%;
-            transition: width 0.2s ease;
+            height: 3px; width: 0%;
+            background: linear-gradient(90deg, #8B6F5C, #5C7B6F);
+            transition: width 0.12s ease-out;
         }
 
-        /* Sticky CTA Button */
+        /* ── Sticky CTA ── */
         .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            padding: 16px;
-            z-index: 999;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(255,252,248,0.97); backdrop-filter: blur(12px);
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.08);
+            padding: 12px 16px; z-index: 9998;
+            display: flex; justify-content: center; align-items: center; gap: 16px;
+            transform: translateY(100%); transition: transform 0.3s ease;
         }
-
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-
-        .sticky-cta-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .sticky-cta-text {
-            font-weight: 600;
-            color: #1a1a1a;
-            font-size: 17px;
-            letter-spacing: -0.01em;
-        }
-
-        @media (min-width: 769px) {
-            .sticky-cta-text {
-                font-size: 18px;
-            }
-        }
-
+        .sticky-cta.visible { transform: translateY(0); }
+        .sticky-cta-text { font-weight: 600; color: #3A3632; font-size: 16px; }
         .sticky-cta-button {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-            white-space: nowrap;
+            background: #3D5A4C; color: #FFFCF8;
+            padding: 14px 28px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 15px;
+            box-shadow: 0 4px 14px rgba(61,90,76,0.3);
+            transition: all 0.3s ease; white-space: nowrap;
+        }
+        .sticky-cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(61,90,76,0.4); }
+        @media (max-width: 768px) {
+            .sticky-cta { flex-direction: column; padding: 10px; gap: 8px; }
+            .sticky-cta-text { font-size: 14px; }
+            .sticky-cta-button { width: 100%; text-align: center; padding: 16px 20px; }
         }
 
-        .sticky-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-        }
-
-        /* Container */
+        /* ── Container ── */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px 120px;
+            max-width: 740px; margin: 0 auto;
+            background: #FFFCF8;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
         }
 
-        /* Header */
+        /* ── Header ── */
         .header {
-            text-align: center;
-            margin-bottom: 80px;
-            padding-top: 20px;
+            padding: 56px 40px; text-align: center;
+            border-bottom: 1px solid #E8E2DB;
         }
-
+        .header-label {
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: #8B6F5C; margin-bottom: 20px; font-weight: 600;
+        }
         .main-title {
-            font-size: 48px;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 16px;
-            line-height: 1.2;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 36px; line-height: 1.35; color: #2B2825;
+            font-weight: 700; margin-bottom: 16px;
+        }
+        .header-sub {
+            font-size: 18px; color: #6B6560; line-height: 1.65;
+            max-width: 560px; margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .header { padding: 40px 22px; }
+            .main-title { font-size: 28px; }
+            .header-sub { font-size: 16px; }
         }
 
-        .subtitle {
-            font-size: 22px;
-            color: #666;
-            font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
+        /* ── Section ── */
+        .section { padding: 48px 40px; }
+        .section + .section { border-top: 1px solid #E8E2DB; }
+        @media (max-width: 768px) { .section { padding: 32px 22px; } }
+
+        p { font-size: 17px; margin-bottom: 20px; line-height: 1.8; }
+        .emphasis { font-weight: 600; color: #2B2825; }
+
+        h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 28px; line-height: 1.35;
+            margin-bottom: 24px; color: #2B2825; font-weight: 700;
+        }
+        @media (max-width: 768px) { h2 { font-size: 23px; } }
+
+        h3 {
+            font-size: 19px; margin: 32px 0 16px;
+            color: #2B2825; font-weight: 600;
         }
 
-        /* Sections */
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-            margin: 60px 0;
-        }
-
-        /* Recognition Section */
+        /* ── Recognition Block ── */
         .recognition {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            padding: 48px;
-            border-radius: 16px;
-            border-left: 4px solid #3b82f6;
-            margin-bottom: 60px;
+            background: #FAF7F4; padding: 40px;
+            border-left: 3px solid #D4C4B5;
+            margin-bottom: 0;
         }
-
-        .recognition-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-        }
-
         .recognition p {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: #334155;
+            font-size: 18px; line-height: 1.7;
+            margin-bottom: 14px;
         }
-
+        .recognition p:last-child { margin-bottom: 0; }
         .recognition .highlight {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 24px 0;
-            color: #1e293b;
+            font-weight: 600; color: #8B6F5C;
         }
+        @media (max-width: 768px) { .recognition { padding: 28px 22px; } }
 
-        .recognition .italic-emphasis {
-            font-style: italic;
-            font-size: 22px;
-            color: #475569;
-        }
-
-        /* Problem Section */
+        /* ── Problem Block ── */
         .problem-section {
-            background: #fff;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
         }
-
         .problem-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #1a1a1a;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 24px; color: #2B2825; font-weight: 700;
+            margin-bottom: 8px;
         }
-
         .problem-list {
-            list-style: none;
-            padding: 0;
+            list-style: none; padding: 0; margin: 16px 0;
         }
-
         .problem-list li {
-            padding: 12px 0;
-            padding-left: 32px;
-            position: relative;
-            font-size: 17px;
-            color: #374151;
+            padding: 8px 0 8px 24px; position: relative;
+            font-size: 17px; line-height: 1.7;
         }
-
         .problem-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-            font-weight: 600;
+            content: '—'; position: absolute; left: 0;
+            color: #8B6F5C; font-weight: 600;
+        }
+        @media (max-width: 768px) { .problem-section { padding: 28px 22px; } }
+
+        /* ── Urgency Block ── */
+        .urgency-block {
+            background: #F5EFEA; padding: 36px;
+            border-left: 3px solid #C4A882;
+            margin: 0;
+        }
+        .urgency-block p { font-size: 17px; line-height: 1.7; margin-bottom: 14px; }
+        .urgency-block p:last-child { margin-bottom: 0; }
+        @media (max-width: 768px) { .urgency-block { padding: 24px 22px; } }
+
+        /* ── Protocol Block ── */
+        .protocol-block {
+            background: #FFFCF8; padding: 36px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .protocol-block p { font-size: 17px; line-height: 1.7; margin-bottom: 14px; }
+        .protocol-block p:last-child { margin-bottom: 0; }
+        @media (max-width: 768px) { .protocol-block { padding: 24px 22px; } }
+
+        /* ── Micro-Commitment ── */
+        .micro-commit {
+            background: #F0F5F2; padding: 32px;
+            border-radius: 6px; margin: 32px 0; text-align: center;
+        }
+        .micro-commit h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 20px; color: #3D5A4C;
+            margin: 0 0 16px; font-weight: 700;
+        }
+        .micro-commit p { font-size: 17px; color: #3A3632; margin-bottom: 10px; }
+        .micro-commit p:last-child { margin-bottom: 0; }
+
+        /* ── What's Inside Module ── */
+        .module {
+            margin-bottom: 28px; border-left: 3px solid #E8E2DB;
+            padding-left: 24px; transition: border-color 0.3s;
+        }
+        .module:hover { border-left-color: #5C7B6F; }
+        .module-label {
+            font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+            color: #8B6F5C; margin-bottom: 8px; font-weight: 600;
+        }
+        .module-title {
+            font-size: 19px; font-weight: 700; color: #2B2825; margin-bottom: 10px;
+        }
+        .module-content {
+            color: #5C5550; font-size: 16px; line-height: 1.7;
         }
 
-        /* Relief Anchor */
-        .relief-anchor {
-            text-align: center;
-            padding: 48px 32px;
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-            border-radius: 16px;
-            margin: 60px 0;
-        }
-
-        .relief-anchor h2 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #1e40af;
-        }
-
-        /* Product Box */
-        .product-box {
-            background: #fff;
-            padding: 48px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin: 60px 0;
-            border: 2px solid #e5e7eb;
-        }
-
-        .product-box h3 {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .product-box p {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: #374151;
-        }
-
-        .product-box .authority {
-            font-style: italic;
-            font-size: 16px;
-            color: #6b7280;
-            margin-top: 24px;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 24px 0;
-        }
-
-        .feature-list li {
-            padding: 8px 0;
-            padding-left: 28px;
-            position: relative;
-            font-size: 16px;
-        }
-
-        .feature-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .format-box {
-            background: #f9fafb;
-            padding: 24px;
-            border-radius: 8px;
-            margin-top: 24px;
-        }
-
-        .format-box h4 {
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .format-box p {
-            font-size: 15px;
-            margin-bottom: 6px;
-        }
-
-        .preview-note {
-            text-align: center;
-            font-style: italic;
-            font-weight: 700;
-            margin-top: 16px;
-            color: #2563eb;
-        }
-
-        /* Benefits Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 32px 0;
-        }
-
-        .benefit-card {
-            background: #fff;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .benefit-card::before {
-            content: "•";
-            color: #3b82f6;
-            font-size: 24px;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-
-        /* Identity Lock */
-        .identity-lock {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            padding: 32px;
-            border-radius: 12px;
-            margin: 32px 0;
-            text-align: center;
-        }
-
-        .identity-lock p {
-            font-size: 18px;
-            font-weight: 600;
-            font-style: italic;
-            color: #78350f;
-            margin-bottom: 8px;
-        }
-
-        /* Timeline */
-        .timeline {
-            margin: 40px 0;
-        }
-
+        /* ── Timeline ── */
         .timeline-item {
-            margin-bottom: 32px;
-            padding-left: 32px;
-            border-left: 3px solid #3b82f6;
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 0 12px 12px 0;
+            display: flex; gap: 20px; margin-bottom: 28px;
+        }
+        .timeline-marker {
+            flex-shrink: 0; width: 48px; height: 48px;
+            background: #F0F5F2; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: #3D5A4C; font-size: 14px;
+        }
+        .timeline-content h4 { font-size: 18px; color: #2B2825; margin-bottom: 6px; font-weight: 600; }
+        .timeline-content p { font-size: 16px; color: #5C5550; margin-bottom: 0; line-height: 1.65; }
+
+        /* ── Results List ── */
+        .results-list {
+            list-style: none; padding: 0; margin: 24px 0;
+        }
+        .results-list li {
+            padding: 10px 0 10px 32px; position: relative;
+            font-size: 16px; line-height: 1.7;
+        }
+        .results-list li::before {
+            content: '✓'; position: absolute; left: 0;
+            color: #5C7B6F; font-size: 18px; font-weight: 700;
         }
 
-        .timeline-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1e293b;
+        /* ── Comparison ── */
+        .comparison-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 20px; margin-bottom: 8px;
+            background: #FAF7F4; border-radius: 4px;
         }
-
-        .timeline-item ul {
-            list-style: none;
-            padding: 0;
+        .comparison-row.highlight-row {
+            background: #F0F5F2; border: 2px solid #5C7B6F;
         }
+        .comp-label { color: #5C5550; font-size: 16px; }
+        .comp-value { font-weight: 600; color: #2B2825; font-size: 16px; text-align: right; }
 
-        .timeline-item li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
+        /* ── Price Section ── */
+        .price-section {
+            background: #F5F0EB; padding: 56px 40px; text-align: center;
         }
-
-        .timeline-item li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-            font-weight: 700;
+        .price-section h2 { margin-bottom: 12px; }
+        .price-amount {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 64px; color: #2B2825; font-weight: 700;
+            margin: 24px 0 8px;
         }
-
-        /* System Steps */
-        .steps {
-            margin: 40px 0;
-        }
-
-        .step {
-            background: #fff;
-            padding: 24px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-
-        .step:hover {
-            transform: translateX(8px);
-        }
-
-        .step-number {
-            font-weight: 700;
-            color: #2563eb;
-        }
-
-        /* Why This Works */
-        .why-works {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            padding: 48px;
-            border-radius: 16px;
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .why-works h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .why-works .big-text {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 16px 0;
-        }
-
-        .why-works .protocol-text {
-            font-size: 28px;
-            font-weight: 700;
-            color: #166534;
-            margin: 20px 0;
-        }
-
-        /* Part Sections */
-        .part {
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            margin: 40px 0;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-        }
-
-        .part h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-        }
-
-        .part h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 20px 0 12px;
-            color: #374151;
-        }
-
-        .part .result {
-            margin-top: 24px;
-            padding: 16px;
-            background: #f0fdf4;
-            border-radius: 8px;
-            border-left: 4px solid #22c55e;
-        }
-
-        .result strong {
-            color: #166534;
-        }
-
-        .result em {
-            color: #166534;
-        }
-
-        /* Checklist */
-        .checklist {
-            list-style: none;
-            padding: 24px 0;
-        }
-
-        .checklist li {
-            padding: 10px 0;
-            padding-left: 32px;
-            position: relative;
-            font-size: 16px;
-        }
-
-        .checklist li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #22c55e;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* What Is/Isn't */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .comparison-box {
-            padding: 32px;
-            border-radius: 12px;
-        }
-
-        .not-box {
-            background: #fef2f2;
-            border: 2px solid #fca5a5;
-        }
-
-        .is-box {
-            background: #f0fdf4;
-            border: 2px solid #86efac;
-        }
-
-        .comparison-box h4 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .not-box h4 {
-            color: #dc2626;
-        }
-
-        .is-box h4 {
-            color: #16a34a;
-        }
-
-        /* Guarantee */
-        .guarantee {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            padding: 48px;
-            border-radius: 16px;
-            margin: 60px 0;
-            text-align: center;
-            border: 2px solid #fbbf24;
-        }
-
-        .guarantee h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #92400e;
-        }
-
-        .guarantee .guarantee-text {
-            font-size: 22px;
-            margin-bottom: 32px;
-            color: #78350f;
-        }
-
-        /* Pricing */
-        .pricing {
-            background: #fff;
-            padding: 60px 48px;
-            border-radius: 16px;
-            margin: 60px 0;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            text-align: center;
-            border: 3px solid #3b82f6;
-        }
-
-        .pricing h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 32px;
-        }
-
-        .pricing .urgency {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 32px;
-            color: #1e40af;
-        }
-
-        .pricing .value-text {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: #475569;
-        }
-
-        .price-container {
-            margin: 40px 0;
-        }
-
-        .old-price {
-            font-size: 24px;
-            text-decoration: line-through;
-            color: #9ca3af;
-            margin-bottom: 8px;
-        }
-
-        .current-price {
-            font-size: 56px;
-            font-weight: 800;
-            color: #2563eb;
-            margin-bottom: 8px;
-        }
-
-        .savings {
-            font-size: 28px;
-            font-weight: 700;
-            color: #16a34a;
-            margin-bottom: 40px;
-        }
-
+        .price-note { font-size: 16px; color: #6B6560; margin-bottom: 28px; }
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            color: white;
-            padding: 20px 60px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 20px;
+            display: inline-block; background: #3D5A4C; color: #FFFCF8;
+            padding: 18px 48px; text-decoration: none; border-radius: 6px;
+            font-size: 17px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+            box-shadow: 0 8px 24px rgba(61,90,76,0.3);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-            margin: 20px 0;
         }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(37, 99, 235, 0.5);
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(61,90,76,0.4); }
+        .purchase-meta {
+            margin-top: 24px; font-size: 15px; color: #6B6560; line-height: 1.8;
         }
-
-        /* Final Push */
-        .final-push {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-            padding: 60px 48px;
-            border-radius: 16px;
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .final-push h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .final-push .question {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 32px;
-            color: #fbbf24;
-        }
-
-        .final-push p {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: #cbd5e1;
-        }
-
-        .final-push .final-choice {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 40px;
-            color: #fff;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 16px 100px;
-            }
-
-            .main-title {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-            }
-
-            .recognition,
-            .product-box,
-            .problem-section,
-            .why-works,
-            .part,
-            .guarantee,
-            .pricing,
-            .final-push {
-                padding: 32px 24px;
-            }
-
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .sticky-cta-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .sticky-cta-button {
-                width: 100%;
-            }
-
-            .current-price {
-                font-size: 42px;
-            }
-
-            .cta-button {
-                padding: 16px 40px;
-                font-size: 18px;
-            }
+            .price-section { padding: 40px 22px; }
+            .price-amount { font-size: 52px; }
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Footer Styles */
-        .footer-container {
-            margin-top: 80px;
-            padding-top: 40px;
-        }
-
-        .footer-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-            margin-bottom: 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1a1a1a;
-        }
-
-        .footer-section a {
-            color: #2563eb;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover {
-            color: #1e40af;
-            text-decoration: underline;
-        }
-
-        .footer-section p {
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        .footer-bottom {
+        /* ── Guarantee ── */
+        .guarantee {
+            background: #F0F5F2; border: 2px solid #5C7B6F;
+            padding: 40px; border-radius: 8px; margin: 40px 0;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-            font-size: 14px;
+        }
+        .guarantee-badge {
+            display: inline-block; background: #5C7B6F; color: white;
+            padding: 6px 16px; border-radius: 50px; font-size: 12px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .guarantee h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 24px; color: #3D5A4C; margin: 0 0 16px; font-weight: 700;
+        }
+        .guarantee p {
+            color: #3A3632; font-size: 16px; max-width: 560px;
+            margin: 12px auto; line-height: 1.7;
         }
 
-        /* Modal Styles */
+        /* ── This Is / Isn't ── */
+        .is-isnt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+        .is-col, .isnt-col { padding: 24px; border-radius: 6px; }
+        .is-col { background: #F0F5F2; }
+        .isnt-col { background: #FAF7F4; }
+        .is-col h4 { color: #3D5A4C; margin-bottom: 12px; font-size: 16px; }
+        .isnt-col h4 { color: #8B6F5C; margin-bottom: 12px; font-size: 16px; }
+        .is-col p, .isnt-col p { font-size: 15px; margin-bottom: 8px; line-height: 1.6; }
+        .is-col p:last-child, .isnt-col p:last-child { margin-bottom: 0; }
+        @media (max-width: 768px) {
+            .is-isnt { grid-template-columns: 1fr; gap: 16px; }
+        }
+
+        /* ── Divider ── */
+        .divider { width: 60px; height: 1px; background: #D4C4B5; margin: 40px auto; }
+
+        /* ── Footer ── */
+        .footer {
+            padding: 40px; border-top: 1px solid #E8E2DB;
+        }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer h4 { font-size: 15px; color: #2B2825; margin-bottom: 12px; font-weight: 600; }
+        .footer a { color: #5C7B6F; text-decoration: none; font-size: 15px; display: block; margin-bottom: 6px; }
+        .footer a:hover { text-decoration: underline; }
+        .footer p { font-size: 14px; color: #8B8580; }
+        .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid #E8E2DB; font-size: 13px; color: #8B8580; }
+        @media (max-width: 768px) {
+            .footer { padding: 28px 22px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        /* ── Modal ── */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            animation: fadeIn 0.3s;
+            display: none; position: fixed; z-index: 10000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background: rgba(0,0,0,0.6);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 700px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            position: relative;
-            animation: slideIn 0.3s;
+            background: #FFFCF8; margin: 5% auto; padding: 40px;
+            border-radius: 8px; width: 90%; max-width: 640px;
+            max-height: 85vh; overflow-y: auto;
         }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
+        .modal-content h2 { font-family: 'Libre Baskerville', serif; font-size: 24px; margin: 0 0 20px; color: #2B2825; }
+        .modal-content h3 { font-size: 18px; margin: 24px 0 12px; color: #2B2825; }
         .close {
-            color: #9ca3af;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 35px;
-            font-weight: 300;
-            cursor: pointer;
-            transition: color 0.2s;
-            line-height: 1;
+            float: right; font-size: 32px; font-weight: bold;
+            cursor: pointer; color: #8B8580; line-height: 1;
         }
-
-        .close:hover,
-        .close:focus {
-            color: #374151;
-        }
-
-        .modal-content h2 {
-            margin-top: 0;
-            margin-bottom: 24px;
-            font-size: 28px;
-            text-align: left;
-            color: #1a1a1a;
-        }
-
-        .modal-content h3 {
-            font-size: 20px;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            color: #374151;
-            text-align: left;
-        }
-
-        .modal-content p {
-            margin-bottom: 16px;
-            line-height: 1.7;
-            color: #4b5563;
-        }
-
-        .modal-content ul {
-            margin: 16px 0 16px 24px;
-            line-height: 1.8;
-        }
-
-        .modal-content li {
-            margin-bottom: 8px;
-            color: #4b5563;
-        }
-
-        .guarantee-box {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            padding: 24px;
-            border-radius: 8px;
-            border: 2px solid #fbbf24;
-            margin: 24px 0;
-        }
-
-        .refund-trigger {
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .modal-content {
-                margin: 10% auto;
-                padding: 30px 24px;
-                width: 95%;
-            }
-
-            .close {
-                font-size: 30px;
-                right: 15px;
-                top: 15px;
-            }
-        }
+        .close:hover { color: #2B2825; }
     </style>
 <!-- Analytics (GA4 + Yandex Metrica) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
@@ -954,7 +394,7 @@ ym(106465827, "init", {
     }
   }
 
-  // CTA clicks: only elements with data-cta-id (keeps events clean)
+  // CTA clicks: only elements with data-cta-id
   document.addEventListener("click", function (e) {
     var el = e.target && e.target.closest ? e.target.closest("[data-cta-id]") : null;
     if (!el) return;
@@ -976,7 +416,7 @@ ym(106465827, "init", {
     }
   }, true);
 
-  // Scroll depth: 25/50/75/90/100 (fire once per threshold)
+  // Scroll depth: 25/50/75/90/100
   (function () {
     var sent = Object.create(null);
     var thresholds = [25, 50, 75, 90, 100];
@@ -1017,844 +457,333 @@ ym(106465827, "init", {
 
 </head>
 <body>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta" id="stickyCta">
+        <span class="sticky-cta-text">The 21-Day Life Reset — $35</span>
+        <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="sticky-cta-button" data-cta-id="sticky_checkout">Get Instant Access</a>
+    </div>
+
     <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- Sticky CTA -->
-    <div class="sticky-cta" id="stickyCTA">
-        <div class="sticky-cta-content">
-            <span class="sticky-cta-text">Interrupt the pattern</span>
-            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="sticky-cta-button" data-cta-id="sticky_checkout">GET INSTANT ACCESS</a>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-label">21-Day Structured Protocol</div>
+        <h1 class="main-title">The 21-Day Life Reset</h1>
+        <p class="header-sub">Restore calm, clarity, and the ability to act — without needing motivation, willpower, or another explanation of why you're stuck.</p>
+    </div>
+
+    <!-- Recognition -->
+    <div class="recognition">
+        <p>You weren't always like this.</p>
+        <p>There was a time when decisions didn't feel this heavy. When you could start something without fighting yourself first. When you slept through the night without waking at 3 AM to worry.</p>
+        <p><span class="highlight">That wasn't motivation. That was your nervous system working properly.</span></p>
+        <p>Over time — through stress, loss, responsibility, and years of pushing through — automatic patterns replaced that state.</p>
+        <p>Not permanently. But automatically.</p>
+        <p><span class="highlight">This system exists to restore what was disrupted.</span></p>
+    </div>
+
+    <!-- First CTA -->
+    <div style="text-align: center; padding: 40px;">
+        <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="belief_checkout">Get Instant Access</a>
+        <p style="margin-top: 16px; font-size: 15px; color: #6B6560;">Instant download. Start the system within minutes.</p>
+    </div>
+
+    <!-- Problem -->
+    <div class="problem-section" style="border-top: 1px solid #E8E2DB;">
+        <p class="problem-title">This isn't a willpower problem.</p>
+        <p class="problem-title">This is a systems problem.</p>
+
+        <p style="margin-top: 20px;">Your brain doesn't have working protocols for:</p>
+        <ul class="problem-list">
+            <li>Managing anxiety when it spikes at 2 AM or before an appointment</li>
+            <li>Starting the thing you've been avoiding for weeks</li>
+            <li>Making a decision without agonizing over it for days</li>
+        </ul>
+
+        <p><span class="emphasis">And it's been getting worse, not better.</span></p>
+    </div>
+
+    <div class="problem-section" style="border-top: 1px solid #E8E2DB;">
+        <p class="problem-title">You've already tried fixing this.</p>
+
+        <p style="margin-top: 16px;">You've tried deep breathing. You've tried journaling. You've tried telling yourself "just do it." You've tried therapy, meditation apps, morning routines.</p>
+        <p><span class="emphasis">None of it stuck.</span></p>
+        <p>Not because those things don't work. Because they require you to feel motivated, centered, and ready — and on your worst days, you're none of those things.</p>
+        <p style="font-style: italic;">You need a system that works <em>especially</em> when you don't feel like it.</p>
+    </div>
+
+    <!-- Urgency -->
+    <div class="urgency-block">
+        <p><span class="emphasis">These patterns don't resolve on their own.</span></p>
+        <p>Automatic responses strengthen with repetition. Each time you avoid, each time anxiety wins, each time you postpone the decision — the loop gets deeper.</p>
+        <p>That's why you feel more stuck now than you did five years ago.</p>
+        <p>Not because you're weaker. Because the patterns have had five more years to solidify.</p>
+        <p><span class="emphasis">They need to be interrupted. That's what this protocol does.</span></p>
+    </div>
+
+    <!-- Protocol -->
+    <div class="protocol-block" style="border-top: 1px solid #E8E2DB;">
+        <p><span class="emphasis">This is not information. It's an intervention.</span></p>
+        <p>It doesn't depend on how you feel. It doesn't require motivation. It works on your worst days — the days when you wake up heavy and nothing feels possible.</p>
+        <p>Because it was designed for those days specifically.</p>
+    </div>
+
+    <!-- Micro-Commitment -->
+    <div class="section">
+        <div class="micro-commit">
+            <h3>You don't need to commit to 21 days right now.</h3>
+            <p>Just open the diagnostic. It takes 15 minutes.</p>
+            <p>That alone will show you which pattern has been running your life.</p>
+            <p>From there, the system guides the rest.</p>
         </div>
     </div>
 
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1 class="main-title">The 21-Day Life Reset</h1>
-            <p class="subtitle">A structured 21-day system designed to restore execution, clarity, and behavioral control.</p>
-        </header>
+    <!-- What Changes -->
+    <div class="section">
+        <h2>What actually changes:</h2>
 
-        <!-- BLOCK 1 - Recognition + Restoration -->
-        <div style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 48px 40px; border-radius: 12px; margin-bottom: 40px; border-left: 4px solid #2563eb;">
-            <p style="font-size: 18px; margin-bottom: 16px;">You were not always operating like this.</p>
-            <p style="font-size: 18px; margin-bottom: 24px;">There was a time when action was immediate.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">When decisions did not create resistance.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">When execution did not require effort.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">That state was not motivation.</p>
-            <p style="font-size: 18px; margin-bottom: 24px;">It was normal system function.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Over time, automatic response patterns replaced that state.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Not permanently.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">But automatically.</p>
-            <p style="font-size: 19px; font-weight: 700; margin-bottom: 0; color: #1e40af;">This protocol exists to restore your original operating condition.</p>
-        </div>
-
-        <!-- Critical CTA - First Belief Formation -->
-        <div style="text-align: center; margin: 50px 0;">
-            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="belief_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
-            <p style="margin-top: 20px; font-size: 17px; font-weight: 600; color: #475569;">Instant download. Start the system within minutes.</p>
-        </div>
-
-        <!-- BLOCK A - Installation Protocol -->
-        <div style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 40px; border-radius: 12px; margin-bottom: 40px; border-left: 4px solid #2563eb;">
-            <p style="font-size: 18px; margin-bottom: 16px; font-weight: 600;">This is not information.</p>
-            <p style="font-size: 18px; margin-bottom: 16px; font-weight: 600;">This is an installation protocol.</p>
-            <p style="font-size: 18px; margin-bottom: 24px;">It restores control over response patterns that normally operate automatically.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Most people never realize when those patterns take over.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">They only notice the consequences later.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">This protocol exists to interrupt them early.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-top: 12px; color: #dc2626;">Before they become permanent.</p>
-        </div>
-
-        <!-- BLOCK B - Recognition Bridge -->
-        <div style="background: #fff; padding: 40px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <p style="font-size: 18px; margin-bottom: 16px;">If you arrived here, something already triggered recognition.</p>
-            <p style="font-size: 18px; margin-bottom: 24px;">Not motivation.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 24px;">Recognition.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">You noticed a pattern.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">A hesitation.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">A delay.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">A reaction that did not feel deliberate.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Most people ignore that moment.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">They assume it will resolve naturally.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 24px;">It doesn't.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Patterns either become automatic.</p>
-            <p style="font-size: 17px; margin-bottom: 0;">Or they get interrupted.</p>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- BLOCK C - Short Emotional Recognition -->
-        <div class="recognition">
-            <h2 class="recognition-title">You were not always like this.</h2>
-            
-            <p>Your original state was faster.</p>
-            <p>Clearer.</p>
-            <p>More decisive.</p>
-            
-            <p class="highlight" style="margin-top: 24px;">Automatic patterns formed gradually.</p>
-            
-            <p style="margin-top: 16px;">Which means they can be deliberately interrupted.</p>
-            
-            <p class="highlight" style="font-weight: 700; margin-top: 24px;">This protocol exists for that purpose.</p>
-        </div>
-
-        <!-- Problem Sections -->
-        <div class="problem-section">
-            <h2 class="problem-title">This isn't laziness.</h2>
-            <h2 class="problem-title">This is system failure.</h2>
-            
-            <p>Your brain doesn't have working systems for:</p>
-            <ul class="problem-list">
-                <li>Managing anxiety when it spikes</li>
-                <li>Starting tasks when resistance hits</li>
-                <li>Making decisions without overthinking</li>
-            </ul>
-            
-            <p class="highlight" style="margin-top: 24px; font-style: italic; font-weight: 700;">And it's getting worse.</p>
-        </div>
-
-        <div class="problem-section">
-            <h2 class="problem-title">You've already tried fixing this.</h2>
-            
-            <p>You've tried willpower.</p>
-            <p>You've tried discipline.</p>
-            <p>You've tried "just doing it."</p>
-            
-            <p class="highlight" style="margin-top: 24px; font-weight: 700;">None of it worked.</p>
-            
-            <p style="font-style: italic; margin-top: 16px;">And now you're wondering what's wrong with you.</p>
-        </div>
-
-        <div class="problem-section">
-            <h2 class="problem-title">Here's why nothing worked:</h2>
-            
-            <p class="highlight" style="font-weight: 700;">You're trying to fix a systems problem with a motivation solution.</p>
-            
-            <p style="margin-top: 24px;">Willpower doesn't work when your nervous system is overloaded.</p>
-            <p>Discipline doesn't work when you don't have energy design.</p>
-            <p>"Just doing it" doesn't work when anxiety hijacks every decision.</p>
-            
-            <p class="highlight" style="margin-top: 24px; font-style: italic; font-weight: 700;">Your brain needs protocols, not pep talks.</p>
-        </div>
-
-        <div class="problem-section">
-            <h2 class="problem-title">Every day without working systems:</h2>
-            
-            <ul class="problem-list">
-                <li>Tasks pile up faster than you can finish them</li>
-                <li>Opportunities close while you're still thinking</li>
-                <li>Your functional capacity shrinks</li>
-                <li>The gap between who you were and who you are now gets wider</li>
-            </ul>
-            
-            <p class="highlight" style="margin-top: 32px; font-weight: 700;">You're not getting better on your own.</p>
-            <p class="highlight" style="font-weight: 700;">You're falling further behind.</p>
-        </div>
-
-        <!-- BLOCK F - Inevitability -->
-        <div style="background: #fef2f2; padding: 40px; border-radius: 12px; margin: 40px 0; border-left: 4px solid #ef4444;">
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">This does not resolve naturally.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Automatic response patterns strengthen with repetition.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Each delay reinforces the loop.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">Each avoidance increases automatic control.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">This is why most people remain in the same state for years.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Not because change is impossible.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Because interruption never occurred.</p>
-        </div>
-
-        <!-- Relief Anchor -->
-        <div class="relief-anchor" id="protocol-trigger">
-            <h2>This protocol exists to restore those systems.</h2>
-        </div>
-
-        <!-- BLOCK D - Protocol Structure -->
-        <div style="background: #fff; padding: 40px; border-radius: 12px; margin: 40px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">The protocol is already structured.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">It does not depend on motivation.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">It does not depend on emotional state.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">It operates independently of resistance.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Access makes interruption possible immediately.</p>
-        </div>
-
-        <!-- CTA Button -->
-        <div style="text-align: center; margin: 50px 0;">
-            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="early_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
-        </div>
-
-        <!-- MICRO-COMMITMENT BLOCK -->
-        <div style="background: linear-gradient(135deg, #fefce8, #fef9c3); padding: 32px; border-radius: 12px; margin: 40px 0; text-align: center;">
-            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #854d0e;">You do not need to commit to 21 days right now.</h3>
-            <p style="font-size: 18px; margin-bottom: 12px; color: #78350f;">Just open the diagnostic.</p>
-            <p style="font-size: 17px; margin-bottom: 12px; color: #78350f;">That alone will show you what has been blocking you.</p>
-            <p style="font-size: 17px; margin-bottom: 0; color: #78350f;">From there, the system guides the rest.</p>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- Product Box -->
-        <div class="product-box">
-            <h3>What this is:</h3>
-            <p>A complete behavioral protocol system designed to restore automatic cognitive function.</p>
-            
-            <p class="authority">This protocol was designed specifically for high-functioning individuals experiencing cognitive degradation due to nervous system overload.</p>
-            
-            <h4 style="margin-top: 32px; text-align: center;">You get:</h4>
-            <ul class="feature-list" style="text-align: center; padding-left: 0;">
-                <li style="padding-left: 0;">Complete interactive workbook</li>
-                <li style="padding-left: 0;">Step-by-step protocol</li>
-                <li style="padding-left: 0;">Fillable worksheets</li>
-                <li style="padding-left: 0;">Immediate download</li>
-            </ul>
-            
-            <div class="format-box">
-                <h4>Format:</h4>
-                <p>Interactive PDF workbook</p>
-                <p>Immediate download</p>
-                <p>Works on any device</p>
-                <p>Use instantly</p>
-                <p style="font-style: italic; margin-top: 16px;">Delivered as an interactive PDF workbook you can use immediately.</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">7d</div>
+            <div class="timeline-content">
+                <h4>Within the first week</h4>
+                <p>The morning anxiety starts to loosen. You have a 90-second reset that actually works when your mind starts spiraling. You know your pattern type — and why previous approaches failed for you specifically.</p>
             </div>
-            
-            <p class="preview-note">Preview pages included below.</p>
         </div>
 
-        <!-- BLOCK 2 - What exactly changes -->
-        <div style="background: #fff; padding: 48px 40px; border-radius: 12px; margin: 40px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid #10b981;">
-            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; color: #1a1a1a;">What actually changes after installation:</h3>
-            
-            <ul style="list-style: none; padding: 0; margin-bottom: 32px;">
-                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
-                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
-                    You stop delaying actions you already decided to take
-                </li>
-                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
-                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
-                    Execution begins without internal resistance
-                </li>
-                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
-                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
-                    Mental clarity returns to baseline
-                </li>
-                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
-                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
-                    Anxiety stops controlling behavior
-                </li>
-                <li style="padding: 12px 0; padding-left: 32px; position: relative; font-size: 17px;">
-                    <span style="position: absolute; left: 0; color: #10b981; font-weight: 700;">•</span>
-                    Decisions translate into action immediately
-                </li>
-            </ul>
-            
-            <p style="text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 0; color: #1a1a1a;">This is a functional change. Not motivation. Function.</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">14d</div>
+            <div class="timeline-content">
+                <h4>By week two</h4>
+                <p>You're completing tasks you've been avoiding. Not because you suddenly feel motivated — because the system removes the resistance. You're making decisions faster and sleeping better because fewer unresolved loops are circling in your mind.</p>
+            </div>
         </div>
 
-        <!-- WHAT EXACTLY CHANGES -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What actually changes when you install this protocol:</h2>
-            
-            <div style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-                <ul class="problem-list" style="margin-bottom: 32px;">
-                    <li>You stop freezing when you need to start something</li>
-                    <li>Tasks no longer sit unfinished for days or weeks</li>
-                    <li>Anxiety no longer decides your actions</li>
-                    <li>You regain the ability to act immediately</li>
-                    <li>Your brain stops resisting execution</li>
-                    <li>You return to operating at your real capacity</li>
-                </ul>
-                
-                <p style="text-align: center; font-size: 20px; font-weight: 700; margin-bottom: 0;">This is a functional change. Not motivation. Not inspiration. Function.</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">21d</div>
+            <div class="timeline-content">
+                <h4>By day 21</h4>
+                <p>The three systems run automatically. Anxiety gets caught before it spirals. Action starts without resistance. Decisions take minutes instead of weeks. You feel like yourself again — the version that wasn't carrying all this weight.</p>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <div class="section-divider"></div>
+    <!-- What's Inside -->
+    <div class="section">
+        <h2>What's Inside the System</h2>
 
-        <!-- Benefits -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What This System Gives You</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">Ability to start tasks immediately</div>
-                <div class="benefit-card">Stable daily energy</div>
-                <div class="benefit-card">Fast, confident decisions</div>
-                <div class="benefit-card">Calm, controlled nervous system</div>
+        <div class="module">
+            <div class="module-label">Part 1 — Days 1-2</div>
+            <div class="module-title">Your Personal Diagnostic</div>
+            <div class="module-content">
+                15-question assessment that identifies which of 4 stuck patterns you fall into. Your anxiety baseline, procrastination baseline, and decision-speed baseline — so you can see exactly where you are and measure change.
             </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Who This Is For -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px;">This System Is For You If:</h2>
-            
-            <div class="identity-lock">
-                <p>You are likely high-capability but operating below your real level.</p>
-                <p>This system restores your original cognitive performance.</p>
-            </div>
-            
-            <ul class="problem-list">
-                <li>You feel constantly drained and can't recover your previous energy levels</li>
-                <li>Your focus is unstable and you struggle to maintain concentration</li>
-                <li>You've lost your previous level of performance</li>
-                <li>Anxiety hijacks your decisions</li>
-                <li>Procrastination turns 2-hour tasks into 2-week nightmares</li>
-                <li>Overthinking paralyzes you at every decision point</li>
-            </ul>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Timeline -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px;">What Happens After You Install This System</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3 class="timeline-title">Within 7 days:</h3>
-                    <ul>
-                        <li>Anxiety stops controlling your actions</li>
-                        <li>Starting tasks becomes automatic</li>
-                        <li>You have working emergency protocols when stress hits</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-item">
-                    <h3 class="timeline-title">Within 21 days:</h3>
-                    <ul>
-                        <li>Stable daily energy without relying on motivation</li>
-                        <li>Fast, confident decisions</li>
-                        <li>Consistent execution on high-value work</li>
-                        <li>Calm, controlled nervous system</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- How It Works -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px;">How It Works</h2>
-            
-            <div class="steps">
-                <div class="step">
-                    <span class="step-number">Step 1 —</span> Diagnostic identifies your specific stuck pattern
-                </div>
-                <div class="step">
-                    <span class="step-number">Step 2 —</span> Install anxiety control system
-                </div>
-                <div class="step">
-                    <span class="step-number">Step 3 —</span> Install action forcing system
-                </div>
-                <div class="step">
-                    <span class="step-number">Step 4 —</span> Install fast decision system
-                </div>
-                <div class="step">
-                    <span class="step-number">Step 5 —</span> Integrate over 21 days until everything runs automatically
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Why This Works -->
-        <div class="why-works">
-            <h2>Why This Works</h2>
-            
-            <p class="big-text">This system installs automatic behavioral protocols.</p>
-            
-            <p>Not motivation.</p>
-            <p>Not discipline.</p>
-            
-            <p class="protocol-text">Protocols.</p>
-            
-            <h3 style="margin-top: 32px; margin-bottom: 16px;">It addresses root causes:</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li style="padding: 8px 0;">→ Nervous system overload</li>
-                <li style="padding: 8px 0;">→ Cognitive fatigue and depletion</li>
-                <li style="padding: 8px 0;">→ Missing decision frameworks</li>
-            </ul>
-            
-            <p style="margin-top: 32px; font-weight: 700; font-style: italic; font-size: 20px;">Not symptoms. Root causes.</p>
         </div>
 
-        <div class="section-divider"></div>
-
-        <!-- What You Get Inside -->
-        <section class="section">
-            <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 40px; text-align: center;">What You Get Inside</h2>
-            
-            <div class="part">
-                <h3>Part 1 — Your Personal Diagnostic (Days 1-2)</h3>
-                <p><strong>15-Question Assessment</strong> that identifies your primary stuck pattern:</p>
-                <ul class="feature-list">
-                    <li>The Overthinker: Drowning in analysis, can't pull the trigger</li>
-                    <li>The Avoider: Knows what needs to be done, physically can't start</li>
-                    <li>The Anxious Spiral: Every action feels dangerous</li>
-                    <li>The Energy Drainer: Burned out, depleted, running on fumes</li>
-                </ul>
-                <p style="margin-top: 24px; font-weight: 700; font-style: italic;">This system adapts to your specific cognitive pattern.</p>
-                <p style="font-style: italic;">Not generic advice.</p>
-                <p style="font-style: italic;">Personalized implementation.</p>
+        <div class="module">
+            <div class="module-label">Part 2 — Days 3-7</div>
+            <div class="module-title">Anxiety Control System</div>
+            <div class="module-content">
+                Emergency 90-second reset for when anxiety spikes. Morning prevention protocol (6 minutes) that calms your nervous system before the day starts. Personal trigger mapping so you can identify and neutralize your specific patterns.
             </div>
-
-            <div class="part">
-                <h3>Part 2 — System 1: Anxiety Control (Days 3-7)</h3>
-                <h4>The 3-Layer Protocol:</h4>
-                <p><strong>Layer 1 - Emergency Reset:</strong> Instant intervention when panic hits. Works in 90 seconds.</p>
-                <p><strong>Layer 2 - Morning Prevention:</strong> 6-minute protocol that stops anxiety before your day starts.</p>
-                <p><strong>Layer 3 - Trigger Mapping:</strong> Framework for identifying YOUR specific triggers and pre-planning responses.</p>
-                <div class="result">
-                    <strong>✅ Result:</strong> <em>Anxiety stops making decisions for you.</em>
-                </div>
-            </div>
-
-            <div class="part">
-                <h3>Part 3 — System 2: Action Forcing (Days 8-14)</h3>
-                <h4>Make Starting Automatic:</h4>
-                <p><strong>Energy Design System:</strong> 3-day tracking protocol that maps when your brain actually works. Schedule high-value work during peak windows.</p>
-                <p><strong>Environment Optimization:</strong> Workspace redesign that removes friction. Your environment does the work, not willpower.</p>
-                <p><strong>2-Minute Start Protocol:</strong> Bypasses resistance entirely. You're moving before your brain realizes what's happening.</p>
-                <div class="result">
-                    <strong>✅ Result:</strong> <em>Starting happens automatically.</em>
-                </div>
-            </div>
-
-            <div class="part">
-                <h3>Part 4 — System 3: Fast Decision System (Days 15-18)</h3>
-                <h4>Cut Decision Time by 80%:</h4>
-                <p><strong>Personal Decision Criteria:</strong> Define YOUR non-negotiables once. Every future decision runs through these filters instantly.</p>
-                <p><strong>Confidence Threshold Training:</strong> Learn your "good enough" point and stop second-guessing.</p>
-                <p><strong>Speed Training Protocol:</strong> Build decision speed like a muscle.</p>
-                <div class="result">
-                    <strong>✅ Result:</strong> <em>Decisions take minutes, not weeks.</em>
-                </div>
-            </div>
-
-            <div class="part">
-                <h3>Part 5 — Your 21-Day Integration (Days 1-21)</h3>
-                <h4>Daily 8-Minute Routine:</h4>
-                <p><strong>Morning (5 min):</strong> Anxiety inoculation + priority setting. Your day starts clean.</p>
-                <p><strong>Evening (3 min):</strong> Daily tracking + trigger identification + tomorrow's prep.</p>
-                <ul class="feature-list" style="margin-top: 24px;">
-                    <li>Week 1: Installation—build the habit foundation</li>
-                    <li>Week 2: Activation—systems go live</li>
-                    <li>Week 3: Independence—everything runs automatically</li>
-                </ul>
-                <div class="result">
-                    <strong>✅ Result:</strong> <em>Systems become second nature.</em>
-                </div>
-            </div>
-
-            <div class="part">
-                <h3>Part 6 — Maintenance & Recovery</h3>
-                <ul class="problem-list">
-                    <li>Monthly check-ins to track progress</li>
-                    <li>Emergency protocols for when you slip</li>
-                    <li>Quarterly optimization adjustments</li>
-                </ul>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Everything Inside -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">Everything Inside The Complete System</h2>
-            
-            <ul class="checklist">
-                <li>Complete 51-page interactive workbook</li>
-                <li>15-question diagnostic assessment</li>
-                <li>3 complete protocol systems</li>
-                <li>21-day installation guide with daily routines</li>
-                <li>Personal worksheets and templates (all fillable)</li>
-                <li>Emergency intervention tools</li>
-                <li>Lifetime access</li>
-            </ul>
-            
-            <p style="text-align: center; margin-top: 32px; font-weight: 600;"><strong>Format:</strong> Interactive PDF workbook. Works on any device. Immediate download.</p>
-        </section>
-
-        <!-- BLOCK 3 - Ownership clarity -->
-        <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center; border-left: 4px solid #f59e0b;">
-            <p style="font-size: 19px; font-weight: 700; margin-bottom: 16px; color: #78350f;">You receive a complete, finished system.</p>
-            <p style="font-size: 17px; margin-bottom: 12px; color: #92400e;">Nothing needs to be invented.</p>
-            <p style="font-size: 17px; margin-bottom: 12px; color: #92400e;">Nothing needs to be figured out.</p>
-            <p style="font-size: 18px; margin-bottom: 16px; color: #92400e;">You follow the structure exactly as written.</p>
-            <p style="font-size: 19px; font-weight: 700; margin-bottom: 0; color: #78350f;">Execution replaces uncertainty.</p>
         </div>
 
-        <!-- REALITY PROOF -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">This is a real, usable system. Not theory.</h2>
-            
-            <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 40px; border-radius: 12px; border-left: 4px solid #0284c7;">
-                <p style="font-size: 19px; font-weight: 600; margin-bottom: 24px;">This is a 51-page interactive workbook.</p>
-                
-                <p style="font-size: 18px; margin-bottom: 16px;">It contains:</p>
-                
-                <ul class="checklist" style="margin: 24px 0;">
-                    <li>Fillable worksheets</li>
-                    <li>Exact daily protocols</li>
-                    <li>Structured diagnostic</li>
-                    <li>Step-by-step execution sequence</li>
-                </ul>
-                
-                <p style="font-size: 17px; margin-bottom: 12px; margin-top: 32px;">You do not need to invent anything.</p>
-                <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">You follow the structure.</p>
+        <div class="module">
+            <div class="module-label">Part 3 — Days 8-14</div>
+            <div class="module-title">Action System</div>
+            <div class="module-content">
+                2-minute start protocol that bypasses resistance entirely. Energy mapping so you match tasks to when your mind is naturally sharp. Environmental adjustments that make avoidance harder than action.
             </div>
-        </section>
+        </div>
 
-        <div class="section-divider"></div>
-
-        <!-- What This Is/Isn't -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What This Is (And Isn't)</h2>
-            
-            <div class="comparison">
-                <div class="comparison-box not-box">
-                    <h4>❌ This Is Not:</h4>
-                    <ul style="list-style: none; padding: 0; margin-top: 16px;">
-                        <li style="padding: 8px 0;">• Another explanation of why you're stuck</li>
-                        <li style="padding: 8px 0;">• Motivational content or mindset work</li>
-                        <li style="padding: 8px 0;">• Generic advice for everyone</li>
-                    </ul>
-                </div>
-                
-                <div class="comparison-box is-box">
-                    <h4>✅ This Is:</h4>
-                    <ul style="list-style: none; padding: 0; margin-top: 16px;">
-                        <li style="padding: 8px 0;">• A complete behavioral protocol system</li>
-                        <li style="padding: 8px 0;">• Diagnostic-first, personalized to YOUR pattern</li>
-                        <li style="padding: 8px 0;">• Actual daily routines with fillable worksheets</li>
-                        <li style="padding: 8px 0;">• Designed to work even on your worst days</li>
-                    </ul>
-                </div>
+        <div class="module">
+            <div class="module-label">Part 4 — Days 15-18</div>
+            <div class="module-title">Fast Decision Framework</div>
+            <div class="module-content">
+                Personal criteria matrix — define your non-negotiables once, apply to every decision going forward. Risk assessment tool for separating real concerns from anxiety-driven spirals. Speed training to stop second-guessing.
             </div>
-            
-            <p style="text-align: center; font-weight: 700; font-size: 22px; margin-top: 32px;">No preparation required. Start immediately.</p>
-        </section>
+        </div>
 
-        <div class="section-divider"></div>
+        <div class="module">
+            <div class="module-label">Part 5 — Days 1-21</div>
+            <div class="module-title">Your Daily Routine</div>
+            <div class="module-content">
+                8 minutes per day: 5-minute morning protocol + 3-minute evening check-in. Daily checklists for all 21 days. Week-by-week guides with clear goals for each phase.
+            </div>
+        </div>
 
-        <!-- Guarantee -->
+        <div class="module">
+            <div class="module-label">Part 6</div>
+            <div class="module-title">Maintenance & Recovery</div>
+            <div class="module-content">
+                Monthly check-in template. What to do when you backslide. 90-day plan for long-term stability. Emergency protocols for acute stress.
+            </div>
+        </div>
+    </div>
+
+    <!-- This Is / Isn't -->
+    <div class="section">
+        <h2>What This Is (And Isn't)</h2>
+        <div class="is-isnt">
+            <div class="is-col">
+                <h4>✓ THIS IS</h4>
+                <p>A structured daily system</p>
+                <p>Research-backed protocols</p>
+                <p>Personalized to your pattern</p>
+                <p>8 minutes per day</p>
+                <p>Designed for hard days</p>
+                <p>50 pages of implementation</p>
+            </div>
+            <div class="isnt-col">
+                <h4>✗ THIS IS NOT</h4>
+                <p>A theory or philosophy book</p>
+                <p>Generic wellness advice</p>
+                <p>One-size-fits-all tips</p>
+                <p>Hours of daily practice</p>
+                <p>Motivation-dependent</p>
+                <p>Another explanation of why you're stuck</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="section">
         <div class="guarantee">
-            <h2>100% Money-Back Guarantee</h2>
-            <p class="guarantee-text">Complete the 21-day protocol. You have 60 days to decide.</p>
-            
-            <p style="margin-bottom: 16px;">If you don't have:</p>
-            <ul class="checklist" style="text-align: left; max-width: 500px; margin: 0 auto;">
-                <li>Working anxiety control that stops panic in 90 seconds</li>
-                <li>Action systems that make starting automatic</li>
-                <li>Decision speed that's significantly faster</li>
-            </ul>
-            
-            <p style="margin-top: 32px; font-weight: 700; font-size: 22px; color: #78350f;">Email us within 60 days. We'll refund 100%. No questions asked.</p>
+            <div class="guarantee-badge">60-Day Guarantee</div>
+            <h3>Full Money-Back Promise</h3>
+            <p><span class="emphasis">Try the system for 21 days. If it doesn't work for you, email me and I'll refund every penny.</span></p>
+            <p>No questions, no forms, no hassle. I built this because it works — and you shouldn't pay for something that doesn't help you.</p>
         </div>
+    </div>
 
-        <div class="section-divider"></div>
+    <!-- Price Section -->
+    <div class="price-section" id="buy-now">
+        <h2>Get The Complete System</h2>
+        <p style="font-size: 17px; color: #5C5550; margin-bottom: 8px;">50-page protocol + worksheets + daily checklists</p>
 
-        <!-- BLOCK 4 - Instant usability -->
-        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center; border-left: 4px solid #2563eb;">
-            <p style="font-size: 19px; font-weight: 700; margin-bottom: 16px; color: #1e40af;">Access is immediate.</p>
-            <p style="font-size: 17px; margin-bottom: 12px; color: #1e3a8a;">You receive the full protocol instantly after purchase.</p>
-            <p style="font-size: 17px; margin-bottom: 12px; color: #1e3a8a;">You can begin within minutes.</p>
-            <p style="font-size: 17px; margin-bottom: 16px; color: #1e3a8a;">No waiting period.</p>
-            <p style="font-size: 17px; font-weight: 600; margin-bottom: 0; color: #1e40af;">No external dependency.</p>
+        <div class="price-amount">$35</div>
+        <div class="price-note">One-time payment. Lifetime access.</div>
+
+        <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="main_checkout">Get Instant Access</a>
+
+        <div class="purchase-meta">
+            ✓ Instant PDF download — read on any device<br>
+            ✓ Printable worksheets included<br>
+            ✓ 60-day money-back guarantee<br>
+            ✓ Lifetime access with future updates
         </div>
+    </div>
 
-        <!-- BLOCK E - Immediate Access -->
-        <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 40px; border-radius: 12px; margin: 60px 0; border-left: 4px solid #10b981;">
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Access does not require preparation.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">It does not require external support.</p>
-            <p style="font-size: 17px; margin-bottom: 24px;">It does not require waiting.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">The protocol becomes available immediately.</p>
-            <p style="font-size: 17px; margin-bottom: 12px;">Installation begins on day one.</p>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 0;">Interruption begins immediately.</p>
-        </div>
+    <!-- After Purchase -->
+    <div class="section">
+        <h2>What happens after you purchase:</h2>
 
-        <!-- Pre-CTA Urgency -->
-        <div style="text-align: center; margin: 60px 0;">
-            <p style="font-size: 22px; margin-bottom: 16px;">You can continue operating at reduced capacity.</p>
-            <p style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Or restore your original cognitive performance.</p>
-            <p style="font-size: 24px; font-weight: 700; color: #2563eb;">The protocol is ready.</p>
-        </div>
-
-        <!-- Pricing -->
-        <div class="pricing" id="pricing">
-            <h2>Get Instant Access to the Full Protocol</h2>
-            
-            <p class="urgency">Instant access. Start today. Full system included.</p>
-            
-            <p class="value-text">This protocol costs less than most people spend trying to fix this without a system.</p>
-            
-            <div class="price-container">
-                <p class="old-price">🚫 Regular Price: $105</p>
-                <p class="current-price">✅ Today: $35</p>
-                <p class="savings">💥 YOU SAVE: $70</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-content">
+                <h4>Instant download</h4>
+                <p>The PDF arrives immediately. Open it on your phone, tablet, or computer.</p>
             </div>
-            
-            <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="main_checkout">GET INSTANT ACCESS</a>
-            
-            <p style="margin-top: 20px; font-size: 17px; font-weight: 600; color: #475569;">Instant download. No login required. Works immediately.</p>
-            
-            <ul class="checklist" style="text-align: left; max-width: 400px; margin: 40px auto 0;">
-                <li>Instant download · Immediate access</li>
-                <li>51-page interactive PDF workbook</li>
-                <li>All 3 systems + 21-day guide + worksheets</li>
-                <li>60-day money-back guarantee</li>
-                <li>Buy once. Yours forever.</li>
-            </ul>
         </div>
-
-        <div class="section-divider"></div>
-
-        <!-- TIME-TO-VALUE -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">What happens immediately after purchase:</h2>
-            
-            <div style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-                <ul class="checklist" style="font-size: 17px;">
-                    <li>You receive the PDF instantly</li>
-                    <li>You can open it on your phone, laptop, or tablet</li>
-                    <li>You complete the diagnostic in 15 minutes</li>
-                    <li>The protocol becomes active on day one</li>
-                </ul>
-                
-                <p style="text-align: center; font-size: 20px; font-weight: 700; margin-top: 32px; margin-bottom: 0;">There is no waiting period.</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-content">
+                <h4>Take the diagnostic</h4>
+                <p>15 minutes to identify your pattern type. This alone changes how you understand what's been happening.</p>
             </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- RESULT-IDENTITY LOCK -->
-        <section class="section">
-            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 32px; text-align: center;">This is not about becoming someone else.</h2>
-            
-            <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 40px; border-radius: 12px; border-left: 4px solid #9333ea; text-align: center;">
-                <p style="font-size: 19px; margin-bottom: 16px; color: #581c87;">This is about returning to your original operating state.</p>
-                <p style="font-size: 18px; margin-bottom: 16px; color: #6b21a8;">The state you had before overload, anxiety, and hesitation.</p>
-                <p style="font-size: 20px; font-weight: 700; margin-bottom: 0; color: #581c87;">This system restores that state.</p>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- BLOCK 5 - Final Decision Lock -->
-        <div class="final-push">
-            <p style="font-size: 22px; font-weight: 600; margin-bottom: 24px; color: #fff;">This pattern will not resolve on its own.</p>
-            
-            <p style="font-size: 19px; margin-bottom: 12px; color: #cbd5e1;">It either remains automatic.</p>
-            <p style="font-size: 19px; margin-bottom: 32px; color: #cbd5e1;">Or it gets interrupted.</p>
-            
-            <p style="font-size: 19px; margin-bottom: 24px; color: #cbd5e1;">You already recognized it.</p>
-            
-            <p style="font-size: 22px; font-weight: 700; margin-bottom: 40px; color: #fbbf24;">The protocol exists for this exact moment.</p>
-            
-            <div style="text-align: center; margin: 40px 0;">
-                <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="final_checkout" style="display: inline-block;">GET INSTANT ACCESS</a>
-            </div>
-            
-            <p style="font-size: 18px; margin-top: 40px; margin-bottom: 8px; color: #cbd5e1;">Delay reinforces the pattern.</p>
-            <p style="font-size: 19px; font-weight: 600; margin-bottom: 0; color: #fff;">Action interrupts it.</p>
         </div>
-
-        <!-- Footer -->
-        <div class="footer-container">
-            <div class="footer-divider"></div>
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <a href="#" class="refund-trigger" onclick="openRefundModal(); return false;">Refund Policy</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p style="font-weight: 600; margin-bottom: 12px;">Digital product. Instant download. No shipping.</p>
-                    <p>Email:</p>
-                    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Clear Decision Lab. All rights reserved.</p>
+        <div class="timeline-item">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-content">
+                <h4>Start Day 1</h4>
+                <p>8 minutes. Morning protocol + evening check-in. The system tells you exactly what to do.</p>
             </div>
         </div>
     </div>
 
-    <!-- Refund Policy Modal -->
-    <div id="refundModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRefundModal()">&times;</span>
-            <h2>Refund Policy</h2>
-            
-            <div class="guarantee-box">
-                <strong>60-Day Money-Back Guarantee</strong><br><br>
-                We're confident in this system. Complete the 21-day protocol and install the systems. You have 60 days to decide. If they don't work—we'll refund you. No questions asked.
+    <!-- Final CTA -->
+    <div class="section" style="text-align: center; padding-bottom: 56px;">
+        <p style="font-family: 'Libre Baskerville', serif; font-size: 20px; font-style: italic; color: #5C5550; margin-bottom: 32px;">You've spent enough years understanding the problem.<br>This is the system that changes it.</p>
+        <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/d5d9d2b7-647a-4bd5-9751-2239dc6c98c0" class="cta-button" data-cta-id="final_checkout">Get Instant Access — $35</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#" class="refund-trigger" onclick="openRefundModal(); return false;" data-cta-id="refund_policy_open" data-cta-id="refund_policy_open">Refund Policy</a>
             </div>
-
-            <h3>How It Works</h3>
-            
-            <p><strong>Step 1: Complete The System</strong><br>
-            Go through the diagnostic, install all three protocols, and follow the 21-day guide.</p>
-
-            <p><strong>Step 2: If You Don't Get Results</strong><br>
-            If after installing the systems you don't have:
-            <br>• Working anxiety control (90-second resets that actually work)
-            <br>• Action forcing systems (procrastination becomes impossible)
-            <br>• Fast decision-making (significantly faster than before)</p>
-
-            <p>Simply email us at <strong><a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a></strong> within 60 days with:</p>
-            
-            <ul>
-                <li>Your order number</li>
-                <li>Brief summary of which systems you installed</li>
-                <li>Why it didn't work for you</li>
-            </ul>
-
-            <h3>What Happens Next</h3>
-            
-            <p><strong>Full Refund:</strong> We'll refund 100% of your purchase within 5 business days.</p>
-
-            <h3>The Only Requirement</h3>
-            
-            <p>Show us you completed the work. We're not asking for perfect results—just proof that you engaged with the system seriously.</p>
-
-            <p>If you bought it and never opened it, that's not a system failure—that's a commitment issue. The refund is for people who do the work and don't get results.</p>
-
-            <h3>Instant Refunds (First 60 Days)</h3>
-            
-            <p>Changed your mind within 60 days? No problem. Email us and we'll process your refund within 24 hours.</p>
-
-            <h3>Contact for Refund</h3>
-            
-            <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
-            <strong>Subject Line:</strong> "Refund Request - [Your Order Number]"<br>
-            <strong>Response Time:</strong> Within 24 hours</p>
-
-            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-style: italic; color: #6b7280;">
-            We built this guarantee because we believe in the system. You should only pay for things that actually work. If this doesn't work, you shouldn't pay.
-            </p>
+            <div>
+                <h4>Contact</h4>
+                <p>Email:</p>
+                <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Clear Decision Lab. All rights reserved.</p>
         </div>
     </div>
 
-    <script>
-        // Refund modal functions
-        function openRefundModal() {
-            const modal = document.getElementById('refundModal');
-            if (!modal) return;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+</div>
 
-        function closeRefundModal() {
-            const modal = document.getElementById('refundModal');
-            if (!modal) return;
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+<!-- Refund Modal -->
+<div id="refundModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeRefundModal()">&times;</span>
+        <h2>Refund Policy</h2>
+        <div style="background: #F0F5F2; border-left: 3px solid #5C7B6F; padding: 20px; margin: 16px 0; border-radius: 0 4px 4px 0;">
+            <strong style="color: #3D5A4C;">60-Day Money-Back Promise</strong><br><br>
+            Try the system. Follow the protocols. Give yourself 60 days. If it doesn't help you, I'll refund you completely. No questions asked.
+        </div>
+        <h3>How It Works</h3>
+        <p><strong>Step 1:</strong> Download and try the system.</p>
+        <p><strong>Step 2:</strong> If it doesn't work for you — email me within 60 days.</p>
+        <p><strong>Step 3:</strong> Full refund processed within 5 business days.</p>
+        <h3>Contact</h3>
+        <p><strong>Email:</strong> cleardecisionlab@gmail.com<br>
+        <strong>Subject:</strong> "Refund Request"<br>
+        <strong>Response time:</strong> Within 24 hours</p>
+        <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #E8E2DB; font-style: italic; color: #8B8580; font-size: 15px;">
+        You should only pay for something that actually helps you. If this doesn't, you shouldn't pay.
+        </p>
+    </div>
+</div>
 
-        window.addEventListener('click', function (event) {
-            const modal = document.getElementById('refundModal');
-            if (event.target === modal) closeRefundModal();
-        });
+<script>
+function openRefundModal() { document.getElementById('refundModal').style.display='block'; document.body.style.overflow='hidden'; }
+function closeRefundModal() { document.getElementById('refundModal').style.display='none'; document.body.style.overflow=''; }
+window.addEventListener('click', function(e) { if (e.target === document.getElementById('refundModal')) closeRefundModal(); });
+window.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeRefundModal(); });
+</script>
 
-        // Close modal on Escape key
-        window.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeRefundModal();
-            }
-        });
+<!-- Progress Bar -->
+<script>
+window.addEventListener('scroll', function() {
+    var bar = document.getElementById('progressBar');
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = (sh > 0 ? (st / sh) * 100 : 0) + '%';
+});
+</script>
 
-        // Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        });
+<!-- Sticky CTA visibility -->
+<script>
+(function(){
+    var sticky = document.getElementById('stickyCta');
+    var shown = false;
+    window.addEventListener('scroll', function(){
+        var pct = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+        if (pct > 15 && !shown) { sticky.classList.add('visible'); shown = true; }
+    }, { passive: true });
+})();
+</script>
 
-        // Sticky CTA - appears when "protocol" word becomes visible
-        const stickyCTA = document.getElementById('stickyCTA');
-        const pricingSection = document.getElementById('pricing');
-        const protocolTrigger = document.getElementById('protocol-trigger');
-        
-        window.addEventListener('scroll', () => {
-            const pricingRect = pricingSection.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            
-            // Show sticky CTA when protocol trigger is passed and pricing is not visible
-            if (protocolTrigger) {
-                const triggerRect = protocolTrigger.getBoundingClientRect();
-                const triggerPassed = triggerRect.top < viewportHeight / 2;
-                
-                if (triggerPassed && (pricingRect.top > viewportHeight || pricingRect.bottom < 0)) {
-                    stickyCTA.classList.add('visible');
-                } else {
-                    stickyCTA.classList.remove('visible');
-                }
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // CTA Click Tracking
-        (function () {
-            function safeGtagEvent(name, params, cb) {
-                try {
-                    if (typeof gtag !== 'function') { if (cb) cb(); return; }
-                    var done = false;
-                    var go = function () { if (done) return; done = true; if (cb) cb(); };
-                    params = params || {};
-                    params.transport_type = 'beacon';
-                    params.event_callback = go;
-                    gtag('event', name, params);
-                    setTimeout(go, 800);
-                } catch (e) {
-                    if (cb) cb();
-                }
-            }
-
-            document.addEventListener('click', function (e) {
-                var el = e.target && e.target.closest ? e.target.closest('[data-cta-id]') : null;
-                if (!el) return;
-
-                var ctaId = el.getAttribute('data-cta-id') || 'unknown';
-                var href = el.getAttribute('href') || '';
-                var isNav = href && (el.tagName === 'A' || el.getAttribute('role') === 'link') && !href.startsWith('#');
-
-                if (isNav) {
-                    e.preventDefault();
-                    safeGtagEvent('cta_click', {
-                        cta_id: ctaId,
-                        page_path: window.location.pathname,
-                        page_title: document.title,
-                        link_url: href || undefined
-                    }, function () { window.location.href = href; });
-                } else {
-                    safeGtagEvent('cta_click', {
-                        cta_id: ctaId,
-                        page_path: window.location.pathname,
-                        page_title: document.title,
-                        link_url: href || undefined
-                    });
-                }
-            }, true);
-        })();
-    </script>
 </body>
 </html>
