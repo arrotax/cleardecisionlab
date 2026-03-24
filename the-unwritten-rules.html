@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Unwritten Rules — 47 Protocols</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card: #161616;
+      --border: #222222;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: rgba(201,168,76,0.08);
+      --white: #f5f5f5;
+      --gray: #888888;
+      --text: #c8c8c8;
+      --red: #c0392b;
+      --red-dark: #922b21;
+      --red-dim: rgba(192,57,43,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════
+       TOP BAR
+    ═══════════════════════════════ */
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════
+       HERO
+    ═══════════════════════════════ */
+    .hero {
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 16px 44px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      letter-spacing: 0.04em;
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 20px auto 0;
+      line-height: 1.7;
+      padding: 0 8px;
+    }
+    .hero-sub strong { color: var(--white); }
+    .hero-categories {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 0 8px;
+    }
+    .hero-cat {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    /* ═══════════════════════════════
+       SECTIONS
+    ═══════════════════════════════ */
+    .section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 44px 16px;
+    }
+    .section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .dark-bg {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    h2.headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    h2.headline span { color: var(--gold); }
+    p.body-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    p.body-text strong { color: var(--white); }
+
+    /* ═══════════════════════════════
+       PAIN LIST
+    ═══════════════════════════════ */
+    .pain-list { list-style: none; margin-bottom: 24px; }
+    .pain-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.7;
+    }
+    .pain-list li:last-child { border-bottom: none; }
+    .pain-list .icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      background: var(--red-dark);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .pain-list li strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    /* ═══════════════════════════════
+       CALLOUT BOX
+    ═══════════════════════════════ */
+    .callout {
+      border-left: 3px solid var(--gold);
+      background: var(--gold-dim);
+      padding: 16px 16px;
+      margin: 22px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.65;
+    }
+    .callout.red-callout {
+      border-left-color: var(--red);
+      background: var(--red-dim);
+    }
+
+    /* ═══════════════════════════════
+       STAT STRIP
+    ═══════════════════════════════ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 24px 0;
+    }
+    .stat-cell {
+      background: var(--card);
+      padding: 16px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .stat-desc {
+      font-size: 9px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════
+       SYSTEMS GRID
+    ═══════════════════════════════ */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 16px;
+    }
+    .card-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .card-desc { font-size: 12px; color: var(--gray); line-height: 1.6; }
+
+    /* ═══════════════════════════════
+       CHECK LIST
+    ═══════════════════════════════ */
+    .check-list { list-style: none; margin: 16px 0; }
+    .check-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.65;
+    }
+    .check-list li::before {
+      content: "→";
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .check-list li strong { color: var(--white); }
+
+    /* ═══════════════════════════════
+       PRODUCT PREVIEW
+    ═══════════════════════════════ */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .preview-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px 14px;
+    }
+    .preview-card .preview-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .preview-card .preview-mock {
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      padding: 14px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .preview-card .preview-mock-text {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.6;
+      text-align: left;
+    }
+    .preview-card .preview-mock-text strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 3px;
+      font-size: 12px;
+    }
+    .preview-card .preview-desc {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════
+       ASSESSMENT HIGHLIGHT
+    ═══════════════════════════════ */
+    .assessment-box {
+      border: 2px solid var(--gold);
+      background: var(--gold-dim);
+      padding: 22px 16px;
+      text-align: center;
+      margin: 28px 0;
+    }
+    .assessment-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .assessment-box p {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .assessment-box p strong { color: var(--white); }
+    .assessment-scores {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .score-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      white-space: nowrap;
+    }
+    .score-tag.danger { color: var(--red); border-color: var(--red-dark); }
+    .score-tag.warn { color: var(--gold); border-color: var(--gold); }
+    .score-tag.ok { color: var(--gray); }
+
+    /* ═══════════════════════════════
+       QUOTE
+    ═══════════════════════════════ */
+    .quote-block {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .quote-block blockquote {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .quote-block cite {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-style: normal;
+    }
+    .divider {
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+    }
+
+    /* ═══════════════════════════════
+       CTA BUTTON
+    ═══════════════════════════════ */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto 8px;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 20px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta-btn:hover, .cta-btn:active { background: var(--gold-light); }
+    .cta-note {
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 0.03em;
+      margin-top: 6px;
+      line-height: 1.7;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .mid-cta {
+      text-align: center;
+      padding: 8px 0 0;
+    }
+
+    /* ═══════════════════════════════
+       OFFER SECTION
+    ═══════════════════════════════ */
+    .offer-section { background: var(--black); text-align: center; }
+    .price-block { margin: 24px auto 0; max-width: 440px; }
+    .price-old {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+    .price-now {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .price-label {
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ═══════════════════════════════
+       GUARANTEE
+    ═══════════════════════════════ */
+    .guarantee-box {
+      border: 2px solid var(--gold);
+      padding: 28px 16px;
+      text-align: center;
+      margin-top: 32px;
+      position: relative;
+    }
+    .guarantee-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--black);
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      white-space: nowrap;
+    }
+    .guarantee-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .guarantee-box p {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.75;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .guarantee-box p strong { color: var(--white); }
+
+    /* ═══════════════════════════════
+       P.S. SECTION
+    ═══════════════════════════════ */
+    .ps-section {
+      background: #0d0d0d;
+      border-top: 2px solid var(--red);
+    }
+    .ps-section h2.headline span { color: var(--red); }
+
+    /* ═══════════════════════════════
+       CTA STRIP
+    ═══════════════════════════════ */
+    .cta-strip {
+      background: var(--gold);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .cta-strip a {
+      display: inline-block;
+      background: var(--black);
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta-strip a:hover, .cta-strip a:active { background: #1a1a1a; }
+    .cta-strip p {
+      font-size: 12px;
+      color: var(--black);
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+      padding: 0 8px;
+    }
+
+    /* ═══════════════════════════════
+       PROGRESS BAR
+    ═══════════════════════════════ */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--gold);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ═══════════════════════════════
+       STICKY CTA
+    ═══════════════════════════════ */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9998;
+      background: var(--black);
+      border-top: 1px solid var(--gold);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.visible {
+      transform: translateY(0);
+    }
+    .sticky-cta.hidden {
+      transform: translateY(100%);
+    }
+    .sticky-cta-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .sticky-cta-price .old {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: line-through;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .sticky-cta a {
+      flex: 1;
+      max-width: 320px;
+      display: block;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 16px;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s;
+    }
+    .sticky-cta a:active { background: var(--gold-light); }
+
+    /* hide sticky when near a regular CTA button to avoid doubling */
+    body { padding-bottom: 0; }
+    .sticky-cta.visible ~ footer { padding-bottom: 70px; }
+
+    /* add bottom padding to body so footer isn't hidden behind sticky */
+    body.has-sticky { padding-bottom: 64px; }
+
+    @media (min-width: 520px) {
+      .sticky-cta { padding: 12px 24px; gap: 16px; }
+      .sticky-cta a { font-size: 13px; padding: 16px 20px; }
+      .sticky-cta-price { font-size: 32px; }
+    }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px 16px;
+    }
+    footer p {
+      font-size: 9px;
+      color: var(--gray);
+      letter-spacing: 0.03em;
+      line-height: 1.9;
+    }
+
+    /* ═══════════════════════════════
+       TABLET+ (min-width: 520px)
+    ═══════════════════════════════ */
+    @media (min-width: 520px) {
+      .hero { padding: 64px 20px 58px; }
+      .hero h1 { font-size: 80px; }
+      .hero-tag { font-size: 10px; }
+      .hero-sub { font-size: 15px; }
+      .hero-cat { font-size: 10px; padding: 5px 12px; }
+
+      .section { padding: 56px 24px; }
+      h2.headline { font-size: 42px; }
+      p.body-text { font-size: 15px; }
+
+      .pain-list li { font-size: 14px; gap: 14px; }
+      .pain-list .icon { width: 26px; height: 26px; min-width: 26px; }
+      .pain-list li strong { font-size: 14px; }
+
+      .callout { padding: 20px 22px; font-size: 15px; }
+
+      .stat-num { font-size: 40px; }
+      .stat-desc { font-size: 10px; }
+      .stat-cell { padding: 20px 14px; }
+
+      .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card { padding: 22px 20px; }
+      .card-num { font-size: 36px; }
+      .card-title { font-size: 12px; }
+      .card-full { grid-column: span 2; }
+
+      .preview-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+      .check-list li { font-size: 14px; }
+
+      .assessment-box { padding: 28px 24px; }
+      .assessment-box h3 { font-size: 30px; }
+      .assessment-box p { font-size: 14px; }
+
+      .quote-block blockquote { font-size: 26px; }
+
+      .cta-btn { font-size: 14px; padding: 20px 24px; }
+
+      .price-now { font-size: 80px; }
+
+      .guarantee-box { padding: 34px 26px; }
+      .guarantee-box h3 { font-size: 34px; }
+      .guarantee-box p { font-size: 13px; }
+      .guarantee-badge { font-size: 9px; }
+    }
+
+    /* ═══════════════════════════════
+       DESKTOP (min-width: 768px)
+    ═══════════════════════════════ */
+    @media (min-width: 768px) {
+      .hero { padding: 80px 20px 70px; }
+      .hero h1 { font-size: 104px; }
+      .hero-sub { font-size: 17px; }
+      .hero-cat { font-size: 11px; padding: 6px 14px; }
+
+      .section { padding: 64px 24px; }
+      h2.headline { font-size: 52px; }
+
+      .stat-cell { padding: 22px 16px; }
+
+      .quote-block blockquote { font-size: 30px; }
+
+      .score-tag { font-size: 10px; padding: 5px 12px; }
+    }
+  /* ═══════════════════════════════
+   REFUND MODAL + FOOTER
+═══════════════════════════════ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.72);
+}
+.modal-content {
+  background: #111;
+  border: 1px solid #333;
+  width: calc(100% - 24px);
+  max-width: 680px;
+  margin: 10% auto;
+  padding: 28px 18px;
+  max-height: 82vh;
+  overflow-y: auto;
+}
+.modal-content h2 {
+  font-size: 34px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #d6b25e;
+  margin-bottom: 16px;
+}
+.modal-content h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin: 22px 0 8px;
+}
+.modal-content p {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.modal-content strong { color: #fff; }
+.refund-box {
+  border-left: 3px solid #d6b25e;
+  background: rgba(214,178,94,0.08);
+  padding: 16px;
+  margin: 16px 0 20px;
+}
+.close {
+  float: right;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}
+.close:hover { color: #fff; }
+
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 28px;
+  padding: 22px 18px 28px;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0 0 10px 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+}
+.footer-links {
+  margin-top: 10px;
+}
+.footer-links a {
+  color: #d6b25e;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin: 0 8px;
+}
+.footer-links a:hover { text-decoration: underline; }
+
+@media (min-width: 520px) {
+  .modal-content { padding: 34px 28px; }
+  .modal-content h2 { font-size: 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">The average person loses thousands every year to rules they don't know exist. This manual costs $29.</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Field Manual // 47 Protocols // 5 Systems</div>
+  <h1>The<br><span>Unwritten</span><br>Rules</h1>
+  <p class="hero-sub"><strong>47 protocols</strong> from FBI agents, crisis negotiators, forensic psychologists, and elite attorneys.<br><br>The rules nobody taught you — that have been costing you.</p>
+  <div class="hero-categories">
+    <span class="hero-cat">Safety</span>
+    <span class="hero-cat">Money</span>
+    <span class="hero-cat">Power</span>
+    <span class="hero-cat">Negotiation</span>
+    <span class="hero-cat">Manipulation Defense</span>
+  </div>
+</section>
+
+<!-- ═══════════ PAIN SECTION ═══════════ -->
+<section class="dark-bg">
+<div class="section">
+  <div class="section-label">// Let's Be Honest</div>
+  <h2 class="headline">You've Already Paid<br><span>For Not Knowing These.</span></h2>
+
+  <p class="body-text">Not because you're not smart. Because there's a set of rules that <strong>nobody ever wrote down, nobody taught in school,</strong> and nobody explains until after you've paid the price for not knowing them.</p>
+
+  <ul class="pain-list">
+    <li>
+      <div class="icon">✗</div>
+      <div>
+        <strong>Someone named a number first in a negotiation — and you anchored to it.</strong>
+        Car, salary, contractor, business deal — the first number spoken set the frame. You thought you were negotiating. You were adjusting around their anchor. That one pattern costs most people thousands — repeatedly.
+      </div>
+    </li>
+    <li>
+      <div class="icon">✗</div>
+      <div>
+        <strong>Your income went up. Your savings didn't move.</strong>
+        The raise came. Within 90 days, every extra dollar was absorbed — better apartment, nicer car, subscriptions you barely use. You're earning more than ever and still feel broke. That's lifestyle inflation. 76% of rapid-income earners fall into it.
+      </div>
+    </li>
+    <li>
+      <div class="icon">✗</div>
+      <div>
+        <strong>Someone manipulated you with guilt, urgency, or emotional pressure — and you gave in.</strong>
+        A pushy salesperson. A toxic relationship. A business partner who made you feel like you owed them. They used documented patterns — Emotional Hostage Pattern, Boundary Erosion, False Urgency. You felt it. You couldn't name it. So you complied.
+      </div>
+    </li>
+    <li>
+      <div class="icon">✗</div>
+      <div>
+        <strong>You walked into a room and lost status before you spoke.</strong>
+        The interview. The client meeting. The dinner. Your posture, speed, eye contact — they broadcast your confidence level in 7 seconds. You were being read. You didn't know you were being evaluated.
+      </div>
+    </li>
+    <li>
+      <div class="icon">✗</div>
+      <div>
+        <strong>You stayed in something too long because of what you'd already put in.</strong>
+        The bad job. The failing relationship. The deal going nowhere. You kept going because you'd invested so much. That's the Sunk Cost Trap — it kept you locked in while the cost kept climbing.
+      </div>
+    </li>
+  </ul>
+
+  <div class="callout">
+    These aren't rare situations. This is Tuesday for most people. The difference between those who get taken advantage of and those who don't is one thing: <strong>knowing the rules before you need them.</strong>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-cell">
+      <div class="stat-num">47</div>
+      <div class="stat-desc">Protocols from insiders</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">5</div>
+      <div class="stat-desc">Systems covering every angle</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">20</div>
+      <div class="stat-desc">Question vulnerability assessment</div>
+    </div>
+  </div>
+
+  <div class="callout red-callout">
+    The situations covered in this manual — bad contracts, unanchored negotiations, lifestyle inflation, confusing fee structures, unnamed manipulation patterns — cost most people <strong>thousands every year.</strong> Not because they're careless. Because nobody handed them the rules.
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ WHAT IS IT ═══════════ -->
+<section>
+<div class="section">
+  <div class="section-label">// What This Is</div>
+  <h2 class="headline">Not a Self-Help Book.<br><span>A Field Manual.</span></h2>
+
+  <p class="body-text">Most books give you theory. This gives you protocols. There's a difference.</p>
+
+  <p class="body-text">Every rule has four parts: <strong>The Rule</strong> (what insiders know), <strong>Why It Works</strong> (the mechanism), <strong>The Mistake</strong> (what most people do instead), and <strong>Field Application</strong> (exact steps to use today).</p>
+
+  <p class="body-text">The sources: former FBI field agents, crisis negotiators, forensic psychologists, corporate attorneys, behavioral economists, casino surveillance directors, and wealth managers who built these protocols because <strong>their jobs depended on them working.</strong></p>
+
+  <p class="body-text">Now they're in one place. Open to the problem you have. Use it immediately.</p>
+</div>
+</section>
+
+<!-- ═══════════ 5 SYSTEMS ═══════════ -->
+<section class="dark-bg">
+<div class="section">
+  <div class="section-label">// 5 Systems // 47 Protocols</div>
+  <h2 class="headline">What's Inside.<br><span>All Of It.</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Safety & Awareness</div>
+      <div class="card-desc">The 7-Second Scan. Rideshare Verification. Parking Lot Triangle. Behavioral Baseline. How professionals read environments — and how to stop being an easy target.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Social Dynamics & Status</div>
+      <div class="card-desc">Silence Leverage Rule. Sentence Authority. The First-Look Test. Boundary Testing Detection. How to project power and read people before they read you.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">Money Psychology</div>
+      <div class="card-desc">Lifestyle Matching Trap. Fee Structure Tell. Contract Two-Word Rule. Negotiation Anchor. Why smart people lose money — and the protocols to stop it.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">Negotiation & Influence</div>
+      <div class="card-desc">One-Sentence Reframe. Strategic Incompleteness. Broken Record Technique. Meeting Power Position. Control any deal or room before it starts.</div>
+    </div>
+    <div class="card card-full">
+      <div class="card-num">05</div>
+      <div class="card-title">Manipulation Defense</div>
+      <div class="card-desc">Emotional Hostage Pattern. Gaslighting Detection. Boundary Erosion. False Urgency Exit. Sunk Cost Trap. Information Asymmetry. The 5-Person Reality Check. — <strong>Complete defense against every documented manipulation tactic.</strong></div>
+    </div>
+  </div>
+
+  <!-- ASSESSMENT HIGHLIGHT -->
+  <div class="assessment-box">
+    <h3>Starts With Your Vulnerability Profile</h3>
+    <p>20-question assessment scores you across all 5 systems. <strong>Most people score under 40 out of 100.</strong> Your lowest score reveals where you're most exposed — and where to start.</p>
+    <div class="assessment-scores">
+      <span class="score-tag danger">4-5: Wide Open</span>
+      <span class="score-tag danger">6-10: Exposed</span>
+      <span class="score-tag warn">11-15: Gaps</span>
+      <span class="score-tag ok">16-20: Fortified</span>
+    </div>
+  </div>
+
+  <!-- MID CTA -->
+  <div class="mid-cta">
+    <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/18e4f9de-6823-4903-aa50-da435c4150bb" class="cta-btn" data-cta-id="mid_checkout">Get Instant Access — 47 Protocols, $29 →</a>
+    <p class="cta-note">Instant PDF · Any device · 60-day money-back guarantee</p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ INSIDE LOOK ═══════════ -->
+<section>
+<div class="section">
+  <div class="section-label">// Inside The Manual</div>
+  <h2 class="headline">What You're<br><span>Actually Getting.</span></h2>
+
+  <p class="body-text">Not a vague ebook. Every page is structured, specific, and immediately usable:</p>
+
+  <div class="preview-grid">
+    <div class="preview-card">
+      <div class="preview-label">Vulnerability Assessment</div>
+      <div class="preview-mock">
+        <div class="preview-mock-text">
+          <strong>Q7. After stating a price, I stay silent — even if uncomfortable.</strong>
+          1 — 2 — 3 — 4 — 5<br><br>
+          <strong>Your Score: ___ / 20</strong>
+        </div>
+      </div>
+      <div class="preview-desc">20 questions. 3 minutes. Shows where you're exposed.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-label">Protocol Page</div>
+      <div class="preview-mock">
+        <div class="preview-mock-text">
+          <strong>PROTOCOL 17 — Silence Leverage</strong>
+          FROM: FBI negotiators<br><br>
+          THE RULE: After stating a price — stop talking. First to speak loses.<br><br>
+          → State. Stop. Count to 10.
+        </div>
+      </div>
+      <div class="preview-desc">Every protocol: Rule, Mechanism, Mistake, Application.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-label">Emergency Quick-Reference</div>
+      <div class="preview-mock">
+        <div class="preview-mock-text">
+          <strong>Physically unsafe:</strong><br>
+          → Protocols 1, 2, 3, 5, 7, 8<br><br>
+          <strong>Suspect manipulation:</strong><br>
+          → Protocols 39, 40, 41, 42, 43
+        </div>
+      </div>
+      <div class="preview-desc">Situation-based routing. Right protocol in seconds.</div>
+    </div>
+    <div class="preview-card">
+      <div class="preview-label">Protocol Map</div>
+      <div class="preview-mock">
+        <div class="preview-mock-text">
+          <strong>All 47. One page.</strong><br><br>
+          #1 — 7-Second Scan<br>
+          #2 — Absence Indicator<br>
+          #3 — Secondary Exit Rule<br>
+          …<br>
+          #47 — 5-Person Reality Check
+        </div>
+      </div>
+      <div class="preview-desc">Print it. Keep it visible. Complete system at a glance.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ QUOTE ═══════════ -->
+<section class="quote-block">
+<div class="section">
+  <div class="divider"></div>
+  <blockquote>"If you know the enemy and know yourself, you need not fear the result of a hundred battles."</blockquote>
+  <cite>— Sun Tzu</cite>
+</div>
+</section>
+
+<!-- ═══════════ WHO IT'S FOR ═══════════ -->
+<section class="dark-bg">
+<div class="section">
+  <div class="section-label">// Who This Is For</div>
+  <h2 class="headline">For Anyone Done<br><span>Being the Last to Know.</span></h2>
+
+  <ul class="check-list">
+    <li>The <strong>person over 40</strong> who's been around long enough to know the game has rules — and suspects nobody gave them the full set.</li>
+    <li>The <strong>business owner</strong> who has signed contracts, hired people, and made deals — and suspects some cost more than they should have.</li>
+    <li>The <strong>professional</strong> who is good at their job but keeps getting outmaneuvered in rooms they should own.</li>
+    <li>The <strong>person who has been manipulated</strong> — emotionally, financially, socially — and wants to make sure it never happens again.</li>
+    <li>The <strong>parent or grandparent</strong> who wants the people they care about to stop making the same expensive mistakes.</li>
+  </ul>
+
+  <div class="callout">
+    This is not about paranoia. It's about <strong>stopping the pattern of finding out too late</strong> what you should have known before.
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ OFFER ═══════════ -->
+<section class="offer-section dark-bg">
+<div class="section" style="text-align:center;">
+  <div class="section-label">// Get Instant Access</div>
+  <h2 class="headline">One Manual.<br><span>47 Rules.</span><br>Zero Excuses.</h2>
+
+  <div class="price-block">
+    <div class="price-old">Regular Price: $47</div>
+    <div class="price-now">$29</div>
+    <div class="price-label">One-Time Payment &nbsp;·&nbsp; Instant Download</div>
+
+    <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/18e4f9de-6823-4903-aa50-da435c4150bb" class="cta-btn" data-cta-id="offer_checkout">Get Instant Access — 47 Protocols, $29 →</a>
+    <p class="cta-note">✓ 66-page interactive PDF &nbsp;&nbsp; ✓ Any device<br>✓ No subscription &nbsp;&nbsp; ✓ No upsells<br>✓ Vulnerability Assessment included<br>✓ 60-Day Money-Back Guarantee</p>
+
+    <div class="guarantee-box">
+      <div class="guarantee-badge">60-Day Guarantee</div>
+      <h3>Zero Risk.</h3>
+      <p>Read every protocol. Run the assessment. Apply the rules. If you don't find at least one insight that changes how you operate — <strong>email within 60 days, full refund.</strong> No forms. No hoops.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <p>Still here? The rules are already being used on you. Start using them back.</p>
+  <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/18e4f9de-6823-4903-aa50-da435c4150bb" data-cta-id="cta_strip_checkout">Get The Manual — $29 →</a>
+</div>
+
+<!-- ═══════════ P.S. ═══════════ -->
+<section class="ps-section">
+<div class="section">
+  <div class="section-label">// P.S.</div>
+  <h2 class="headline">What Happens If<br><span>You Don't Get This?</span></h2>
+
+  <p class="body-text">Nothing. Life continues as it has been. But here's what that means:</p>
+
+  <ul class="pain-list">
+    <li>
+      <div class="icon">→</div>
+      <div>The next contract you sign will still have vague language. The first time it matters, you'll find out the other party didn't mean what you meant.</div>
+    </li>
+    <li>
+      <div class="icon">→</div>
+      <div>Someone will use guilt, urgency, or emotional leverage. You'll feel it. You won't name it. You'll give in — just like before.</div>
+    </li>
+    <li>
+      <div class="icon">→</div>
+      <div>You'll stay in something longer than you should — because of what you've already put in. The Sunk Cost Trap doesn't release you because you know it exists. You need the protocol.</div>
+    </li>
+  </ul>
+
+  <div class="callout red-callout" style="margin-top:20px; font-size:13px;">
+    Every year without these protocols is a year of losing money in negotiations, contracts, and fee structures designed to extract from people who don't know better.<br><br>
+    <strong>$29 is not the price of this manual. It's the price of never saying "I should have known better" again.</strong>
+  </div>
+
+  <div style="text-align:center; margin-top:32px;">
+    <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/18e4f9de-6823-4903-aa50-da435c4150bb" class="cta-btn" data-cta-id="ps_checkout">I'm Ready — Give Me The Manual →</a>
+    <p class="cta-note">$29 one-time &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; 60-day guarantee</p>
+  </div>
+</div>
+</section>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-price"><span class="old">$47</span> $29</div>
+  <a href="https://cleardecisionlab.lemonsqueezy.com/checkout/buy/18e4f9de-6823-4903-aa50-da435c4150bb" data-cta-id="sticky_checkout">Get The Manual →</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>
+    © 2026 Clear Decision Lab. All Rights Reserved.<br>
+    The Unwritten Rules — Field Manual Vol. 01<br>
+    Educational material — not legal, financial, or medical advice.
+  </p>
+  <div class="footer-links">
+    <a href="#" onclick="openRefundModal(); return false;" data-cta-id="refund_policy_open">Refund Policy</a>
+    <a href="privacy.html" target="_blank">Privacy Policy</a>
+    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const progressBar = document.getElementById('progressBar');
+  const stickyCta = document.getElementById('stickyCta');
+  const hero = document.querySelector('.hero');
+  const footer = document.querySelector('footer');
+  let ticking = false;
+  let stickyShown = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(function() {
+      // Progress bar
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = scrollPercent + '%';
+
+      // Sticky CTA — show after scrolling past hero
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      const footerTop = footer ? footer.offsetTop : document.documentElement.scrollHeight;
+      const windowBottom = scrollTop + window.innerHeight;
+
+      if (scrollTop > heroBottom && windowBottom < footerTop + 100) {
+        if (!stickyCta.classList.contains('visible')) {
+          stickyCta.classList.add('visible');
+          stickyCta.classList.remove('hidden');
+          document.body.classList.add('has-sticky');
+        }
+      } else {
+        if (stickyCta.classList.contains('visible')) {
+          stickyCta.classList.remove('visible');
+          stickyCta.classList.add('hidden');
+          document.body.classList.remove('has-sticky');
+        }
+      }
+
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+<!-- REFUND POLICY MODAL -->
+<div id="refundModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeRefundModal()">&times;</span>
+    <h2>Refund Policy</h2>
+
+    <div class="refund-box">
+      <p><strong>60-Day Money-Back Guarantee</strong></p>
+      <p>Download the manual. Read it. Use the protocols that apply to your life, work, negotiations, or relationships. If within 60 days you decide it was not worth the price, email us and you will receive a full refund.</p>
+    </div>
+
+    <h3>How it works</h3>
+    <p><strong>Step 1:</strong> Download the manual and go through the material.</p>
+    <p><strong>Step 2:</strong> Apply the protocols that are relevant to your situation.</p>
+    <p><strong>Step 3:</strong> If you decide it did not deliver value, email us within 60 days.</p>
+
+    <h3>Contact</h3>
+    <p><strong>Email:</strong> <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a><br>
+    <strong>Subject:</strong> Refund Request<br>
+    <strong>Response time:</strong> Within 24 hours</p>
+
+    <p style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.12);">
+      You should only pay for something that actually helps you. If this doesn’t, you shouldn’t pay.
+    </p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>
+    © 2026 Clear Decision Lab. All Rights Reserved.<br>
+    The Unwritten Rules — Field Manual Vol. 01<br>
+    Educational material — not legal, financial, or medical advice.
+  </p>
+  <div class="footer-links">
+    <a href="#" onclick="openRefundModal(); return false;" data-cta-id="refund_policy_open">Refund Policy</a>
+    <a href="privacy.html" target="_blank">Privacy Policy</a>
+    <a href="mailto:cleardecisionlab@gmail.com">cleardecisionlab@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+function openRefundModal() {
+  document.getElementById('refundModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeRefundModal() {
+  document.getElementById('refundModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+window.addEventListener('click', function(e) {
+  var modal = document.getElementById('refundModal');
+  if (e.target === modal) closeRefundModal();
+});
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeRefundModal();
+});
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0718BZ9H0J"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0718BZ9H0J', { send_page_view: true });
+</script>
+
+<script>
+(function(m,e,t,r,i,k,a){
+  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j=0;j<document.scripts.length;j++) { if (document.scripts[j].src===r) return; }
+  k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+  k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(106465827, "init", {
+  clickmap:true,
+  trackLinks:true,
+  accurateTrackBounce:true,
+  webvisor:true
+});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106465827" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<script>
+(function () {
+  var YID = 106465827;
+
+  function baseParams() {
+    return {
+      page_path: window.location.pathname || "",
+      page_location: window.location.href || "",
+      page_title: document.title || ""
+    };
+  }
+
+  function safeGtagEvent(name, params, cb) {
+    try {
+      if (typeof window.gtag !== "function") { if (cb) cb(); return; }
+      var done = false;
+      var finish = function () { if (done) return; done = true; if (cb) cb(); };
+      params = params || {};
+      params.transport_type = "beacon";
+      params.event_callback = finish;
+      window.gtag("event", name, params);
+
+      if (typeof window.ym === "function") {
+        if (name === "cta_click" && params && params.cta_id) {
+          window.ym(YID, "reachGoal", params.cta_id, params);
+        }
+        if (name === "scroll_depth" && params && params.depth) {
+          window.ym(YID, "reachGoal", "scroll_" + params.depth, params);
+        }
+      }
+      setTimeout(finish, 800);
+    } catch (e) {
+      if (cb) cb();
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    var el = e.target && e.target.closest ? e.target.closest("[data-cta-id]") : null;
+    if (!el) return;
+
+    var ctaId = el.getAttribute("data-cta-id") || "unknown";
+    var href = el.getAttribute("href") || el.getAttribute("data-href") || "";
+    var isLink = (el.tagName === "A" || el.getAttribute("role") === "link") && href && !href.startsWith("#");
+    var isPrimaryClick = (e.button === 0) && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+
+    var p = baseParams();
+    p.cta_id = ctaId;
+    if (href) p.link_url = href;
+
+    if (isLink && isPrimaryClick) {
+      e.preventDefault();
+      safeGtagEvent("cta_click", p, function () { window.location.href = href; });
+    } else {
+      safeGtagEvent("cta_click", p);
+    }
+  }, true);
+
+  (function () {
+    var sent = Object.create(null);
+    var thresholds = [25, 50, 75, 90, 100];
+
+    function scrollPercent() {
+      var d = document.documentElement;
+      var b = document.body;
+      var st = window.pageYOffset || d.scrollTop || b.scrollTop || 0;
+      var h = Math.max(b.scrollHeight, d.scrollHeight) - window.innerHeight;
+      if (h <= 0) return 100;
+      return Math.min(100, (st / h) * 100);
+    }
+
+    function checkScroll() {
+      var pct = scrollPercent();
+      for (var i = 0; i < thresholds.length; i++) {
+        var t = thresholds[i];
+        if (pct >= t && !sent[t]) {
+          sent[t] = true;
+          var p = baseParams();
+          p.depth = t;
+          safeGtagEvent("scroll_depth", p);
+        }
+      }
+    }
+
+    var tick = null;
+    window.addEventListener("scroll", function () {
+      if (tick) return;
+      tick = window.setTimeout(function () { tick = null; checkScroll(); }, 250);
+    }, { passive: true });
+
+    window.addEventListener("load", checkScroll);
+    document.addEventListener("DOMContentLoaded", checkScroll);
+  })();
+})();
+</script>
+</body>
+</html>
